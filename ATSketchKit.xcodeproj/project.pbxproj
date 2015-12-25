@@ -25,6 +25,8 @@
 		89C2100A1C2CDF5D001DF73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C210091C2CDF5D001DF73B /* Assets.xcassets */; };
 		89C2100D1C2CDF5D001DF73B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C2100B1C2CDF5D001DF73B /* LaunchScreen.storyboard */; };
 		89C210181C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */; };
+		89C210201C2CE098001DF73B /* ATSketchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; };
+		89C210241C2CE0B3001DF73B /* ATSketchKit.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,28 @@
 			remoteGlobalIDString = 89C20FFF1C2CDF5D001DF73B;
 			remoteInfo = ATSketchKitDemo;
 		};
+		89C210211C2CE09E001DF73B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 892C3D891C078C6D00804A8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 892C3D911C078C6D00804A8B;
+			remoteInfo = ATSketchKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89C210231C2CE0A3001DF73B /* Copy Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				89C210241C2CE0B3001DF73B /* ATSketchKit.framework in Copy Framework */,
+			);
+			name = "Copy Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		892C3D921C078C6D00804A8B /* ATSketchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATSketchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C210201C2CE098001DF73B /* ATSketchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,10 +300,12 @@
 				89C20FFC1C2CDF5D001DF73B /* Sources */,
 				89C20FFD1C2CDF5D001DF73B /* Frameworks */,
 				89C20FFE1C2CDF5D001DF73B /* Resources */,
+				89C210231C2CE0A3001DF73B /* Copy Framework */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				89C210221C2CE09E001DF73B /* PBXTargetDependency */,
 			);
 			name = ATSketchKitDemo;
 			productName = ATSketchKitDemo;
@@ -438,6 +464,11 @@
 			isa = PBXTargetDependency;
 			target = 89C20FFF1C2CDF5D001DF73B /* ATSketchKitDemo */;
 			targetProxy = 89C210141C2CDF5D001DF73B /* PBXContainerItemProxy */;
+		};
+		89C210221C2CE09E001DF73B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 892C3D911C078C6D00804A8B /* ATSketchKit */;
+			targetProxy = 89C210211C2CE09E001DF73B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
