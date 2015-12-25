@@ -19,6 +19,12 @@
 		892C3DCE1C07A81600804A8B /* ATSketchView+LayerDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DCD1C07A81600804A8B /* ATSketchView+LayerDeletion.swift */; };
 		892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DCF1C07A8DE00804A8B /* ATSketchView+Events.swift */; };
 		892C3DD21C07ADB400804A8B /* ATSketchView+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DD11C07ADB400804A8B /* ATSketchView+Selection.swift */; };
+		89C210031C2CDF5D001DF73B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210021C2CDF5D001DF73B /* AppDelegate.swift */; };
+		89C210051C2CDF5D001DF73B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210041C2CDF5D001DF73B /* ViewController.swift */; };
+		89C210081C2CDF5D001DF73B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C210061C2CDF5D001DF73B /* Main.storyboard */; };
+		89C2100A1C2CDF5D001DF73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C210091C2CDF5D001DF73B /* Assets.xcassets */; };
+		89C2100D1C2CDF5D001DF73B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C2100B1C2CDF5D001DF73B /* LaunchScreen.storyboard */; };
+		89C210181C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +34,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 892C3D911C078C6D00804A8B;
 			remoteInfo = ATSketchKit;
+		};
+		89C210141C2CDF5D001DF73B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 892C3D891C078C6D00804A8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89C20FFF1C2CDF5D001DF73B;
+			remoteInfo = ATSketchKitDemo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,6 +61,16 @@
 		892C3DCF1C07A8DE00804A8B /* ATSketchView+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Events.swift"; path = "ATSketchKit/ATSketchView+Events.swift"; sourceTree = "<group>"; };
 		892C3DD11C07ADB400804A8B /* ATSketchView+Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Selection.swift"; path = "ATSketchKit/ATSketchView+Selection.swift"; sourceTree = "<group>"; };
 		89C20FFA1C2CCB95001DF73B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		89C210001C2CDF5D001DF73B /* ATSketchKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATSketchKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C210021C2CDF5D001DF73B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89C210041C2CDF5D001DF73B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89C210071C2CDF5D001DF73B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89C210091C2CDF5D001DF73B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89C2100C1C2CDF5D001DF73B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C2100E1C2CDF5D001DF73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C210131C2CDF5D001DF73B /* ATSketchKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATSketchKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATSketchKitDemoUITests.swift; sourceTree = "<group>"; };
+		89C210191C2CDF5D001DF73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +89,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89C20FFD1C2CDF5D001DF73B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89C210101C2CDF5D001DF73B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +112,8 @@
 				89C20FFA1C2CCB95001DF73B /* README.md */,
 				892C3D941C078C6D00804A8B /* ATSketchKit */,
 				892C3DA01C078C6D00804A8B /* ATSketchKitTests */,
+				89C210011C2CDF5D001DF73B /* ATSketchKitDemo */,
+				89C210161C2CDF5D001DF73B /* ATSketchKitDemoUITests */,
 				892C3D931C078C6D00804A8B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +123,8 @@
 			children = (
 				892C3D921C078C6D00804A8B /* ATSketchKit.framework */,
 				892C3D9C1C078C6D00804A8B /* ATSketchKitTests.xctest */,
+				89C210001C2CDF5D001DF73B /* ATSketchKitDemo.app */,
+				89C210131C2CDF5D001DF73B /* ATSketchKitDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +197,28 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		89C210011C2CDF5D001DF73B /* ATSketchKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				89C210021C2CDF5D001DF73B /* AppDelegate.swift */,
+				89C210041C2CDF5D001DF73B /* ViewController.swift */,
+				89C210061C2CDF5D001DF73B /* Main.storyboard */,
+				89C210091C2CDF5D001DF73B /* Assets.xcassets */,
+				89C2100B1C2CDF5D001DF73B /* LaunchScreen.storyboard */,
+				89C2100E1C2CDF5D001DF73B /* Info.plist */,
+			);
+			path = ATSketchKitDemo;
+			sourceTree = "<group>";
+		};
+		89C210161C2CDF5D001DF73B /* ATSketchKitDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */,
+				89C210191C2CDF5D001DF73B /* Info.plist */,
+			);
+			path = ATSketchKitDemoUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -206,13 +269,48 @@
 			productReference = 892C3D9C1C078C6D00804A8B /* ATSketchKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		89C20FFF1C2CDF5D001DF73B /* ATSketchKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89C2101E1C2CDF5D001DF73B /* Build configuration list for PBXNativeTarget "ATSketchKitDemo" */;
+			buildPhases = (
+				89C20FFC1C2CDF5D001DF73B /* Sources */,
+				89C20FFD1C2CDF5D001DF73B /* Frameworks */,
+				89C20FFE1C2CDF5D001DF73B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ATSketchKitDemo;
+			productName = ATSketchKitDemo;
+			productReference = 89C210001C2CDF5D001DF73B /* ATSketchKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89C210121C2CDF5D001DF73B /* ATSketchKitDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89C2101F1C2CDF5D001DF73B /* Build configuration list for PBXNativeTarget "ATSketchKitDemoUITests" */;
+			buildPhases = (
+				89C2100F1C2CDF5D001DF73B /* Sources */,
+				89C210101C2CDF5D001DF73B /* Frameworks */,
+				89C210111C2CDF5D001DF73B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89C210151C2CDF5D001DF73B /* PBXTargetDependency */,
+			);
+			name = ATSketchKitDemoUITests;
+			productName = ATSketchKitDemoUITests;
+			productReference = 89C210131C2CDF5D001DF73B /* ATSketchKitDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		892C3D891C078C6D00804A8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Arnaud Thiercelin";
 				TargetAttributes = {
@@ -222,6 +320,13 @@
 					892C3D9B1C078C6D00804A8B = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
+					89C20FFF1C2CDF5D001DF73B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					89C210121C2CDF5D001DF73B = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 89C20FFF1C2CDF5D001DF73B;
+					};
 				};
 			};
 			buildConfigurationList = 892C3D8C1C078C6D00804A8B /* Build configuration list for PBXProject "ATSketchKit" */;
@@ -230,6 +335,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 892C3D881C078C6D00804A8B;
 			productRefGroup = 892C3D931C078C6D00804A8B /* Products */;
@@ -238,6 +344,8 @@
 			targets = (
 				892C3D911C078C6D00804A8B /* ATSketchKit */,
 				892C3D9B1C078C6D00804A8B /* ATSketchKitTests */,
+				89C20FFF1C2CDF5D001DF73B /* ATSketchKitDemo */,
+				89C210121C2CDF5D001DF73B /* ATSketchKitDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +359,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		892C3D9A1C078C6D00804A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89C20FFE1C2CDF5D001DF73B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89C2100D1C2CDF5D001DF73B /* LaunchScreen.storyboard in Resources */,
+				89C2100A1C2CDF5D001DF73B /* Assets.xcassets in Resources */,
+				89C210081C2CDF5D001DF73B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89C210111C2CDF5D001DF73B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,6 +409,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89C20FFC1C2CDF5D001DF73B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89C210051C2CDF5D001DF73B /* ViewController.swift in Sources */,
+				89C210031C2CDF5D001DF73B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89C2100F1C2CDF5D001DF73B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89C210181C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,7 +434,31 @@
 			target = 892C3D911C078C6D00804A8B /* ATSketchKit */;
 			targetProxy = 892C3D9E1C078C6D00804A8B /* PBXContainerItemProxy */;
 		};
+		89C210151C2CDF5D001DF73B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89C20FFF1C2CDF5D001DF73B /* ATSketchKitDemo */;
+			targetProxy = 89C210141C2CDF5D001DF73B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89C210061C2CDF5D001DF73B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89C210071C2CDF5D001DF73B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89C2100B1C2CDF5D001DF73B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89C2100C1C2CDF5D001DF73B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		892C3DA41C078C6D00804A8B /* Debug */ = {
@@ -439,6 +605,58 @@
 			};
 			name = Release;
 		};
+		89C2101A1C2CDF5D001DF73B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ATSketchKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		89C2101B1C2CDF5D001DF73B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ATSketchKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		89C2101C1C2CDF5D001DF73B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ATSketchKitDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ATSketchKitDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		89C2101D1C2CDF5D001DF73B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ATSketchKitDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ATSketchKitDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +686,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		89C2101E1C2CDF5D001DF73B /* Build configuration list for PBXNativeTarget "ATSketchKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89C2101A1C2CDF5D001DF73B /* Debug */,
+				89C2101B1C2CDF5D001DF73B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		89C2101F1C2CDF5D001DF73B /* Build configuration list for PBXNativeTarget "ATSketchKitDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89C2101C1C2CDF5D001DF73B /* Debug */,
+				89C2101D1C2CDF5D001DF73B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,7 +12,7 @@ import UIKit
 class ATSketchView: UIView {
 
 	enum Tools {
-		case Cursor
+		case Finger
 		case Pencil
 	}
 	
