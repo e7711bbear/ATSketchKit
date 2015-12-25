@@ -24,8 +24,8 @@
                                     <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMm-le-ZhA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
-                                <rect key="frame" x="231" y="562" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
+                                <rect key="frame" x="227" y="562" width="44" height="30"/>
                                 <state key="normal" title="Finger"/>
                                 <connections>
                                     <action selector="selectFinger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QUA-IR-NcK"/>

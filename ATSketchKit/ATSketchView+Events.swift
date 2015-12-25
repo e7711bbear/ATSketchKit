@@ -10,7 +10,7 @@ import Foundation
 
 extension ATSketchView {
 	
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		guard touches.count != 0 else {
 			NSLog("No touches")
 			return
@@ -32,7 +32,7 @@ extension ATSketchView {
 		}
 	}
 	
-	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		guard touches.count != 0 else {
 			NSLog("No touches")
 			return
@@ -54,7 +54,7 @@ extension ATSketchView {
 		}
 	}
 	
-	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		if self.currentAction == .Draw {
 			if self.currentTool == .Pencil {
 				self.pointsLayers.append([CGPoint](self.pointsBuffer))
@@ -64,7 +64,7 @@ extension ATSketchView {
 				
 	}
 	
-	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
 		
 	}
 	

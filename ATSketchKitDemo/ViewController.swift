@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import ATSketchKit
 
 class ViewController: UIViewController {
 
+	var sketchView: ATSketchView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		self.sketchView = self.view as! ATSketchView
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -24,7 +29,6 @@ class ViewController: UIViewController {
 	// MARK: Tools controls
 	
 	@IBAction func selectFinger(sender: AnyObject) {
-		
 	}
 
 	@IBAction func selectPencil(sender: AnyObject) {

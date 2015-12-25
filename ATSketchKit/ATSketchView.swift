@@ -9,14 +9,14 @@
 import UIKit
 
 @IBDesignable
-class ATSketchView: UIView {
+public class ATSketchView: UIView {
 
-	enum Tools {
+	public enum Tools {
 		case Finger
 		case Pencil
 	}
 	
-	enum Actions {
+	public enum Actions {
 		case Select
 		case Move
 		case Draw
@@ -27,8 +27,8 @@ class ATSketchView: UIView {
 	
 	var topLayer: ATSketchTopLayer!
 	
-	var currentTool: Tools = .Pencil
-	var currentAction: Actions = .Draw
+	public var currentTool: Tools = .Pencil
+	public var currentAction: Actions = .Draw
 	
 	var pointsBuffer = [CGPoint]()
 	
@@ -36,7 +36,7 @@ class ATSketchView: UIView {
 	
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
 //		let context = UIGraphicsGetCurrentContext()
 //		
 //		CGContextSaveGState(context)
