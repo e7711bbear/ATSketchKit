@@ -34,18 +34,7 @@ public class ATSketchView: UIView {
 	
 	var pointsLayers = [[CGPoint]]()
 	
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    public override func drawRect(rect: CGRect) {
-//		let context = UIGraphicsGetCurrentContext()
-//		
-//		CGContextSaveGState(context)
-//		UIColor.blackColor().setFill()
-		//		for pixel in pixels {
-		//			CGContextFillRect(context, CGRectMake(pixel.x, pixel.y, 1, 1))
-		//		}
-		//		CGContextRestoreGState(context)
-		
+    public override func drawRect(rect: CGRect) {		
 		let bezierPath = UIBezierPath()
 		var isFirstPixel = true
 		for pixel in pointsBuffer {
