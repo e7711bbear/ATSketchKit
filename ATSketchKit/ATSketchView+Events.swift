@@ -16,11 +16,10 @@ extension ATSketchView {
 			return
 		}
 		
-		
 		if event != nil {
 		}
 
-		let touchPoint = touches.first!.locationInView(self)
+		let touchPoint = touches.first!.preciseLocationInView(self)
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
@@ -42,7 +41,7 @@ extension ATSketchView {
 		if event != nil {
 		}
 		
-		let touchPoint = touches.first!.locationInView(self)
+		let touchPoint = touches.first!.preciseLocationInView(self)
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
@@ -65,6 +64,10 @@ extension ATSketchView {
 	}
 	
 	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-		
+		if self.currentAction == .Draw {
+			if self.currentTool == .Pencil {
+				self.pointsBuffer.removeAll()
+			}
+		}
 	}
 }
