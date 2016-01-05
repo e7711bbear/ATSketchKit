@@ -27,6 +27,14 @@
 		89C210181C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */; };
 		89C210201C2CE098001DF73B /* ATSketchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; };
 		89C210241C2CE0B3001DF73B /* ATSketchKit.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89C2102A1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210291C3381C2001DF73B /* ATSmartBezierPath.swift */; };
+		89C2102B1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210291C3381C2001DF73B /* ATSmartBezierPath.swift */; };
+		89C2102D1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */; };
+		89C2102E1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */; };
+		89C210301C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */; };
+		89C210311C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */; };
+		89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */; };
+		89C210361C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +102,10 @@
 		89C210131C2CDF5D001DF73B /* ATSketchKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATSketchKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C210171C2CDF5D001DF73B /* ATSketchKitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATSketchKitDemoUITests.swift; sourceTree = "<group>"; };
 		89C210191C2CDF5D001DF73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C210291C3381C2001DF73B /* ATSmartBezierPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATSmartBezierPath.swift; sourceTree = "<group>"; };
+		89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+Smoothing.swift"; sourceTree = "<group>"; };
+		89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+UnistrokeRecognizer.swift"; sourceTree = "<group>"; };
+		89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUnistrokeTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +168,11 @@
 		892C3D941C078C6D00804A8B /* ATSketchKit */ = {
 			isa = PBXGroup;
 			children = (
-				892C3DBA1C079AEF00804A8B /* ATSketchView */,
-				892C3DC61C079D4A00804A8B /* ATSketchTopLayer.swift */,
 				892C3D951C078C6D00804A8B /* ATSketchKit.h */,
+				892C3DBA1C079AEF00804A8B /* ATSketchView */,
+				892C3DBF1C079C0600804A8B /* Layers */,
+				892C3DC61C079D4A00804A8B /* ATSketchTopLayer.swift */,
+				89C210281C338192001DF73B /* ATSmartBezierPath */,
 				892C3D971C078C6D00804A8B /* Info.plist */,
 			);
 			path = ATSketchKit;
@@ -178,7 +192,6 @@
 			children = (
 				892C3DBB1C079B3900804A8B /* ATSketchView.swift */,
 				892C3DCA1C07A7E700804A8B /* Extensions */,
-				892C3DBF1C079C0600804A8B /* Layers */,
 			);
 			name = ATSketchView;
 			path = ..;
@@ -192,6 +205,7 @@
 				892C3DC11C079C1500804A8B /* Relations */,
 			);
 			name = Layers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		892C3DC01C079C1100804A8B /* Objects */ = {
@@ -243,6 +257,17 @@
 			path = ATSketchKitDemoUITests;
 			sourceTree = "<group>";
 		};
+		89C210281C338192001DF73B /* ATSmartBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				89C210291C3381C2001DF73B /* ATSmartBezierPath.swift */,
+				89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */,
+				89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */,
+				89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */,
+			);
+			name = ATSmartBezierPath;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -265,6 +290,7 @@
 				892C3D8E1C078C6D00804A8B /* Frameworks */,
 				892C3D8F1C078C6D00804A8B /* Headers */,
 				892C3D901C078C6D00804A8B /* Resources */,
+				89C210331C3384B3001DF73B /* Additional Warnings */,
 			);
 			buildRules = (
 			);
@@ -410,6 +436,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89C210331C3384B3001DF73B /* Additional Warnings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Additional Warnings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		892C3D8D1C078C6D00804A8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,11 +461,15 @@
 				892C3DC31C079CC600804A8B /* ATSShapeLayer.swift in Sources */,
 				892C3DC91C079D7400804A8B /* ATSRelationLayer.swift in Sources */,
 				892C3DC71C079D4A00804A8B /* ATSketchTopLayer.swift in Sources */,
+				89C210301C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */,
 				892C3DD21C07ADB400804A8B /* ATSketchView+Selection.swift in Sources */,
+				89C2102D1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */,
+				89C2102A1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */,
 				892C3DC51C079D0000804A8B /* ATSEntityLayer.swift in Sources */,
 				892C3DBC1C079B3900804A8B /* ATSketchView.swift in Sources */,
 				892C3DCE1C07A81600804A8B /* ATSketchView+LayerDeletion.swift in Sources */,
 				892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */,
+				89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
 				892C3DCC1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,7 +478,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C2102B1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */,
+				89C210361C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
+				89C2102E1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */,
 				892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */,
+				89C210311C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
