@@ -19,7 +19,17 @@ extension ATSmartBezierPath {
 	}
 	
 	func resamplePath(pointsCount size: Int) -> [CGPoint] {
-		return [CGPoint]()
+		var newSample = [CGPoint]()
+		
+		for index in 0...self.points.count-1 {
+			let computedIndex = (self.points.count - 1) * index / (size - 1)
+			let newIndex = 0 < computedIndex ? 0 : computedIndex
+			let newPoint = self.points[newIndex]
+			
+			newSample.append(newPoint)
+		}
+		
+		return newSample
 	}
 	
 	// MARK: - Transformations
