@@ -36,11 +36,29 @@ extension ATSmartBezierPath {
 	}
 
 	func rotate(sample: [CGPoint], angle: CGFloat) -> [CGPoint] {
-		return [CGPoint]()
+		let rotationTransform = CGAffineTransformMakeRotation(angle)
+		
+		var newSample = [CGPoint]()
+		for point in sample {
+			let newPoint = CGPointApplyAffineTransform(point, rotationTransform)
+			
+			newSample.append(newPoint)
+		}
+		
+		return newSample
 	}
 	
-	func scale(sample: [CGPoint], scale: CGFloat) -> [CGPoint] {
-		return [CGPoint]()
+	func scale(sample: [CGPoint], xScale: CGFloat, yScale: CGFloat) -> [CGPoint] {
+		let scaleTransform = CGAffineTransformMakeScale(xScale, yScale)
+		
+		var newSample = [CGPoint]()
+		for point in sample {
+			let newPoint = CGPointApplyAffineTransform(point, scaleTransform)
+			
+			newSample.append(newPoint)
+		}
+		
+		return newSample
 	}
-
+	
 }
