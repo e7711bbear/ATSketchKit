@@ -13,9 +13,21 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	func recognizedPath() -> UIBezierPath {
+	func recognizedPath() -> (center: CGPoint, angle: CGFloat, path: UIBezierPath) {
 		
-		return UIBezierPath()
+		let sampleSize = 128 // arbitrary value
+		var sample = self.resamplePath(pointsCount: sampleSize)
+		let center = self.centroid(sample)
+		
+		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)
+		
+		let firstPoint = sample.first!
+		let firstPointAngle = atan2(firstPoint.y, firstPoint.x)
+		
+		sample = self.rotate(sample, angle: -firstPointAngle)
+		
+		
+		return (center, firstPointAngle, UIBezierPath())
 	}
 	
 	func resamplePath(pointsCount size: Int) -> [CGPoint] {
@@ -82,6 +94,8 @@ extension ATSmartBezierPath {
 		
 		return newSample
 	}
+	
+	// MARK: - Distance calculations
 	
 	func distance(point1: CGPoint, point2: CGPoint) -> CGFloat {
 		let deltaX = point1.x - point2.x
