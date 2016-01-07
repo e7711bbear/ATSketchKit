@@ -26,6 +26,14 @@ extension ATSmartBezierPath {
 		
 		sample = self.rotate(sample, angle: -firstPointAngle)
 		
+		let boundaries = self.boundaries(sample)
+		
+		float scale = 2.0f/MAX(upperRight.x - lowerLeft.x, upperRight.y - lowerLeft.y);
+		Scale(samples, samplePoints, scale, scale);
+		
+		center = Centroid(samples, samplePoints);
+		Translate(samples, samplePoints, -center.x, -center.y); // Recenter
+		
 		
 		return (center, firstPointAngle, UIBezierPath())
 	}
@@ -153,4 +161,28 @@ extension ATSmartBezierPath {
 		return f1 < f2 ? f1 : f2
 	}
 	
+	// MARK: - 
+	
+	func boundaries(path: [CGPoint]) -> (bottomLeft: CGPoint, topRight: CGPoint) {
+		var bottomLeft = CGPointZero
+		var topRight = CGPointZero
+		
+		for index in 0...path.count-1 {
+			let point = path[index]
+			
+			if point.x < bottomLeft.x {
+				bottomLeft.x = point.x
+			}
+			if point.y < bottomLeft.y {
+				bottomLeft.y = point.y
+			}
+			if point.x > topRight.x {
+				topRight.x = point.x
+			}
+			if point.y > topRight.y {
+				topRight.y = point.y
+			}
+		}
+		return (bottomLeft, topRight)
+	}
 }
