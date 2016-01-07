@@ -17,7 +17,7 @@ extension ATSmartBezierPath {
 		
 		let sampleSize = 128 // arbitrary value
 		var sample = self.resamplePath(pointsCount: sampleSize)
-		let center = self.centroid(sample)
+		var center = self.centroid(sample)
 		
 		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)
 		
@@ -27,13 +27,14 @@ extension ATSmartBezierPath {
 		sample = self.rotate(sample, angle: -firstPointAngle)
 		
 		let boundaries = self.boundaries(sample)
-		
-		float scale = 2.0f/MAX(upperRight.x - lowerLeft.x, upperRight.y - lowerLeft.y);
-		Scale(samples, samplePoints, scale, scale);
-		
-		center = Centroid(samples, samplePoints);
-		Translate(samples, samplePoints, -center.x, -center.y); // Recenter
-		
+		let boundariesDeltaX = boundaries.topRight.x - boundaries.bottomLeft.x
+		let boundariesDeltaY = boundaries.topRight.y - boundaries.bottomLeft.y
+		let scale = 2.0 /  boundariesDeltaX > boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX
+
+		self.scale(sample, xScale: scale, yScale: scale)
+
+		center = self.centroid(sample)
+		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)		
 		
 		return (center, firstPointAngle, UIBezierPath())
 	}
