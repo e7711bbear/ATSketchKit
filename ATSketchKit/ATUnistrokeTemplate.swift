@@ -11,5 +11,6 @@ import UIKit
 class ATUnistrokeTemplate: NSObject {
 	var name = "Unnamed"
 	var points = [CGPoint]()
-	// clean path
+	
+	var recognizedPathWithRect: ((rect: CGRect) -> UIBezierPath)!
 }

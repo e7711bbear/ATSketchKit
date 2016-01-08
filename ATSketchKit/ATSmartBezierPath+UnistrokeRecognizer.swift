@@ -13,7 +13,7 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	func recognizedPath() -> (center: CGPoint, angle: CGFloat, path: UIBezierPath) {
+	func recognizedPath() -> (center: CGPoint, angle: CGFloat, score: CGFloat, path: UIBezierPath) {
 		
 		let sampleSize = 128 // arbitrary value
 		var sample = self.resamplePath(pointsCount: sampleSize)
@@ -34,9 +34,26 @@ extension ATSmartBezierPath {
 		self.scale(sample, xScale: scale, yScale: scale)
 
 		center = self.centroid(sample)
-		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)		
+		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)
 		
-		return (center, firstPointAngle, UIBezierPath())
+		// comparing now:
+		
+		var bestTemplate: ATUnistrokeTemplate?
+		var bestScore = CGFloat(HUGE)
+		for template in self.unistrokeTemplates {
+			// Maybe a resampling here of the template too.
+			
+			let score = self.distanceAtBestAngle(sample, template: template.points)
+			if score < bestScore {
+				bestScore = score
+				bestTemplate = template
+			}
+		}
+		
+		let pathRect = self.bounds
+		let finalPath = bestTemplate!.recognizedPathWithRect(rect: pathRect)
+		
+		return (center, firstPointAngle, bestScore, finalPath)
 	}
 	
 	func resamplePath(pointsCount size: Int) -> [CGPoint] {
