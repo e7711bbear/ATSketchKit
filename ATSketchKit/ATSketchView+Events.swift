@@ -57,6 +57,26 @@ extension ATSketchView {
 		if self.currentAction == .Draw {
 			if self.currentTool == .Pencil {
 				self.pointsLayers.append([CGPoint](self.pointsBuffer))
+				// This is to generate a template
+				
+				var minX = CGFloat(HUGE)
+				var minY = CGFloat(HUGE)
+				
+				for point in self.pointsBuffer {
+					if point.x < minX {
+						minX = point.x
+					}
+					if point.y < minY {
+						minY = point.y
+					}
+				}
+				
+				NSLog("BEGIN")
+				for point in self.pointsBuffer {
+					NSLog("%f, %f", point.x - minX, point.y - minY)
+				}
+				NSLog("END")
+				
 				self.pointsBuffer.removeAll()
 			}
 		}

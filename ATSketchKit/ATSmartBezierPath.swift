@@ -15,7 +15,10 @@ class ATSmartBezierPath: UIBezierPath {
 	
 	convenience init(withPoints points: [CGPoint]) {
 		self.init()
-		self.points = points		
+		self.points = points
+		
+		self.createRectTemplates()
+		self.createCircleTemplates()
 	}
 	
 	override func moveToPoint(point: CGPoint) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891FFFEF1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */; };
+		891FFFF01C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */; };
 		892C3D961C078C6D00804A8B /* ATSketchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 892C3D951C078C6D00804A8B /* ATSketchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		892C3D9D1C078C6D00804A8B /* ATSketchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; };
 		892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DA11C078C6D00804A8B /* ATSketchKitTests.swift */; };
@@ -76,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+RecognizerTemplates.swift"; sourceTree = "<group>"; };
 		892C3D921C078C6D00804A8B /* ATSketchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATSketchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892C3D951C078C6D00804A8B /* ATSketchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATSketchKit.h; sourceTree = "<group>"; };
 		892C3D971C078C6D00804A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */,
 				89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */,
 				89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */,
+				891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */,
 			);
 			name = ATSmartBezierPath;
 			sourceTree = "<group>";
@@ -458,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891FFFEF1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */,
 				892C3DC31C079CC600804A8B /* ATSShapeLayer.swift in Sources */,
 				892C3DC91C079D7400804A8B /* ATSRelationLayer.swift in Sources */,
 				892C3DC71C079D4A00804A8B /* ATSketchTopLayer.swift in Sources */,
@@ -482,6 +487,7 @@
 				89C210361C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
 				89C2102E1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */,
 				892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */,
+				891FFFF01C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */,
 				89C210311C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -776,6 +782,7 @@
 				89C2101B1C2CDF5D001DF73B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89C2101F1C2CDF5D001DF73B /* Build configuration list for PBXNativeTarget "ATSketchKitDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -784,6 +791,7 @@
 				89C2101D1C2CDF5D001DF73B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
