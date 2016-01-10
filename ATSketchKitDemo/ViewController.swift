@@ -9,7 +9,7 @@
 import UIKit
 import ATSketchKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ATSketchViewDelegate {
 
 	var sketchView: ATSketchView!
 	
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 		
 		self.sketchView = self.view as! ATSketchView
 		self.sketchView.recognizeDrawing = true
+		self.sketchView.delegate = self
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -39,6 +40,21 @@ class ViewController: UIViewController {
 	
 	@IBAction func recognizePath(sender: AnyObject) {
 		self.sketchView.recognizeDrawing = !self.sketchView.recognizeDrawing
+	}
+	
+	@IBAction func lineWidthSliderChanged(sender: UISlider) {
+		let sliderValue = sender.value
+		
+		self.sketchView.currentLineWidth = CGFloat(sliderValue)
+	}
+	
+	// MARK: - ATSketchViewDelegate
+	
+	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool {
+		if score >= 60 {
+			return true
+		}
+		return false
 	}
 }
 

@@ -1,5 +1,5 @@
 //
-//  ATSShapeLayer.swift
+//  ATShapeLayer.swift
 //  ATSketchKit
 //
 //  Created by Arnaud Thiercelin on 11/26/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ATSShapeLayer: CAShapeLayer {
+class ATShapeLayer: CAShapeLayer {
 	var isSelectable = false;
 	var isSelected = false;
 	var isHovered = false;

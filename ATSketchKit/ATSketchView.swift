@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 public class ATSketchView: UIView {
 
-	var delegate: ATSketchViewDelegate?
+	public var delegate: ATSketchViewDelegate?
 	
 	public enum Tools {
 		case Finger
@@ -26,6 +26,10 @@ public class ATSketchView: UIView {
 	}
 	public var currentAction: Actions = .Draw
 	
+	public var currentLineWidth: CGFloat = 1.0
+	
+	public var currentColor: UIColor = UIColor.greenColor()
+	
 	var touchDownPoint: CGPoint!
 	var lastKnownTouchPoint: CGPoint!
 	
@@ -35,22 +39,26 @@ public class ATSketchView: UIView {
 	
 	var pointsBuffer = [CGPoint]()
 	
-	var pathLayers = [UIBezierPath]()
+//	override init(frame: CGRect) {
+//		super.init(frame: frame)
+//		
+//		self.layer.zPosition = 1
+//	}
+//	
+//	public required init?(coder aDecoder: NSCoder) {
+//		super.init(coder: aDecoder)
+//		
+//		self.layer.zPosition = 1
+//	}
 	
 	public override func drawRect(rect: CGRect) {
 		let smartPath = ATSmartBezierPath(withPoints: pointsBuffer)
 		let smoothPath = smartPath.smoothPath(20)
 		
 		UIColor.redColor().setStroke()
-		smoothPath.lineWidth = 1
+		smoothPath.lineWidth = currentLineWidth
 		smoothPath.stroke()
 		
-		for path in pathLayers {
-			UIColor.greenColor().setStroke()
-			path.lineWidth = 1
-			path.lineCapStyle = .Round
-			path.stroke()
-		}
+		super.drawRect(rect)
 	}
-
 }

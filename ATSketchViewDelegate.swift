@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ATSketchViewDelegate {
+public protocol ATSketchViewDelegate {
 
 	/**
 	Asks the delegate if the score received during the recognition means the view should accept the recognition.

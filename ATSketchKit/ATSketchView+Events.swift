@@ -81,22 +81,32 @@ extension ATSketchView {
 				if self.recognizeDrawing {
 					let recognizedPathInfo = smartPath.recognizedPath()
 
-					if recognizedPathInfo != nil && recognizedPathInfo!.score >= 50.0 {
-						self.pathLayers.append(recognizedPathInfo!.path)
-						pathAppended = true
+					if recognizedPathInfo != nil {
+						
+						var recognizedPathIsAccepted = false
+						if self.delegate != nil && self.delegate!.sketchView(self, shouldAccepterRecognizedPathWithScore: recognizedPathInfo!.score) == true {
+							recognizedPathIsAccepted = true
+						} else if recognizedPathInfo!.score >= 50.0 {
+							recognizedPathIsAccepted = true
+						}
+						
+						if recognizedPathIsAccepted {
+							self.addShapeLayer(recognizedPathInfo!.path, lineWidth: self.currentLineWidth, color: self.currentColor)
+							pathAppended = true
+						}
 					}
 				}
 				
 				if pathAppended == false {
 					let smoothPath = smartPath.smoothPath(20)
-					
-					self.pathLayers.append(smoothPath)
+
+					self.addShapeLayer(smoothPath, lineWidth: self.currentLineWidth, color: self.currentColor)
 				}
 				self.pointsBuffer.removeAll()
 				self.setNeedsDisplay()
+				self.layer.setNeedsDisplay()
 			}
 		}
-				
 	}
 	
 	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {

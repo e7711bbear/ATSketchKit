@@ -39,8 +39,8 @@ class ATSketchTopLayer: CALayer {
 		// Drawing code here.
 		
 		for sublayer in self.superlayer!.sublayers! {
-			if sublayer is ATSShapeLayer {
-				let shapeSubLayer = sublayer as! ATSShapeLayer
+			if sublayer is ATShapeLayer {
+				let shapeSubLayer = sublayer as! ATShapeLayer
 				if shapeSubLayer.isSelected {
 					CGContextSaveGState(ctx)
 					

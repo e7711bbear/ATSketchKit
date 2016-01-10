@@ -32,13 +32,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
-                                <rect key="frame" x="329" y="20" width="72" height="30"/>
-                                <state key="normal" title="Recognize"/>
+                                <rect key="frame" x="329" y="20" width="30" height="30"/>
+                                <state key="normal" title="[R]"/>
                                 <connections>
                                     <action selector="recognizePath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIF-vB-0xN"/>
                                     <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVA-xY-HWN"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
+                                <rect key="frame" x="174" y="58" width="252" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="vKh-zl-nvM"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -47,6 +56,8 @@
                             <constraint firstItem="Ks2-lU-HCw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="G01-bB-tuY"/>
                             <constraint firstItem="Ks2-lU-HCw" firstAttribute="leading" secondItem="e0Y-PH-apW" secondAttribute="trailing" constant="8" id="YkW-Ez-I0J"/>
                             <constraint firstItem="e0Y-PH-apW" firstAttribute="centerY" secondItem="Ks2-lU-HCw" secondAttribute="centerY" id="mHC-5L-kfJ"/>
+                            <constraint firstItem="b1d-Uq-32R" firstAttribute="top" secondItem="Ks2-lU-HCw" secondAttribute="bottom" constant="8" id="mLX-Ip-0Yq"/>
+                            <constraint firstItem="b1d-Uq-32R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ure-Xq-Jhr"/>
                             <constraint firstItem="bv4-Pr-j2f" firstAttribute="baseline" secondItem="Ks2-lU-HCw" secondAttribute="baseline" id="zG1-8R-RDo"/>
                         </constraints>
                     </view>
