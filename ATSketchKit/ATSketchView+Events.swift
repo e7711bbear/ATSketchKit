@@ -56,7 +56,6 @@ extension ATSketchView {
 	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		if self.currentAction == .Draw {
 			if self.currentTool == .Pencil {
-				self.pointsLayers.append([CGPoint](self.pointsBuffer))
 				// This is to generate a template
 				
 				var minX = CGFloat(HUGE)
@@ -71,13 +70,30 @@ extension ATSketchView {
 					}
 				}
 				
-				NSLog("BEGIN")
-				for point in self.pointsBuffer {
-					NSLog("%f, %f", point.x - minX, point.y - minY)
-				}
-				NSLog("END")
+//				NSLog("BEGIN")
+//				for point in self.pointsBuffer {
+//					NSLog("%f, %f", point.x - minX, point.y - minY)
+//				}
+//				NSLog("END")
+				let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
+				var pathAppended = false
 				
+				if self.recognizeDrawing {
+					let recognizedPathInfo = smartPath.recognizedPath()
+
+					if recognizedPathInfo != nil && recognizedPathInfo!.score >= 50.0 {
+						self.pathLayers.append(recognizedPathInfo!.path)
+						pathAppended = true
+					}
+				}
+				
+				if pathAppended == false {
+					let smoothPath = smartPath.smoothPath(20)
+					
+					self.pathLayers.append(smoothPath)
+				}
 				self.pointsBuffer.removeAll()
+				self.setNeedsDisplay()
 			}
 		}
 				

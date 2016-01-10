@@ -18,6 +18,7 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		self.sketchView = self.view as! ATSketchView
+		self.sketchView.recognizeDrawing = true
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -29,10 +30,15 @@ class ViewController: UIViewController {
 	// MARK: Tools controls
 	
 	@IBAction func selectFinger(sender: AnyObject) {
+		self.sketchView.currentTool = .Finger
 	}
 
 	@IBAction func selectPencil(sender: AnyObject) {
-		
+		self.sketchView.currentTool = .Pencil
+	}
+	
+	@IBAction func recognizePath(sender: AnyObject) {
+		self.sketchView.recognizeDrawing = !self.sketchView.recognizeDrawing
 	}
 }
 

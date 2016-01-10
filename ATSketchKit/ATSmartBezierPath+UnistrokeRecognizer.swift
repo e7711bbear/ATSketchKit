@@ -13,7 +13,7 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	func recognizedPath() -> (center: CGPoint, angle: CGFloat, score: CGFloat, path: UIBezierPath) {
+	func recognizedPath() -> (center: CGPoint, angle: CGFloat, score: CGFloat, path: UIBezierPath)? {
 		
 		let sampleSize = 128 // arbitrary value
 		var sample = self.resamplePath(pointsCount: sampleSize)
@@ -29,9 +29,9 @@ extension ATSmartBezierPath {
 		let boundaries = self.boundaries(sample)
 		let boundariesDeltaX = boundaries.topRight.x - boundaries.bottomLeft.x
 		let boundariesDeltaY = boundaries.topRight.y - boundaries.bottomLeft.y
-		let scale = 2.0 /  boundariesDeltaX > boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX
+		let scale = 2.0 / (boundariesDeltaX < boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX )
 
-		self.scale(sample, xScale: scale, yScale: scale)
+		sample = self.scale(sample, xScale: scale, yScale: scale)
 
 		center = self.centroid(sample)
 		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)
@@ -50,18 +50,22 @@ extension ATSmartBezierPath {
 			}
 		}
 		
-		let pathRect = self.bounds
-		let finalPath = bestTemplate!.recognizedPathWithRect(rect: pathRect)
+		if bestTemplate != nil {
+			let pathRect = self.smoothPath(20).bounds
+			let finalPath = bestTemplate!.recognizedPathWithRect(rect: pathRect)
 		
-		return (center, firstPointAngle, bestScore, finalPath)
+			return (center, firstPointAngle, bestScore, finalPath)
+		} else {
+			return nil
+		}
 	}
 	
 	func resamplePath(pointsCount size: Int) -> [CGPoint] {
 		var newSample = [CGPoint]()
 		
-		for index in 0...self.points.count-1 {
+		for index in 0..<self.points.count {
 			let computedIndex = (self.points.count - 1) * index / (size - 1)
-			let newIndex = 0 < computedIndex ? 0 : computedIndex
+			let newIndex = 0 < computedIndex ? computedIndex : 0
 			let newPoint = self.points[newIndex]
 			
 			newSample.append(newPoint)
@@ -135,7 +139,7 @@ extension ATSmartBezierPath {
 		let count = path1.count > path2.count ? path2.count : path1.count
 		var distanceSum: CGFloat = 0
 		
-		for index in 0...count {
+		for index in 0..<count {
 			let point1 = path1[index]
 			let point2 = path2[index]
 			
@@ -185,7 +189,7 @@ extension ATSmartBezierPath {
 		var bottomLeft = CGPointZero
 		var topRight = CGPointZero
 		
-		for index in 0...path.count-1 {
+		for index in 0..<path.count {
 			let point = path[index]
 			
 			if point.x < bottomLeft.x {
