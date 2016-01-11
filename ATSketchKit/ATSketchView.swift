@@ -39,23 +39,25 @@ public class ATSketchView: UIView {
 	
 	var pointsBuffer = [CGPoint]()
 	
-//	override init(frame: CGRect) {
-//		super.init(frame: frame)
-//		
-//		self.layer.zPosition = 1
-//	}
-//	
-//	public required init?(coder aDecoder: NSCoder) {
-//		super.init(coder: aDecoder)
-//		
-//		self.layer.zPosition = 1
-//	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		self.configureView()
+	}
+
+	public required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		self.configureView()
+	}
+	
+	func configureView() {
+		// Insert customization & init here
+	}
 	
 	public override func drawRect(rect: CGRect) {
 		let smartPath = ATSmartBezierPath(withPoints: pointsBuffer)
 		let smoothPath = smartPath.smoothPath(20)
 		
-		UIColor.redColor().setStroke()
+		self.currentColor.setStroke()
 		smoothPath.lineWidth = currentLineWidth
 		smoothPath.stroke()
 		

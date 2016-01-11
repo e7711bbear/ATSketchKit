@@ -67,7 +67,7 @@ extension ATSmartBezierPath {
 			let computedIndex = (self.points.count - 1) * index / (size - 1)
 			let newIndex = 0 < computedIndex ? computedIndex : 0
 			let newPoint = self.points[newIndex]
-			
+			//FIXME: there is a bug here when the number of points are too big, the new index becomes way bigger than the points'count
 			newSample.append(newPoint)
 		}
 		

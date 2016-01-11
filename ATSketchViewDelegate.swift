@@ -18,4 +18,12 @@ public protocol ATSketchViewDelegate {
 	- Returns: a true/false value.
 	*/
 	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool
+	
+	/**
+	Notifies the delegate that a path has been recognized and added to the layer stack.
+	
+	- Parameter sketchView: the view in which the recognized drawing happened.
+	- Parameter name: the template name which was recognized.
+	*/
+	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) -> Void
 }
