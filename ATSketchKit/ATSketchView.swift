@@ -63,4 +63,13 @@ public class ATSketchView: UIView {
 		
 		super.drawRect(rect)
 	}
+	
+	public func produceImage() -> UIImage {
+		UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)
+		self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		
+		return image
+	}
 }

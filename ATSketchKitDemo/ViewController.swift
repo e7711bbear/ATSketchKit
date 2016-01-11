@@ -56,5 +56,9 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		}
 		return false
 	}
+	
+	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) {
+		// We don't want to do anything here.
+	}
 }
 

@@ -35,7 +35,10 @@ extension ATSketchView {
 		return nil
 	}
 	
-	func numberOfEntity() -> Int {
+	/** 
+	Returns the number of shape layers within the layer stack
+	*/
+	public func shapeLayerCount() -> Int {
 		var count = 0
 		
 		for layer in self.layer.sublayers! {
