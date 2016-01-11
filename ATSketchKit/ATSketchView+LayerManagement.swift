@@ -13,15 +13,14 @@ extension ATSketchView {
 	func addShapeLayer(shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
 		let newShapeLayer = ATShapeLayer()
 		
-		newShapeLayer.position = shape.bounds.origin
 		newShapeLayer.path = shape.CGPath
 		newShapeLayer.lineWidth = lineWidth
 		newShapeLayer.strokeColor = color.CGColor
-		newShapeLayer.fillColor = color.CGColor
+		newShapeLayer.fillColor = nil
 		newShapeLayer.contentsScale = UIScreen.mainScreen().scale
-		layer.shouldRasterize = false
 		
 		self.layer.insertSublayer(newShapeLayer, atIndex: 0)
+		newShapeLayer.setNeedsDisplay()
 	}
 	
 	func findFrontLayerAtPoint(point: CGPoint) -> ATShapeLayer? {

@@ -24,7 +24,7 @@ class ATShapeLayer: CAShapeLayer {
 	}
 	
 	func configLayer() {
-		self.masksToBounds = true
+
 	}
 	
 }
