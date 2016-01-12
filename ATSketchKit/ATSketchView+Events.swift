@@ -18,7 +18,7 @@ extension ATSketchView {
 		
 		if event != nil {
 		}
-
+		
 		let touchPoint = touches.first!.preciseLocationInView(self)
 		
 		self.touchDownPoint = touchPoint
@@ -56,31 +56,15 @@ extension ATSketchView {
 	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		if self.currentAction == .Draw {
 			if self.currentTool == .Pencil {
-				// This is to generate a template
-				
-				var minX = CGFloat(HUGE)
-				var minY = CGFloat(HUGE)
-				
-				for point in self.pointsBuffer {
-					if point.x < minX {
-						minX = point.x
-					}
-					if point.y < minY {
-						minY = point.y
-					}
-				}
-				
-//				NSLog("BEGIN")
-//				for point in self.pointsBuffer {
-//					NSLog("%f, %f", point.x - minX, point.y - minY)
-//				}
-//				NSLog("END")
+
+				self.printTemplateSource(self.pointsBuffer)
+			
 				let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
 				var pathAppended = false
 				
 				if self.recognizeDrawing {
 					let recognizedPathInfo = smartPath.recognizedPath()
-
+					
 					if recognizedPathInfo != nil {
 						
 						var recognizedPathIsAccepted = false
@@ -100,7 +84,7 @@ extension ATSketchView {
 				
 				if pathAppended == false {
 					let smoothPath = smartPath.smoothPath(20)
-
+					
 					self.addShapeLayer(smoothPath, lineWidth: self.currentLineWidth, color: self.currentColor)
 				}
 				self.pointsBuffer.removeAll()
@@ -108,6 +92,29 @@ extension ATSketchView {
 				self.layer.setNeedsDisplay()
 			}
 		}
+	}
+	
+	func printTemplateSource(points: [CGPoint]) {
+		var minX = CGFloat(HUGE)
+		var minY = CGFloat(HUGE)
+		
+		for point in points {
+			if point.x < minX {
+				minX = point.x
+			}
+			if point.y < minY {
+				minY = point.y
+			}
+		}
+		
+		NSLog("Copy paste the source below:")
+		var sourceCode = "\nnewTemplate.points = ["
+		for point in self.pointsBuffer {
+			sourceCode += "CGPoint(x: \(point.x - minX), y: \(point.y - minY))\n"
+		}
+		sourceCode += "]"
+		
+		NSLog("\(sourceCode)")
 	}
 	
 	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
