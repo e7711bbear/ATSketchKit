@@ -11,6 +11,8 @@
 		891FFFF01C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */; };
 		891FFFF21C43028400CF153F /* ATSketchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF11C43028400CF153F /* ATSketchViewDelegate.swift */; };
 		891FFFF31C43028400CF153F /* ATSketchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF11C43028400CF153F /* ATSketchViewDelegate.swift */; };
+		891FFFF51C44964100CF153F /* ATRecognizedPathResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */; };
+		891FFFF61C44964100CF153F /* ATRecognizedPathResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */; };
 		892C3D961C078C6D00804A8B /* ATSketchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 892C3D951C078C6D00804A8B /* ATSketchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		892C3D9D1C078C6D00804A8B /* ATSketchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; };
 		892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DA11C078C6D00804A8B /* ATSketchKitTests.swift */; };
@@ -80,6 +82,7 @@
 /* Begin PBXFileReference section */
 		891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+RecognizerTemplates.swift"; sourceTree = "<group>"; };
 		891FFFF11C43028400CF153F /* ATSketchViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATSketchViewDelegate.swift; sourceTree = "<group>"; };
+		891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATRecognizedPathResult.swift; sourceTree = "<group>"; };
 		892C3D921C078C6D00804A8B /* ATSketchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATSketchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892C3D951C078C6D00804A8B /* ATSketchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATSketchKit.h; sourceTree = "<group>"; };
 		892C3D971C078C6D00804A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -248,8 +251,9 @@
 				89C210291C3381C2001DF73B /* ATSmartBezierPath.swift */,
 				89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */,
 				89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */,
-				89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */,
 				891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */,
+				89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */,
+				891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */,
 			);
 			name = ATSmartBezierPath;
 			sourceTree = "<group>";
@@ -456,6 +460,7 @@
 				892C3DCE1C07A81600804A8B /* ATSketchView+LayerManagement.swift in Sources */,
 				892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */,
 				89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
+				891FFFF51C44964100CF153F /* ATRecognizedPathResult.swift in Sources */,
 				892C3DCC1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +471,7 @@
 			files = (
 				89C2102B1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */,
 				89C210361C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
+				891FFFF61C44964100CF153F /* ATRecognizedPathResult.swift in Sources */,
 				89C2102E1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */,
 				892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */,
 				891FFFF01C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */,

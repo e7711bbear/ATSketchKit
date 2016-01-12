@@ -13,7 +13,7 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	func recognizedPath() -> (center: CGPoint, angle: CGFloat, score: CGFloat, path: UIBezierPath)? {
+	func recognizedPath() -> ATRecognizedPathResult? {
 		
 		let sampleSize = 128 // arbitrary value
 		var sample = self.resamplePath(pointsCount: sampleSize)
@@ -53,8 +53,15 @@ extension ATSmartBezierPath {
 		if bestTemplate != nil {
 			let pathRect = self.smoothPath(20).bounds
 			let finalPath = bestTemplate!.recognizedPathWithRect(rect: pathRect)
-		
-			return (center, firstPointAngle, bestScore, finalPath)
+			let result = ATRecognizedPathResult()
+			
+			result.center = center
+			result.angle = firstPointAngle
+			result.score = bestScore
+			result.path = finalPath
+			result.template = bestTemplate!
+			
+			return result
 		} else {
 			return nil
 		}
