@@ -12,6 +12,7 @@ import ATSketchKit
 class ViewController: UIViewController, ATSketchViewDelegate {
 
 	var sketchView: ATSketchView!
+	@IBOutlet weak var controlPanel: ControlPanelView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

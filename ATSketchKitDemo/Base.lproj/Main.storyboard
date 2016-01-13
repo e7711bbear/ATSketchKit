@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,48 +18,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
-                                <rect key="frame" x="279" y="20" width="42" height="30"/>
-                                <state key="normal" title="Pencil"/>
-                                <connections>
-                                    <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMm-le-ZhA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
-                                <rect key="frame" x="227" y="20" width="44" height="30"/>
-                                <state key="normal" title="Finger"/>
-                                <connections>
-                                    <action selector="selectFinger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QUA-IR-NcK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
-                                <rect key="frame" x="329" y="20" width="30" height="30"/>
-                                <state key="normal" title="[R]"/>
-                                <connections>
-                                    <action selector="recognizePath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIF-vB-0xN"/>
-                                    <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVA-xY-HWN"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
-                                <rect key="frame" x="174" y="58" width="252" height="31"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
+                                        <rect key="frame" x="174" y="203" width="252" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="iRL-GR-M3t"/>
+                                            <constraint firstAttribute="width" constant="248" id="wFm-tM-3V9"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
+                                        </connections>
+                                    </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
+                                        <rect key="frame" x="279" y="51" width="42" height="30"/>
+                                        <state key="normal" title="Pencil"/>
+                                        <connections>
+                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMm-le-ZhA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
+                                        <rect key="frame" x="227" y="51" width="44" height="30"/>
+                                        <state key="normal" title="Finger"/>
+                                        <connections>
+                                            <action selector="selectFinger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QUA-IR-NcK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
+                                        <rect key="frame" x="329" y="51" width="30" height="30"/>
+                                        <state key="normal" title="[R]"/>
+                                        <connections>
+                                            <action selector="recognizePath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIF-vB-0xN"/>
+                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVA-xY-HWN"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mw-jW-ewR">
+                                        <rect key="frame" x="283" y="8" width="33.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="248" id="vKh-zl-nvM"/>
+                                    <constraint firstItem="3mw-jW-ewR" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="1Ff-7R-T8Q"/>
+                                    <constraint firstItem="3mw-jW-ewR" firstAttribute="centerY" secondItem="KiD-Ih-4KG" secondAttribute="centerY" id="1sV-a5-M7A"/>
+                                    <constraint firstItem="Ks2-lU-HCw" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="7Wi-Si-ede"/>
+                                    <constraint firstItem="bv4-Pr-j2f" firstAttribute="leading" secondItem="Ks2-lU-HCw" secondAttribute="trailing" constant="8" id="Me4-x0-g1f"/>
+                                    <constraint firstAttribute="height" constant="250" id="W9o-ES-aKm"/>
+                                    <constraint firstItem="3mw-jW-ewR" firstAttribute="centerY" secondItem="KiD-Ih-4KG" secondAttribute="centerY" id="YEb-BX-jca"/>
+                                    <constraint firstItem="Ks2-lU-HCw" firstAttribute="top" secondItem="3mw-jW-ewR" secondAttribute="bottom" constant="22.5" id="aU4-8D-G75"/>
+                                    <constraint firstItem="bv4-Pr-j2f" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="nvH-Fq-lS0"/>
+                                    <constraint firstItem="Ks2-lU-HCw" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="pYk-5N-hbd"/>
+                                    <constraint firstItem="Ks2-lU-HCw" firstAttribute="leading" secondItem="e0Y-PH-apW" secondAttribute="trailing" constant="8" id="pc9-cT-nr3"/>
+                                    <constraint firstAttribute="bottom" secondItem="b1d-Uq-32R" secondAttribute="bottom" constant="17" id="wMa-Wr-zbm"/>
+                                    <constraint firstItem="3mw-jW-ewR" firstAttribute="top" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="8" id="yiJ-rr-OG0"/>
+                                    <constraint firstItem="b1d-Uq-32R" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="ypS-aK-esw"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1sV-a5-M7A"/>
+                                        <exclude reference="YEb-BX-jca"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
+                                    <outlet property="handleLabel" destination="3mw-jW-ewR" id="x6T-hP-puC"/>
+                                    <outlet property="positionConstraint" destination="igg-Rt-AEB" id="LMD-IG-mm0"/>
                                 </connections>
-                            </slider>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bv4-Pr-j2f" firstAttribute="leading" secondItem="Ks2-lU-HCw" secondAttribute="trailing" constant="8" id="7CK-Om-rcf"/>
-                            <constraint firstItem="Ks2-lU-HCw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7pH-sb-JhP"/>
-                            <constraint firstItem="Ks2-lU-HCw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="G01-bB-tuY"/>
-                            <constraint firstItem="Ks2-lU-HCw" firstAttribute="leading" secondItem="e0Y-PH-apW" secondAttribute="trailing" constant="8" id="YkW-Ez-I0J"/>
-                            <constraint firstItem="e0Y-PH-apW" firstAttribute="centerY" secondItem="Ks2-lU-HCw" secondAttribute="centerY" id="mHC-5L-kfJ"/>
-                            <constraint firstItem="b1d-Uq-32R" firstAttribute="top" secondItem="Ks2-lU-HCw" secondAttribute="bottom" constant="8" id="mLX-Ip-0Yq"/>
-                            <constraint firstItem="b1d-Uq-32R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ure-Xq-Jhr"/>
-                            <constraint firstItem="bv4-Pr-j2f" firstAttribute="baseline" secondItem="Ks2-lU-HCw" secondAttribute="baseline" id="zG1-8R-RDo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KiD-Ih-4KG" secondAttribute="trailing" constant="-20" id="XKe-3j-aTY"/>
+                            <constraint firstItem="KiD-Ih-4KG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cLo-eq-sbg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="36" id="igg-Rt-AEB"/>
                         </constraints>
                     </view>
                 </viewController>
