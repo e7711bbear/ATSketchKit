@@ -6,7 +6,7 @@ It can be used as the foundation for an artistic app, a simple signature feature
 ## Intentions & License
 My intentions with this framework are to enable people to produce more drawing apps on iOS, give my two cents worth of examples on how to code in swift on iOS and ignite the conversation and contributions around this particular technology (especially around pattern recognitions & and visual smoothing)
 
-For full license please see [license.md](license.md)
+For full license please see [license.md](LICENSE.md)
 
 ## Content
 ATSketchKit contains:
