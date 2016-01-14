@@ -49,6 +49,8 @@ public class ATSketchView: UIView {
 	func configureView() {
 		// Insert customization & init here
 		self.topLayer = ATSketchTopLayer()
+		self.topLayer.fillColor = nil
+		self.topLayer.zPosition = 3
 		self.layer.addSublayer(self.topLayer)
 	}
 	

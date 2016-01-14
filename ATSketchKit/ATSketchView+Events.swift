@@ -81,7 +81,7 @@ extension ATSketchView {
 			
 			if pathAppended == false {
 				let smoothPath = smartPath.smoothPath(20)
-				let finalColor = self.currentTool == .Eraser ? UIColor.redColor() : self.currentColor
+				let finalColor = self.currentTool == .Eraser ? self.eraserColor : self.currentColor
 				
 				self.addShapeLayer(smoothPath, lineWidth: self.currentLineWidth, color: finalColor)
 			}
