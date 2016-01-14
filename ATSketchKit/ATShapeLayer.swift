@@ -9,10 +9,7 @@
 import UIKit
 
 class ATShapeLayer: CAShapeLayer {
-	var isSelectable = false;
-	var isSelected = false;
-	var isHovered = false;
-	
+
 	override init () {
 		super.init()
 		self.configLayer()

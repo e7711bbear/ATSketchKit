@@ -16,20 +16,17 @@ public class ATSketchView: UIView {
 	public enum Tools {
 		case Finger
 		case Pencil
+		case Eraser
 	}
 	public var currentTool: Tools = .Pencil
-	
-	public enum Actions {
-		case Select
-		case Move
-		case Draw
-	}
-	public var currentAction: Actions = .Draw
-	
 	public var currentLineWidth: CGFloat = 1.0
-	
 	public var currentColor: UIColor = UIColor.greenColor()
 	
+	var eraserColor: UIColor {
+		get {
+			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.whiteColor()
+		}
+	}
 	var touchDownPoint: CGPoint!
 	var lastKnownTouchPoint: CGPoint!
 	
@@ -51,17 +48,26 @@ public class ATSketchView: UIView {
 	
 	func configureView() {
 		// Insert customization & init here
+		self.topLayer = ATSketchTopLayer()
+		self.layer.addSublayer(self.topLayer)
 	}
 	
 	public override func drawRect(rect: CGRect) {
-		let smartPath = ATSmartBezierPath(withPoints: pointsBuffer)
-		let smoothPath = smartPath.smoothPath(20)
-		
-		self.currentColor.setStroke()
-		smoothPath.lineWidth = currentLineWidth
-		smoothPath.stroke()
-		
 		super.drawRect(rect)
+
+//		let smartPath = ATSmartBezierPath(withPoints: pointsBuffer)
+//		let smoothPath = smartPath.smoothPath(20)
+//		
+//		if self.currentTool == .Eraser {
+//			let usableColor = self.backgroundColor != nil ? self.backgroundColor! : UIColor.whiteColor()
+//			
+//			UIColor.redColor().setStroke()
+//		} else {
+//			self.currentColor.setStroke()
+//		}
+//		smoothPath.lineWidth = currentLineWidth
+//		smoothPath.stroke()
+		
 	}
 	
 	public func produceImage() -> UIImage {

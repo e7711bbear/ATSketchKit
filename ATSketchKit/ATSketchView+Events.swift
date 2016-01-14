@@ -23,11 +23,10 @@ extension ATSketchView {
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
-		if self.currentAction == .Draw {
-			if self.currentTool == .Pencil {
-				self.pointsBuffer.append(touchPoint)
-				self.setNeedsDisplay()
-			}
+		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+			self.pointsBuffer.append(touchPoint)
+			self.updateTopLayer()
+			self.setNeedsDisplay()
 		}
 	}
 	
@@ -45,52 +44,51 @@ extension ATSketchView {
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
-		if self.currentAction == .Draw {
-			if self.currentTool == .Pencil {
-				self.pointsBuffer.append(touchPoint)
-				self.setNeedsDisplay()
-			}
+		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+			self.pointsBuffer.append(touchPoint)
+			self.updateTopLayer()
+			self.setNeedsDisplay()
 		}
 	}
 	
 	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		if self.currentAction == .Draw {
-			if self.currentTool == .Pencil {
-
-				self.printTemplateSource(self.pointsBuffer)
+		if self.currentTool == .Pencil || self.currentTool == .Eraser {
 			
-				let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
-				var pathAppended = false
+			self.printTemplateSource(self.pointsBuffer)
+			
+			let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
+			var pathAppended = false
+			
+			if self.recognizeDrawing && self.currentTool != .Eraser {
+				let recognizedPathInfo = smartPath.recognizedPath()
 				
-				if self.recognizeDrawing {
-					let recognizedPathInfo = smartPath.recognizedPath()
+				if recognizedPathInfo != nil {
 					
-					if recognizedPathInfo != nil {
-						
-						var recognizedPathIsAccepted = false
-						if self.delegate != nil && self.delegate!.sketchView(self, shouldAccepterRecognizedPathWithScore: recognizedPathInfo!.score) == true {
-							recognizedPathIsAccepted = true
-						} else if recognizedPathInfo!.score >= 50.0 {
-							recognizedPathIsAccepted = true
-						}
-						
-						if recognizedPathIsAccepted {
-							self.addShapeLayer(recognizedPathInfo!.path, lineWidth: self.currentLineWidth, color: self.currentColor)
-							self.delegate?.sketchView(self, didRecognizePathWithName: recognizedPathInfo!.template.name)
-							pathAppended = true
-						}
+					var recognizedPathIsAccepted = false
+					if self.delegate != nil && self.delegate!.sketchView(self, shouldAccepterRecognizedPathWithScore: recognizedPathInfo!.score) == true {
+						recognizedPathIsAccepted = true
+					} else if recognizedPathInfo!.score >= 50.0 {
+						recognizedPathIsAccepted = true
+					}
+					
+					if recognizedPathIsAccepted {
+						self.addShapeLayer(recognizedPathInfo!.path, lineWidth: self.currentLineWidth, color: self.currentColor)
+						self.delegate?.sketchView(self, didRecognizePathWithName: recognizedPathInfo!.template.name)
+						pathAppended = true
 					}
 				}
-				
-				if pathAppended == false {
-					let smoothPath = smartPath.smoothPath(20)
-					
-					self.addShapeLayer(smoothPath, lineWidth: self.currentLineWidth, color: self.currentColor)
-				}
-				self.pointsBuffer.removeAll()
-				self.setNeedsDisplay()
-				self.layer.setNeedsDisplay()
 			}
+			
+			if pathAppended == false {
+				let smoothPath = smartPath.smoothPath(20)
+				let finalColor = self.currentTool == .Eraser ? UIColor.redColor() : self.currentColor
+				
+				self.addShapeLayer(smoothPath, lineWidth: self.currentLineWidth, color: finalColor)
+			}
+			self.pointsBuffer.removeAll()
+			self.clearTopLayer()
+			self.setNeedsDisplay()
+			self.layer.setNeedsDisplay()
 		}
 	}
 	
@@ -118,10 +116,8 @@ extension ATSketchView {
 	}
 	
 	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-		if self.currentAction == .Draw {
-			if self.currentTool == .Pencil {
-				self.pointsBuffer.removeAll()
-			}
+		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+			self.pointsBuffer.removeAll()
 		}
 	}
 }
