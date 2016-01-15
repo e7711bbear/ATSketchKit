@@ -53,6 +53,14 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		self.sketchView.currentLineWidth = CGFloat(sliderValue)
 	}
 	
+	@IBAction func undo(sender: UIButton) {
+		self.sketchView.undo()
+	}
+	
+	@IBAction func redo(sender: UIButton) {
+		self.sketchView.redo()
+	}
+	
 	// MARK: - ATSketchViewDelegate
 	
 	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool {

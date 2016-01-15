@@ -36,6 +36,24 @@ public class ATSketchView: UIView {
 	
 	var pointsBuffer = [CGPoint]()
 	
+	// Undo/Redo
+	var history = [CALayer]()
+	public var allowUndoRedo = true
+	
+	public var canUndo: Bool {
+		get {
+			return allowUndoRedo
+			// TODO: add here conditions based on the history stack
+		}
+	}
+	
+	public var canRedo: Bool {
+		get {
+			return allowUndoRedo && self.history.count > 0
+		}
+	}
+	
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.configureView()
