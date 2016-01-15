@@ -39,6 +39,8 @@ public class ATSketchView: UIView {
 	// Undo/Redo
 	var history = [CALayer]()
 	public var allowUndoRedo = true
+	public var maxUndoRedoSteps = 30
+	// TODO: Implement a max count for these for memory-purpose.
 	
 	public var canUndo: Bool {
 		get {
