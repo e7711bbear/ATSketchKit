@@ -22,6 +22,21 @@ extension ATSketchView {
 		newShapeLayer.setNeedsDisplay()
 	}
 	
+	/** 
+	This method returns the most recently create layer produced by drawing/erasing
+	*/
+	func mostRecentLayer() -> ATShapeLayer? {
+		
+		for index in (0..<self.layer.sublayers!.count).reverse() {
+			let layer = self.layer.sublayers![index]
+			if layer is ATShapeLayer {
+				return layer as? ATShapeLayer
+			}
+		}
+		
+		return nil
+	}
+	
 	func findFrontLayerAtPoint(point: CGPoint) -> ATShapeLayer? {
 		for layer in self.layer.sublayers! {
 			let hitLayer = layer.hitTest(point)

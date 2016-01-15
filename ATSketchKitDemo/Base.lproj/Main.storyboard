@@ -66,6 +66,22 @@
                                             <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jns-xL-v2i"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
+                                        <rect key="frame" x="285" y="89" width="30" height="30"/>
+                                        <state key="normal" title="&lt;&lt;"/>
+                                        <connections>
+                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m74-ah-sfg"/>
+                                            <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOk-nh-mDF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-mJ-v6G">
+                                        <rect key="frame" x="323" y="89" width="30" height="30"/>
+                                        <state key="normal" title="&gt;&gt;"/>
+                                        <connections>
+                                            <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzr-Ye-2nu"/>
+                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBx-vB-Ss3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -77,9 +93,13 @@
                                     <constraint firstAttribute="height" constant="250" id="W9o-ES-aKm"/>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="centerY" secondItem="KiD-Ih-4KG" secondAttribute="centerY" id="YEb-BX-jca"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="top" secondItem="3mw-jW-ewR" secondAttribute="bottom" constant="22.5" id="aU4-8D-G75"/>
+                                    <constraint firstItem="GAB-mJ-v6G" firstAttribute="leading" secondItem="d3Q-af-LJ6" secondAttribute="trailing" constant="8" id="gZX-i2-KxY"/>
+                                    <constraint firstItem="d3Q-af-LJ6" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="mtU-A1-pMa"/>
                                     <constraint firstItem="bv4-Pr-j2f" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="nvH-Fq-lS0"/>
+                                    <constraint firstItem="d3Q-af-LJ6" firstAttribute="baseline" secondItem="GAB-mJ-v6G" secondAttribute="baseline" id="p5e-W8-N9J"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="pYk-5N-hbd"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="leading" secondItem="e0Y-PH-apW" secondAttribute="trailing" constant="8" id="pc9-cT-nr3"/>
+                                    <constraint firstItem="d3Q-af-LJ6" firstAttribute="top" secondItem="e0Y-PH-apW" secondAttribute="bottom" constant="8" id="pdl-eb-3N6"/>
                                     <constraint firstItem="OAe-SK-NsH" firstAttribute="baseline" secondItem="bv4-Pr-j2f" secondAttribute="baseline" id="q4B-IO-Axk"/>
                                     <constraint firstAttribute="bottom" secondItem="b1d-Uq-32R" secondAttribute="bottom" constant="17" id="wMa-Wr-zbm"/>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="top" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="8" id="yiJ-rr-OG0"/>
