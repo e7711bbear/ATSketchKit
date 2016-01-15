@@ -59,12 +59,20 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
+                                        <rect key="frame" x="367" y="51" width="44" height="30"/>
+                                        <state key="normal" title="Eraser"/>
+                                        <connections>
+                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jns-xL-v2i"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="1Ff-7R-T8Q"/>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="centerY" secondItem="KiD-Ih-4KG" secondAttribute="centerY" id="1sV-a5-M7A"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="7Wi-Si-ede"/>
+                                    <constraint firstItem="OAe-SK-NsH" firstAttribute="leading" secondItem="bv4-Pr-j2f" secondAttribute="trailing" constant="8" id="CU8-Di-qoT"/>
                                     <constraint firstItem="bv4-Pr-j2f" firstAttribute="leading" secondItem="Ks2-lU-HCw" secondAttribute="trailing" constant="8" id="Me4-x0-g1f"/>
                                     <constraint firstAttribute="height" constant="250" id="W9o-ES-aKm"/>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="centerY" secondItem="KiD-Ih-4KG" secondAttribute="centerY" id="YEb-BX-jca"/>
@@ -72,6 +80,7 @@
                                     <constraint firstItem="bv4-Pr-j2f" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="nvH-Fq-lS0"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="baseline" secondItem="e0Y-PH-apW" secondAttribute="baseline" id="pYk-5N-hbd"/>
                                     <constraint firstItem="Ks2-lU-HCw" firstAttribute="leading" secondItem="e0Y-PH-apW" secondAttribute="trailing" constant="8" id="pc9-cT-nr3"/>
+                                    <constraint firstItem="OAe-SK-NsH" firstAttribute="baseline" secondItem="bv4-Pr-j2f" secondAttribute="baseline" id="q4B-IO-Axk"/>
                                     <constraint firstAttribute="bottom" secondItem="b1d-Uq-32R" secondAttribute="bottom" constant="17" id="wMa-Wr-zbm"/>
                                     <constraint firstItem="3mw-jW-ewR" firstAttribute="top" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="8" id="yiJ-rr-OG0"/>
                                     <constraint firstItem="b1d-Uq-32R" firstAttribute="centerX" secondItem="KiD-Ih-4KG" secondAttribute="centerX" id="ypS-aK-esw"/>

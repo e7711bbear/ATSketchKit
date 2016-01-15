@@ -19,7 +19,7 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		self.sketchView = self.view as! ATSketchView
-		self.sketchView.recognizeDrawing = true
+		self.sketchView.recognizeDrawing = false
 		self.sketchView.delegate = self
 	}
 
@@ -35,6 +35,10 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		self.sketchView.currentTool = .Finger
 	}
 
+	@IBAction func selectEraser(sender: AnyObject) {
+		self.sketchView.currentTool = .Eraser
+	}
+	
 	@IBAction func selectPencil(sender: AnyObject) {
 		self.sketchView.currentTool = .Pencil
 	}

@@ -18,8 +18,7 @@ extension ATSketchView {
 		newShapeLayer.strokeColor = color.CGColor
 		newShapeLayer.fillColor = nil
 		newShapeLayer.contentsScale = UIScreen.mainScreen().scale
-		
-		self.layer.insertSublayer(newShapeLayer, atIndex: 0)
+		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
 		newShapeLayer.setNeedsDisplay()
 	}
 	
@@ -47,5 +46,22 @@ extension ATSketchView {
 			}
 		}
 		return count
+	}
+	
+	func updateTopLayer() {
+		let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
+		let smoothPath = smartPath.smoothPath(20)
+		self.topLayer.lineWidth = self.currentLineWidth
+		
+		let strokeColor = (self.currentTool == .Eraser ? self.eraserColor : self.currentColor)
+		self.topLayer.strokeColor = strokeColor.CGColor
+		self.topLayer.fillColor = nil
+		self.topLayer.contentsScale = UIScreen.mainScreen().scale
+		
+		self.topLayer.path = smoothPath.CGPath
+	}
+	
+	func clearTopLayer() {
+		self.topLayer.path = nil
 	}
 }
