@@ -140,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891FFFFB1C4B53B200CF153F /* Custom UI Objects */ = {
+			isa = PBXGroup;
+			children = (
+				891FFFF71C45E69000CF153F /* ControlPanelView.swift */,
+			);
+			name = "Custom UI Objects";
+			sourceTree = "<group>";
+		};
 		892C3D881C078C6D00804A8B = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +228,7 @@
 			children = (
 				89C210021C2CDF5D001DF73B /* AppDelegate.swift */,
 				89C210041C2CDF5D001DF73B /* ViewController.swift */,
-				891FFFF71C45E69000CF153F /* ControlPanelView.swift */,
+				891FFFFB1C4B53B200CF153F /* Custom UI Objects */,
 				89C210061C2CDF5D001DF73B /* Main.storyboard */,
 				89C210091C2CDF5D001DF73B /* Assets.xcassets */,
 				89C2100B1C2CDF5D001DF73B /* LaunchScreen.storyboard */,
