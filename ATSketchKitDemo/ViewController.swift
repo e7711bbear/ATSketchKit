@@ -11,14 +11,13 @@ import ATSketchKit
 
 class ViewController: UIViewController, ATSketchViewDelegate {
 
-	var sketchView: ATSketchView!
+	@IBOutlet weak var sketchView: ATSketchView!
 	@IBOutlet weak var controlPanel: ControlPanelView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		self.sketchView = self.view as! ATSketchView
 		self.sketchView.recognizeDrawing = false
 		self.sketchView.delegate = self
 	}
