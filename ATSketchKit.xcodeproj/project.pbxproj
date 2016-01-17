@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		891F00001C4C0FE800CF153F /* ATColorPicker+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFFF1C4C0FE800CF153F /* ATColorPicker+Delegate.swift */; };
+		891F00021C4C138000CF153F /* ATColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891F00011C4C138000CF153F /* ATColorSwatch.swift */; };
 		891FFFEF1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */; };
 		891FFFF21C43028400CF153F /* ATSketchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF11C43028400CF153F /* ATSketchViewDelegate.swift */; };
 		891FFFF51C44964100CF153F /* ATRecognizedPathResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		891F00011C4C138000CF153F /* ATColorSwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATColorSwatch.swift; sourceTree = "<group>"; };
 		891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+RecognizerTemplates.swift"; sourceTree = "<group>"; };
 		891FFFF11C43028400CF153F /* ATSketchViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATSketchViewDelegate.swift; sourceTree = "<group>"; };
 		891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATRecognizedPathResult.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				891FFFFC1C4C042400CF153F /* ATColorPicker.swift */,
 				891FFFFF1C4C0FE800CF153F /* ATColorPicker+Delegate.swift */,
+				891F00011C4C138000CF153F /* ATColorSwatch.swift */,
 			);
 			name = ATColorPicker;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				89C2102A1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */,
 				892C3DBC1C079B3900804A8B /* ATSketchView.swift in Sources */,
 				892C3DCE1C07A81600804A8B /* ATSketchView+LayerManagement.swift in Sources */,
+				891F00021C4C138000CF153F /* ATColorSwatch.swift in Sources */,
 				892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */,
 				89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
 				891FFFF51C44964100CF153F /* ATRecognizedPathResult.swift in Sources */,

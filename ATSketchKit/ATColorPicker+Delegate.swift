@@ -13,10 +13,10 @@ public protocol ATColorPickerDelegate {
 	/**
 	This method is called everytime a new color is selected.
 	*/
-	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor: UIColor)
+	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor)
 	
 	/**
 	This method is call once the user stops touching the screen
 	*/
-	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor: UIColor)
+	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor)
 }

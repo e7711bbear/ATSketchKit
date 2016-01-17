@@ -9,10 +9,13 @@
 import UIKit
 import ATSketchKit
 
-class ViewController: UIViewController, ATSketchViewDelegate {
+class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDelegate {
 
 	@IBOutlet weak var sketchView: ATSketchView!
 	@IBOutlet weak var controlPanel: ControlPanelView!
+	
+	@IBOutlet weak var colorPicker: ATColorPicker!
+	@IBOutlet weak var colorSwatch: ATColorSwatch!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,6 +23,8 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		
 		self.sketchView.recognizeDrawing = false
 		self.sketchView.delegate = self
+
+		self.colorPicker.delegate = self
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -75,6 +80,20 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 	
 	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) {
 		// We don't want to do anything here.
+	}
+	
+	//MARK: - ATColorPickerDelegate
+	
+	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor) {
+		self.colorSwatch.color = color
+		self.colorSwatch.setNeedsDisplay()
+		self.sketchView.currentColor = color
+	}
+	
+	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor) {
+		self.colorSwatch.color = color
+		self.colorSwatch.setNeedsDisplay()
+		self.sketchView.currentColor = color
 	}
 }
 

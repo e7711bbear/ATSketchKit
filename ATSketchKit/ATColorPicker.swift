@@ -27,20 +27,26 @@ public class ATColorPicker: UIView {
 		
 	}
 	
+	// MARK: - Drawing
 	public override func drawRect(rect: CGRect) {
+		self.drawColorMap(rect)
+	}
+	
+	func drawColorMap(rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()
 		
 		for x in 0..<Int(rect.size.width) {
 			for y in 0..<Int(rect.size.height) {
 				let color = self.colorAtPoint(CGPoint(x: CGFloat(x), y: CGFloat(y)), inRect: rect)
-
+				
 				color.setFill()
 				let rect = CGRectMake(CGFloat(x), rect.size.height - CGFloat(y), 1.0, 1.0)
 				CGContextFillRect(context, rect)
 			}
-			
 		}
 	}
+	
+	// MARK: - Event handling
 	
 	public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		// kickstart the flow.
@@ -66,6 +72,8 @@ public class ATColorPicker: UIView {
 			self.delegate!.colorPicker(self, didEndSelectionWithColor: color)
 		}
 	}
+	
+	// MARK: - Convenience color methods
 	
 	func colorAtPoint(point: CGPoint, inRect rect: CGRect) -> UIColor {
 		let x = point.x
