@@ -15,7 +15,7 @@ public class ATColorSwatch: UIView {
 
 	public var color: UIColor = UIColor.whiteColor()
 	
-	override public func drawRect(rect: CGRect) {
+	public override func drawRect(rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()
 		
 		color.setFill()

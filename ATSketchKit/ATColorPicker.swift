@@ -8,17 +8,20 @@
 
 import UIKit
 
+/**
+This class provides a basic view to pick a new color using a color map
+*/
 @IBDesignable
 public class ATColorPicker: UIView {
 
 	public var delegate: ATColorPickerDelegate?
 	
-	override public init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.configure()
 	}
 	
-	required public init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.configure()
 	}
@@ -40,7 +43,7 @@ public class ATColorPicker: UIView {
 				let color = self.colorAtPoint(CGPoint(x: CGFloat(x), y: CGFloat(y)), inRect: rect)
 				
 				color.setFill()
-				let rect = CGRectMake(CGFloat(x), rect.size.height - CGFloat(y), 1.0, 1.0)
+				let rect = CGRectMake(CGFloat(x), CGFloat(y), 1.0, 1.0)
 				CGContextFillRect(context, rect)
 			}
 		}
@@ -53,19 +56,17 @@ public class ATColorPicker: UIView {
 	}
 	
 	public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let point = touches.first!.preciseLocationInView(self)
+		let point = touches.first!.locationInView(self)
 		let color = self.colorAtPoint(point, inRect: self.bounds)
 		
-		#if DEBUG
 			NSLog("Color At Point[\(point.x),\(point.y)]: \(color)")
-		#endif
 		if self.delegate != nil {
 			self.delegate!.colorPicker(self, didChangeToSelectedColor: color)
 		}
 	}
 	
 	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let point = touches.first!.preciseLocationInView(self)
+		let point = touches.first!.locationInView(self)
 		let color = self.colorAtPoint(point, inRect: self.bounds)
 
 		if self.delegate != nil {
