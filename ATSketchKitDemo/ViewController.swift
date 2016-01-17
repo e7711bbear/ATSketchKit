@@ -52,6 +52,10 @@ class ViewController: UIViewController, ATSketchViewDelegate {
 		self.sketchView.currentLineWidth = CGFloat(sliderValue)
 	}
 	
+	@IBAction func chooseColor(sender: UIButton) {
+		
+	}
+	
 	@IBAction func undo(sender: UIButton) {
 		self.sketchView.undo()
 	}
