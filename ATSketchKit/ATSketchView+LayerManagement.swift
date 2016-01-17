@@ -37,18 +37,6 @@ extension ATSketchView {
 		return nil
 	}
 	
-	func findFrontLayerAtPoint(point: CGPoint) -> ATShapeLayer? {
-		for layer in self.layer.sublayers! {
-			let hitLayer = layer.hitTest(point)
-			
-			if hitLayer != nil &&
-				hitLayer! is ATShapeLayer {
-					return hitLayer as? ATShapeLayer
-			}
-		}
-		return nil
-	}
-	
 	/** 
 	Returns the number of shape layers within the layer stack
 	*/

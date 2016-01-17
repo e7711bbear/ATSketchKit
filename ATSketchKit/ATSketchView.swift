@@ -76,19 +76,6 @@ public class ATSketchView: UIView {
 	
 	public override func drawRect(rect: CGRect) {
 		super.drawRect(rect)
-
-//		let smartPath = ATSmartBezierPath(withPoints: pointsBuffer)
-//		let smoothPath = smartPath.smoothPath(20)
-//		
-//		if self.currentTool == .Eraser {
-//			let usableColor = self.backgroundColor != nil ? self.backgroundColor! : UIColor.whiteColor()
-//			
-//			UIColor.redColor().setStroke()
-//		} else {
-//			self.currentColor.setStroke()
-//		}
-//		smoothPath.lineWidth = currentLineWidth
-//		smoothPath.stroke()
 		
 	}
 	

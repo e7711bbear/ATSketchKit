@@ -21,10 +21,8 @@
 		892C3DBC1C079B3900804A8B /* ATSketchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DBB1C079B3900804A8B /* ATSketchView.swift */; };
 		892C3DC31C079CC600804A8B /* ATShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DC21C079CC600804A8B /* ATShapeLayer.swift */; };
 		892C3DC71C079D4A00804A8B /* ATSketchTopLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DC61C079D4A00804A8B /* ATSketchTopLayer.swift */; };
-		892C3DCC1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DCB1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift */; };
 		892C3DCE1C07A81600804A8B /* ATSketchView+LayerManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DCD1C07A81600804A8B /* ATSketchView+LayerManagement.swift */; };
 		892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DCF1C07A8DE00804A8B /* ATSketchView+Events.swift */; };
-		892C3DD21C07ADB400804A8B /* ATSketchView+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DD11C07ADB400804A8B /* ATSketchView+Selection.swift */; };
 		89C210031C2CDF5D001DF73B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210021C2CDF5D001DF73B /* AppDelegate.swift */; };
 		89C210051C2CDF5D001DF73B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210041C2CDF5D001DF73B /* ViewController.swift */; };
 		89C210081C2CDF5D001DF73B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C210061C2CDF5D001DF73B /* Main.storyboard */; };
@@ -96,10 +94,8 @@
 		892C3DBB1C079B3900804A8B /* ATSketchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATSketchView.swift; path = ATSketchKit/ATSketchView.swift; sourceTree = "<group>"; };
 		892C3DC21C079CC600804A8B /* ATShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATShapeLayer.swift; path = ATSketchKit/ATShapeLayer.swift; sourceTree = "<group>"; };
 		892C3DC61C079D4A00804A8B /* ATSketchTopLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATSketchTopLayer.swift; sourceTree = "<group>"; };
-		892C3DCB1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+LayerSearch.swift"; path = "ATSketchKit/ATSketchView+LayerSearch.swift"; sourceTree = "<group>"; };
 		892C3DCD1C07A81600804A8B /* ATSketchView+LayerManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+LayerManagement.swift"; path = "ATSketchKit/ATSketchView+LayerManagement.swift"; sourceTree = "<group>"; };
 		892C3DCF1C07A8DE00804A8B /* ATSketchView+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Events.swift"; path = "ATSketchKit/ATSketchView+Events.swift"; sourceTree = "<group>"; };
-		892C3DD11C07ADB400804A8B /* ATSketchView+Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Selection.swift"; path = "ATSketchKit/ATSketchView+Selection.swift"; sourceTree = "<group>"; };
 		89C20FFA1C2CCB95001DF73B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		89C210001C2CDF5D001DF73B /* ATSketchKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATSketchKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C210021C2CDF5D001DF73B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,10 +215,8 @@
 		892C3DCA1C07A7E700804A8B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				892C3DCB1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift */,
 				892C3DCD1C07A81600804A8B /* ATSketchView+LayerManagement.swift */,
 				892C3DCF1C07A8DE00804A8B /* ATSketchView+Events.swift */,
-				892C3DD11C07ADB400804A8B /* ATSketchView+Selection.swift */,
 				891FFFF91C49318200CF153F /* ATSketchView+UndoRedo.swift */,
 			);
 			name = Extensions;
@@ -460,7 +454,6 @@
 				891FFFFA1C49318200CF153F /* ATSketchView+UndoRedo.swift in Sources */,
 				892C3DC71C079D4A00804A8B /* ATSketchTopLayer.swift in Sources */,
 				89C210301C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */,
-				892C3DD21C07ADB400804A8B /* ATSketchView+Selection.swift in Sources */,
 				89C2102D1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */,
 				89C2102A1C3381C2001DF73B /* ATSmartBezierPath.swift in Sources */,
 				892C3DBC1C079B3900804A8B /* ATSketchView.swift in Sources */,
@@ -468,7 +461,6 @@
 				892C3DD01C07A8DE00804A8B /* ATSketchView+Events.swift in Sources */,
 				89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */,
 				891FFFF51C44964100CF153F /* ATRecognizedPathResult.swift in Sources */,
-				892C3DCC1C07A7FE00804A8B /* ATSketchView+LayerSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
