@@ -111,4 +111,16 @@ public class ATColorPicker: UIView {
 		return UIColor(hue: point.x/rect.size.width, saturation: point.y/rect.size.height, brightness: 1.0, alpha: 1.0)
 	}
 	
+	public override var description: String {
+		get {
+			return self.debugDescription
+		}
+	}
+	
+	public override var debugDescription: String{
+		get {
+			return "ATColorPicker \n" +
+			"ColorSpace: \(self.colorSpace)\n"
+		}
+	}
 }

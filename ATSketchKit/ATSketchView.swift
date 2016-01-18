@@ -86,4 +86,20 @@ public class ATSketchView: UIView {
 		
 		return image
 	}
+	
+	public override var description: String {
+		get {
+			return self.debugDescription
+		}
+	}
+	
+	public override var debugDescription: String{
+		get {
+			return "ATSmartBezierPath \n" +
+				"Current Tool: \(self.currentTool)\n" +
+				"Current Line Width: \(self.currentLineWidth)\n" +
+				"Current Color: \(self.currentColor)\n" +
+			"Recognize Drawing: \(self.recognizeDrawing)\n"
+		}
+	}
 }

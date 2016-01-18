@@ -21,4 +21,17 @@ public class ATColorSwatch: UIView {
 		color.setFill()
 		CGContextFillRect(context, rect)
 	}
+	
+	public override var description: String {
+		get {
+			return self.debugDescription
+		}
+	}
+	
+	public override var debugDescription: String{
+		get {
+			return "ATColorSwatch \n" +
+			"Color: \(self.color)\n"
+		}
+	}
 }

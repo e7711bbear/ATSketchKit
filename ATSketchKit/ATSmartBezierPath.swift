@@ -41,4 +41,18 @@ class ATSmartBezierPath: UIBezierPath {
 		self.points.append(endPoint)
 		super.addQuadCurveToPoint(endPoint, controlPoint: controlPoint)
 	}
+	
+	override var description: String {
+		get {
+			return self.debugDescription
+		}
+	}
+	
+	override var debugDescription: String{
+		get {
+			return "ATSmartBezierPath \n" +
+			"Points: \(self.points)\n" +
+			"UnistrokeTemplates: \(self.unistrokeTemplates)\n"
+		}
+	}
 }

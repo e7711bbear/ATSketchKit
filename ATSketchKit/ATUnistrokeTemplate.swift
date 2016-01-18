@@ -13,4 +13,19 @@ class ATUnistrokeTemplate: NSObject {
 	var points = [CGPoint]()
 	
 	var recognizedPathWithRect: ((rect: CGRect) -> UIBezierPath)!
+	
+	override var description: String {
+		get {
+			return self.debugDescription
+		}
+	}
+	
+	override var debugDescription: String{
+		get {
+			return "ATUnistrokeTemplate \n" +
+				"Name: \(self.name)\n" +
+			"Point: \(self.points)\n" +
+			"Clean Path Making Closure: \(self.recognizedPathWithRect)\n"
+		}
+	}
 }
