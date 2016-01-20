@@ -16,6 +16,7 @@ public class ATSketchView: UIView {
 	public enum Tools {
 		case Finger
 		case Pencil
+		case SmartPencil
 		case Eraser
 	}
 	public var currentTool: Tools = .Pencil
@@ -31,8 +32,6 @@ public class ATSketchView: UIView {
 	var lastKnownTouchPoint: CGPoint!
 	
 	var topLayer: ATSketchTopLayer!
-	
-	public var recognizeDrawing: Bool = false
 	
 	var pointsBuffer = [CGPoint]()
 	
@@ -98,8 +97,7 @@ public class ATSketchView: UIView {
 			return "ATSmartBezierPath \n" +
 				"Current Tool: \(self.currentTool)\n" +
 				"Current Line Width: \(self.currentLineWidth)\n" +
-				"Current Color: \(self.currentColor)\n" +
-			"Recognize Drawing: \(self.recognizeDrawing)\n"
+				"Current Color: \(self.currentColor)\n"
 		}
 	}
 }

@@ -19,11 +19,8 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
 		
-		self.sketchView.recognizeDrawing = false
 		self.sketchView.delegate = self
-
 		self.colorPicker.delegate = self
 	}
 
@@ -47,8 +44,8 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		self.sketchView.currentTool = .Pencil
 	}
 	
-	@IBAction func recognizePath(sender: AnyObject) {
-		self.sketchView.recognizeDrawing = !self.sketchView.recognizeDrawing
+	@IBAction func selectSmartPencil(sender: AnyObject) {
+		self.sketchView.currentTool = .SmartPencil
 	}
 	
 	@IBAction func lineWidthSliderChanged(sender: UISlider) {

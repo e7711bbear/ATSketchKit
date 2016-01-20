@@ -38,9 +38,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
                                         <rect key="frame" x="460" y="38" width="42" height="30"/>
                                         <state key="normal" title="Pencil"/>
-                                        <connections>
-                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMm-le-ZhA"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
                                         <rect key="frame" x="408" y="38" width="44" height="30"/>
@@ -51,10 +48,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
                                         <rect key="frame" x="510" y="38" width="30" height="30"/>
-                                        <state key="normal" title="[R]"/>
+                                        <state key="normal" title="SP"/>
                                         <connections>
-                                            <action selector="recognizePath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIF-vB-0xN"/>
                                             <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVA-xY-HWN"/>
+                                            <action selector="selectSmartPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SFa-jX-6Az"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mw-jW-ewR">
@@ -75,14 +72,12 @@
                                         <state key="normal" title="Color"/>
                                         <connections>
                                             <action selector="chooseColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V16-GE-Qtn"/>
-                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gh0-cA-Fle"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
                                         <rect key="frame" x="524" y="76" width="30" height="30"/>
                                         <state key="normal" title="&lt;&lt;"/>
                                         <connections>
-                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m74-ah-sfg"/>
                                             <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOk-nh-mDF"/>
                                         </connections>
                                     </button>
@@ -91,7 +86,6 @@
                                         <state key="normal" title="&gt;&gt;"/>
                                         <connections>
                                             <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzr-Ye-2nu"/>
-                                            <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBx-vB-Ss3"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-0v-d2i" customClass="ATColorPicker" customModule="ATSketchKit">

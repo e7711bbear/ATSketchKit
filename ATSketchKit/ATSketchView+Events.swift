@@ -23,7 +23,7 @@ extension ATSketchView {
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
-		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil{
 			self.pointsBuffer.append(touchPoint)
 			self.updateTopLayer()
 			self.setNeedsDisplay()
@@ -44,7 +44,7 @@ extension ATSketchView {
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
-		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil {
 			self.pointsBuffer.append(touchPoint)
 			self.updateTopLayer()
 			self.setNeedsDisplay()
@@ -52,14 +52,14 @@ extension ATSketchView {
 	}
 	
 	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil {
 			
 			self.printTemplateSource(self.pointsBuffer)
 			
 			let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
 			var pathAppended = false
 			
-			if self.recognizeDrawing && self.currentTool != .Eraser {
+			if self.currentTool == .SmartPencil {
 				let recognizedPathInfo = smartPath.recognizedPath()
 				
 				if recognizedPathInfo != nil {
@@ -116,7 +116,7 @@ extension ATSketchView {
 	}
 	
 	public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-		if self.currentTool == .Pencil || self.currentTool == .Eraser {
+		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil {
 			self.pointsBuffer.removeAll()
 		}
 	}
