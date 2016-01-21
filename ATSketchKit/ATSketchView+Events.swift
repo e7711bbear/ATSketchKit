@@ -23,7 +23,7 @@ extension ATSketchView {
 		
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
-		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil{
+		if self.currentTool == .Pencil || self.currentTool == .Eraser || self.currentTool == .SmartPencil {
 			self.pointsBuffer.append(touchPoint)
 			self.updateTopLayer()
 			self.setNeedsDisplay()

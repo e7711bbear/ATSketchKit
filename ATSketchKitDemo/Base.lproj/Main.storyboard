@@ -38,6 +38,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
                                         <rect key="frame" x="460" y="38" width="42" height="30"/>
                                         <state key="normal" title="Pencil"/>
+                                        <connections>
+                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wf9-r8-swo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
                                         <rect key="frame" x="408" y="38" width="44" height="30"/>
@@ -50,7 +53,6 @@
                                         <rect key="frame" x="510" y="38" width="30" height="30"/>
                                         <state key="normal" title="SP"/>
                                         <connections>
-                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVA-xY-HWN"/>
                                             <action selector="selectSmartPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SFa-jX-6Az"/>
                                         </connections>
                                     </button>
