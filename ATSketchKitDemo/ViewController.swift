@@ -69,9 +69,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	// MARK: - ATSketchViewDelegate
 	
 	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool {
+		NSLog("Score: \(score)")
 		if score >= 60 {
+			NSLog("ACCEPTED")
 			return true
 		}
+		NSLog("REJECTED")
 		return false
 	}
 	

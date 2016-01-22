@@ -108,7 +108,7 @@ extension ATSketchView {
 		NSLog("Copy paste the source below:")
 		var sourceCode = "\nnewTemplate.points = ["
 		for point in self.pointsBuffer {
-			sourceCode += "CGPoint(x: \(point.x - minX), y: \(point.y - minY))\n"
+			sourceCode += "CGPoint(x: \(point.x - minX), y: \(point.y - minY)),\n"
 		}
 		sourceCode += "]"
 		
