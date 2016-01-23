@@ -5,6 +5,20 @@
 //  Created by Arnaud Thiercelin on 11/26/15.
 //  Copyright © 2015 Arnaud Thiercelin. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+//  and associated documentation files (the "Software"), to deal in the Software without restriction,
+//  including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial
+//  portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+//  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+//  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import UIKit
 
@@ -14,20 +28,47 @@ public class ATSketchView: UIView {
 	public var delegate: ATSketchViewDelegate?
 	
 	public enum Tools {
+		// TODO: Implement the Finger tool
 		case Finger
 		case Pencil
 		case SmartPencil
 		case Eraser
 	}
-	public var currentTool: Tools = .Pencil
-	public var currentLineWidth: CGFloat = 1.0
-	public var currentColor: UIColor = UIColor.greenColor()
 	
+	/**
+	The tool to be used in the next drawing event. Should be set by the controller owning the sketchview
+	
+	**Finger** is currently inactive, but intended to become a moving tool
+	
+	**Pencil** is the basic tool
+	
+	**SmartPencil** is tied to the unistroke recognizer
+	
+	**Eraser** is self explanatory.
+	
+	*/
+	public var currentTool: Tools = .Pencil
+	
+	/**
+	The thickness of the line to be drawn. Should be set by the controller owning the sketchview
+	
+	Defaults to 1.0
+	*/
+	public var currentLineWidth: CGFloat = 1.0
+
+	/** 
+	The color of the line to be drawn. Should be set by the controller owning the sketchview
+	
+	Defaults to black
+	*/
+	public var currentColor: UIColor = UIColor.blackColor()
+
 	var eraserColor: UIColor {
 		get {
 			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.whiteColor()
 		}
 	}
+	
 	var touchDownPoint: CGPoint!
 	var lastKnownTouchPoint: CGPoint!
 	
@@ -47,6 +88,12 @@ public class ATSketchView: UIView {
 			// TODO: add here conditions based on the history stack
 		}
 	}
+	
+	/** 
+	Tells if the sketchview is capable of doing a redo in the future
+
+	Useful to enable undo controls on the controllers
+	*/
 	
 	public var canRedo: Bool {
 		get {
@@ -77,6 +124,10 @@ public class ATSketchView: UIView {
 		
 	}
 	
+	/**
+	Produces an image with the current visible content and returns it.
+	*/
+	
 	public func produceImage() -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)
 		self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
@@ -86,6 +137,7 @@ public class ATSketchView: UIView {
 		return image
 	}
 	
+	// MARK: - Description & DebugDescription
 	public override var description: String {
 		get {
 			return self.debugDescription
