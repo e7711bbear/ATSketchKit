@@ -1,6 +1,6 @@
 //
-//  ATSketchKitTests.swift
-//  ATSketchKitTests
+//  ATSketchViewTests.swift
+//  ATSketchViewTests
 //
 //  Created by Arnaud Thiercelin on 11/26/15.
 //  Copyright © 2015 Arnaud Thiercelin. All rights reserved.
@@ -23,16 +23,63 @@
 import XCTest
 @testable import ATSketchKit
 
-class ATSketchKitTests: XCTestCase {
-    
+class ATSketchViewTests: XCTestCase {
+	var sketchView: ATSketchView!
+	
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+
+		self.sketchView = ATSketchView()
+	}
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 	
+	func testEraserColor() {
+		self.sketchView.backgroundColor = nil
+		
+		var eraserColor = self.sketchView.eraserColor
+		
+		XCTAssertEqual(eraserColor, UIColor.whiteColor())
+		
+		self.sketchView.backgroundColor = UIColor.redColor()
+		
+		eraserColor = self.sketchView.eraserColor
+		
+		XCTAssertEqual(eraserColor, UIColor.redColor())
+	}
+	
+	func testCanUndo() {
+		//TODO: Implement
+	}
+	
+	func testCanRedo() {
+		//TODO: Implement
+	}
+	
+	func testTopLayerCreation() {
+		XCTAssertNotNil(self.sketchView.topLayer)
+	}
+	
+	func testAddShaperLayer() {
+		//TODO: Implement	
+	}
+	
+	func testMostRecentLayer() {
+		//TODO: Implement
+	}
+	
+	func testShaperLayerCount() {
+		//TODO: Implement
+	}
+	
+	func testUndo() {
+		//TODO: Implement
+	}
+	
+	func testRedo() {
+		//TODO: Implement
+	}
 }
