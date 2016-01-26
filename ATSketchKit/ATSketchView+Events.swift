@@ -86,7 +86,13 @@ extension ATSketchView {
 					}
 					
 					if recognizedPathIsAccepted {
-						self.addShapeLayer(recognizedPathInfo!.path, lineWidth: self.currentLineWidth, color: self.currentColor)
+						var finalPath = recognizedPathInfo!.path
+						
+						if let overridenPath = self.delegate?.sketchViewOverridingRecognizedPathDrawing(self) {
+							finalPath = overridenPath
+						}
+						
+						self.addShapeLayer(finalPath, lineWidth: self.currentLineWidth, color: self.currentColor)
 						self.delegate?.sketchView(self, didRecognizePathWithName: recognizedPathInfo!.template.name)
 						pathAppended = true
 					}

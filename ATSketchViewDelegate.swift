@@ -40,4 +40,12 @@ public protocol ATSketchViewDelegate {
 	- Parameter name: the template name which was recognized.
 	*/
 	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) -> Void
+	
+	/**
+	Allows the delegate to override the default clean drawing from the matching template.
+	
+	- Parameter sketchView: the view in which the drawing was performed
+	- Returns: nil if you wish not to override the drawing, otherwise a clean UIBezierPath
+	*/
+	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath?
 }
