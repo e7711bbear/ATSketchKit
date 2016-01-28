@@ -1,5 +1,5 @@
 //
-//  ControlPanelView.swift
+//  ATControlPanelView.swift
 //  ATSketchKit
 //
 //  Created by Arnaud Thiercelin on 1/12/16.
@@ -22,7 +22,7 @@
 
 import UIKit
 
-class ControlPanelView: UIView {
+class ATControlPanelView: UIView {
 	let collapsedDistance: CGFloat = 36.0
 	let expandedDistance: CGFloat = 250.0
 	

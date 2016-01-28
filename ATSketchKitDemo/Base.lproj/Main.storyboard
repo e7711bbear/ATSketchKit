@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ATControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="350" width="600" height="250"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
@@ -35,23 +35,23 @@
                                             <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
-                                        <rect key="frame" x="460" y="38" width="42" height="30"/>
-                                        <state key="normal" title="Pencil"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
+                                        <rect key="frame" x="459" y="30" width="45" height="45"/>
+                                        <state key="normal" image="PencilTool"/>
                                         <connections>
                                             <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wf9-r8-swo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
-                                        <rect key="frame" x="408" y="38" width="44" height="30"/>
-                                        <state key="normal" title="Finger"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
+                                        <rect key="frame" x="408" y="30" width="45" height="45"/>
+                                        <state key="normal" image="FingerTool"/>
                                         <connections>
                                             <action selector="selectFinger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QUA-IR-NcK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
-                                        <rect key="frame" x="510" y="38" width="30" height="30"/>
-                                        <state key="normal" title="SP"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
+                                        <rect key="frame" x="503" y="30" width="45" height="45"/>
+                                        <state key="normal" image="SmartPencilTool"/>
                                         <connections>
                                             <action selector="selectSmartPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SFa-jX-6Az"/>
                                         </connections>
@@ -62,28 +62,27 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
-                                        <rect key="frame" x="548" y="38" width="44" height="30"/>
-                                        <state key="normal" title="Eraser"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
+                                        <rect key="frame" x="548" y="30" width="45" height="45"/>
+                                        <state key="normal" image="EraserTool"/>
                                         <connections>
                                             <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jns-xL-v2i"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rU-uQ-z8G">
-                                        <rect key="frame" x="363" y="38" width="37" height="30"/>
-                                        <state key="normal" title="Color"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rU-uQ-z8G" customClass="ATColorPickerButton" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                        <rect key="frame" x="355" y="30" width="45" height="45"/>
                                         <connections>
                                             <action selector="chooseColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V16-GE-Qtn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
                                         <rect key="frame" x="524" y="76" width="30" height="30"/>
                                         <state key="normal" title="&lt;&lt;"/>
                                         <connections>
                                             <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOk-nh-mDF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-mJ-v6G">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-mJ-v6G">
                                         <rect key="frame" x="562" y="76" width="30" height="30"/>
                                         <state key="normal" title="&gt;&gt;"/>
                                         <connections>
@@ -102,6 +101,12 @@
                                             <constraint firstAttribute="height" constant="63" id="0qg-mP-Axz"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-MS-3Jh" customClass="ATLineWidthPickerButton" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                        <rect key="frame" x="459" y="134" width="45" height="45"/>
+                                        <connections>
+                                            <action selector="chooseColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxf-3h-WYB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -168,4 +173,10 @@
             <point key="canvasLocation" x="397" y="451"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EraserTool" width="45" height="45"/>
+        <image name="FingerTool" width="45" height="45"/>
+        <image name="PencilTool" width="45" height="45"/>
+        <image name="SmartPencilTool" width="45" height="45"/>
+    </resources>
 </document>

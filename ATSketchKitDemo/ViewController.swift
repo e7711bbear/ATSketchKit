@@ -26,7 +26,7 @@ import ATSketchKit
 class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDelegate {
 
 	@IBOutlet weak var sketchView: ATSketchView!
-	@IBOutlet weak var controlPanel: ControlPanelView!
+	@IBOutlet weak var controlPanel: ATControlPanelView!
 	
 	@IBOutlet weak var colorPicker: ATColorPicker!
 	@IBOutlet weak var colorSwatch: ATColorSwatch!
@@ -109,5 +109,10 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		self.colorSwatch.setNeedsDisplay()
 		self.sketchView.currentColor = color
 	}
+	
+	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath? {
+		return nil
+	}
+
 }
 
