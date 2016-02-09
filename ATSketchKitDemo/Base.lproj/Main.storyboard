@@ -88,7 +88,7 @@
                                         <rect key="frame" x="8" y="38" width="319" height="202"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-MS-3Jh" customClass="ATLineWidthPickerButton" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-MS-3Jh" customClass="ATBrushButton" customModule="ATSketchKitDemo" customModuleProvider="target">
                                         <rect key="frame" x="335" y="38" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zTh-MS-3Jh" secondAttribute="height" multiplier="1:1" id="a8D-DJ-JAj"/>
@@ -168,9 +168,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="brushButton" destination="zTh-MS-3Jh" id="crm-9o-bin"/>
                         <outlet property="colorPicker" destination="Hhf-0v-d2i" id="LIj-ud-5V0"/>
                         <outlet property="controlPanel" destination="KiD-Ih-4KG" id="JeB-3n-Th4"/>
-                        <outlet property="lineWidthIcon" destination="zTh-MS-3Jh" id="TXc-0g-geY"/>
+                        <outlet property="lineWidthSlider" destination="b1d-Uq-32R" id="Sbb-Km-xnS"/>
                         <outlet property="sketchView" destination="T2X-jH-LRF" id="bdJ-dU-8jj"/>
                     </connections>
                 </viewController>

@@ -35,8 +35,7 @@
 		89C2102D1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */; };
 		89C210301C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */; };
 		89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */; };
-		89F0715C1C5A57A300E75780 /* ATColorPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0715A1C5A57A300E75780 /* ATColorPickerButton.swift */; };
-		89F0715D1C5A57A300E75780 /* ATLineWidthPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0715B1C5A57A300E75780 /* ATLineWidthPickerButton.swift */; };
+		89F0715D1C5A57A300E75780 /* ATBrushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0715B1C5A57A300E75780 /* ATBrushButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +111,7 @@
 		89C2102C1C3381D7001DF73B /* ATSmartBezierPath+Smoothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+Smoothing.swift"; sourceTree = "<group>"; };
 		89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+UnistrokeRecognizer.swift"; sourceTree = "<group>"; };
 		89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUnistrokeTemplate.swift; sourceTree = "<group>"; };
-		89F0715A1C5A57A300E75780 /* ATColorPickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATColorPickerButton.swift; sourceTree = "<group>"; };
-		89F0715B1C5A57A300E75780 /* ATLineWidthPickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATLineWidthPickerButton.swift; sourceTree = "<group>"; };
+		89F0715B1C5A57A300E75780 /* ATBrushButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATBrushButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +151,7 @@
 		891FFFFB1C4B53B200CF153F /* Custom UI Objects */ = {
 			isa = PBXGroup;
 			children = (
-				89F0715A1C5A57A300E75780 /* ATColorPickerButton.swift */,
-				89F0715B1C5A57A300E75780 /* ATLineWidthPickerButton.swift */,
+				89F0715B1C5A57A300E75780 /* ATBrushButton.swift */,
 				891FFFF71C45E69000CF153F /* ATControlPanelView.swift */,
 			);
 			name = "Custom UI Objects";
@@ -504,9 +501,8 @@
 			files = (
 				891FFFF81C45E69000CF153F /* ATControlPanelView.swift in Sources */,
 				89C210051C2CDF5D001DF73B /* ViewController.swift in Sources */,
-				89F0715C1C5A57A300E75780 /* ATColorPickerButton.swift in Sources */,
 				89C210031C2CDF5D001DF73B /* AppDelegate.swift in Sources */,
-				89F0715D1C5A57A300E75780 /* ATLineWidthPickerButton.swift in Sources */,
+				89F0715D1C5A57A300E75780 /* ATBrushButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

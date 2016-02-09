@@ -26,24 +26,31 @@ import ATSketchKit
 class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDelegate {
 
 	@IBOutlet weak var sketchView: ATSketchView!
-	@IBOutlet weak var controlPanel: ATControlPanelView!
-	
-	@IBOutlet weak var colorPicker: ATColorPicker!
-	
-    @IBOutlet weak var lineWidthIcon: ATLineWidthPickerButton!
     
+	@IBOutlet weak var controlPanel: ATControlPanelView!
+	@IBOutlet weak var colorPicker: ATColorPicker!
+    @IBOutlet weak var lineWidthSlider: UISlider!
+    @IBOutlet weak var brushButton: ATBrushButton!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		self.sketchView.delegate = self
 		self.colorPicker.delegate = self
+        
+        configureControls()
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-
+    
+    func configureControls() {
+        self.brushButton.selectedColor = self.sketchView.currentColor
+        self.brushButton.selectedWidth = self.sketchView.currentLineWidth
+        self.lineWidthSlider.value = Float(self.sketchView.currentLineWidth)
+    }
 
 	// MARK: Tools controls
 	
@@ -67,11 +74,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		let sliderValue = sender.value
 		
 		self.sketchView.currentLineWidth = CGFloat(sliderValue)
-        self.lineWidthIcon.selectedWidth = CGFloat(sliderValue)
-	}
-	
-	@IBAction func chooseColor(sender: UIButton) {
-		
+        self.brushButton.selectedWidth = CGFloat(sliderValue)
 	}
 	
 	@IBAction func undo(sender: UIButton) {
@@ -102,14 +105,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	
 	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor) {
 		self.sketchView.currentColor = color
-        self.lineWidthIcon.selectedColor = color
-        self.lineWidthIcon.setNeedsDisplay()
+        self.brushButton.selectedColor = color
 	}
 	
 	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor) {
 		self.sketchView.currentColor = color
-        self.lineWidthIcon.selectedColor = color
-        self.lineWidthIcon.setNeedsDisplay()
+        self.brushButton.selectedColor = color
 	}
 	
 	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath? {

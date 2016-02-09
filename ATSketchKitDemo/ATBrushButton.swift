@@ -1,5 +1,5 @@
 //
-//  ATLineWidthPickerButton.swift
+//  ATBrushButton.swift
 //  ATSketchKit
 //
 //  Created by Arnaud Thiercelin on 1/26/16.
@@ -23,7 +23,7 @@
 import UIKit
 
 @IBDesignable
-class ATLineWidthPickerButton: UIButton {
+class ATBrushButton: UIButton {
 
 	var _selectedWidth = CGFloat(1.0)
 	@IBInspectable var selectedWidth: CGFloat {
@@ -35,8 +35,17 @@ class ATLineWidthPickerButton: UIButton {
 			self.setNeedsDisplay()
 		}
 	}
-
-	@IBInspectable var selectedColor = UIColor.blueColor()
+    
+    var _selectedColor = UIColor.blueColor()
+    @IBInspectable var selectedColor: UIColor {
+        get {
+            return _selectedColor
+        }
+        set {
+            _selectedColor = newValue
+            self.setNeedsDisplay()
+        }
+    }
 	
 	override func drawRect(rect: CGRect) {
 		
