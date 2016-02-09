@@ -26,16 +26,6 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ATControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="350" width="600" height="250"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
-                                        <rect key="frame" x="342" y="203" width="252" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="iRL-GR-M3t"/>
-                                            <constraint firstAttribute="width" constant="248" id="wFm-tM-3V9"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
-                                        </connections>
-                                    </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
                                         <rect key="frame" x="441" y="37" width="45" height="45"/>
                                         <state key="normal" image="PencilTool"/>
@@ -102,6 +92,16 @@
                                             <action selector="chooseColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxf-3h-WYB"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
+                                        <rect key="frame" x="342" y="203" width="252" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="iRL-GR-M3t"/>
+                                            <constraint firstAttribute="width" constant="248" id="wFm-tM-3V9"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="lineWidthSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eiL-KD-QdI"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>

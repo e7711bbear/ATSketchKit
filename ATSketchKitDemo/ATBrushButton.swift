@@ -48,8 +48,11 @@ class ATBrushButton: UIButton {
     }
 	
 	override func drawRect(rect: CGRect) {
-		
-		let colorPath = UIBezierPath(ovalInRect: rect.insetBy(dx: rect.width/2 - self.selectedWidth, dy: rect.height/2 - self.selectedWidth))
+        let colorPath = UIBezierPath(arcCenter: CGPoint(x: rect.width/2, y: rect.height/2),
+            radius: self.selectedWidth/2,
+            startAngle: 0,
+            endAngle: 7,
+            clockwise: true)
 		self.selectedColor.setFill()
 		colorPath.fill()
 		
