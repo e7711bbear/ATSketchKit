@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mw-jW-ewR">
-                                        <rect key="frame" x="283" y="8" width="33.5" height="20.5"/>
+                                        <rect key="frame" x="283" y="8" width="34" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -89,8 +89,8 @@
                                             <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzr-Ye-2nu"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-0v-d2i" customClass="ATColorPicker" customModule="ATSketchKit">
-                                        <rect key="frame" x="8" y="38" width="328" height="201.5"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-0v-d2i" customClass="ATColorPicker" customModule="ATSketchKit">
+                                        <rect key="frame" x="8" y="38" width="328" height="202"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vk-4z-NSy" customClass="ATColorSwatch" customModule="ATSketchKit">
