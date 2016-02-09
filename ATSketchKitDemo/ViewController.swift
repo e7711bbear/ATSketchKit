@@ -29,8 +29,9 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	@IBOutlet weak var controlPanel: ATControlPanelView!
 	
 	@IBOutlet weak var colorPicker: ATColorPicker!
-	@IBOutlet weak var colorSwatch: ATColorSwatch!
 	
+    @IBOutlet weak var lineWidthIcon: ATLineWidthPickerButton!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -66,6 +67,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		let sliderValue = sender.value
 		
 		self.sketchView.currentLineWidth = CGFloat(sliderValue)
+        self.lineWidthIcon.selectedWidth = CGFloat(sliderValue)
 	}
 	
 	@IBAction func chooseColor(sender: UIButton) {
@@ -99,15 +101,15 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	//MARK: - ATColorPickerDelegate
 	
 	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor) {
-		self.colorSwatch.color = color
-		self.colorSwatch.setNeedsDisplay()
 		self.sketchView.currentColor = color
+        self.lineWidthIcon.selectedColor = color
+        self.lineWidthIcon.setNeedsDisplay()
 	}
 	
 	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor) {
-		self.colorSwatch.color = color
-		self.colorSwatch.setNeedsDisplay()
 		self.sketchView.currentColor = color
+        self.lineWidthIcon.selectedColor = color
+        self.lineWidthIcon.setNeedsDisplay()
 	}
 	
 	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath? {
