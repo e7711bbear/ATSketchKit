@@ -24,7 +24,8 @@ import UIKit
 
 class ATControlPanelView: UIView {
 	let collapsedDistance: CGFloat = 36.0
-	let expandedDistance: CGFloat = 250.0
+	let previewDistance: CGFloat = 90.0
+    let expandedDistance: CGFloat = 250.0
 	
 	@IBOutlet weak var handleLabel: UILabel!
 	@IBOutlet weak var positionConstraint: NSLayoutConstraint!
@@ -44,16 +45,32 @@ class ATControlPanelView: UIView {
 		let currentPositionConstant = self.positionConstraint.constant
 		
 		if currentPositionConstant == self.collapsedDistance {
-			self.expand()
-		} else if currentPositionConstant == self.expandedDistance {
+			self.preview()
+		} else if currentPositionConstant == self.previewDistance || currentPositionConstant == self.expandedDistance {
 			self.collapse()
-		}
+        }
 		// This case here is for smooth drag n drop, split view style. To be implemented AT 01-2016
-		
 	}
+    
+    func toggleShowDetails() {
+        let currentPositionConstant = self.positionConstraint.constant
+        
+        if currentPositionConstant == self.expandedDistance {
+            self.preview()
+        } else {
+            self.expand()
+        }
+    }
+    
+    func expand() {
+        self.positionConstraint.constant = self.expandedDistance
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.layoutIfNeeded()
+        }
+    }
 	
-	func expand() {
-		self.positionConstraint.constant = self.expandedDistance
+	func preview() {
+		self.positionConstraint.constant = self.previewDistance
 		UIView.animateWithDuration(0.3) { () -> Void in
 			self.layoutIfNeeded()
 		}

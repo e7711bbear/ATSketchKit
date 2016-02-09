@@ -53,7 +53,11 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     }
 
 	// MARK: Tools controls
-	
+    
+    @IBAction func selectBrush(sender: AnyObject) {
+        self.controlPanel.toggleShowDetails()
+    }
+    
 	@IBAction func selectFinger(sender: AnyObject) {
 		self.sketchView.currentTool = .Finger
 	}
