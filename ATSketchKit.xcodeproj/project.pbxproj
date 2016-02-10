@@ -384,6 +384,7 @@
 					};
 					89C20FFF1C2CDF5D001DF73B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6NMM9JPECT;
 					};
 					89C210121C2CDF5D001DF73B = {
 						CreatedOnToolsVersion = 7.2;
@@ -702,12 +703,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ATSketchKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arnaudthiercelin.sketchalicious-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -715,12 +717,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ATSketchKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arnaudthiercelin.sketchalicious-ios";
+				PRODUCT_NAME = Sketchalicious;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
