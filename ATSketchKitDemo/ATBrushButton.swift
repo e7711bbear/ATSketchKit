@@ -1,5 +1,5 @@
 //
-//  ATLineWidthPickerButton.swift
+//  ATBrushButton.swift
 //  ATSketchKit
 //
 //  Created by Arnaud Thiercelin on 1/26/16.
@@ -23,7 +23,7 @@
 import UIKit
 
 @IBDesignable
-class ATLineWidthPickerButton: UIButton {
+class ATBrushButton: UIButton {
 
 	var _selectedWidth = CGFloat(1.0)
 	@IBInspectable var selectedWidth: CGFloat {
@@ -35,12 +35,24 @@ class ATLineWidthPickerButton: UIButton {
 			self.setNeedsDisplay()
 		}
 	}
-
-	@IBInspectable var selectedColor = UIColor.blueColor()
+    
+    var _selectedColor = UIColor.blueColor()
+    @IBInspectable var selectedColor: UIColor {
+        get {
+            return _selectedColor
+        }
+        set {
+            _selectedColor = newValue
+            self.setNeedsDisplay()
+        }
+    }
 	
 	override func drawRect(rect: CGRect) {
-		
-		let colorPath = UIBezierPath(ovalInRect: rect.insetBy(dx: rect.width/2 - self.selectedWidth, dy: rect.height/2 - self.selectedWidth))
+        let colorPath = UIBezierPath(arcCenter: CGPoint(x: rect.width/2, y: rect.height/2),
+            radius: self.selectedWidth/2,
+            startAngle: 0,
+            endAngle: 7,
+            clockwise: true)
 		self.selectedColor.setFill()
 		colorPath.fill()
 		
