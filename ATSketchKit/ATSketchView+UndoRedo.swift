@@ -38,10 +38,13 @@ extension ATSketchView {
 		let mostRecentUndoLayer = self.history.last
 		
 		if mostRecentUndoLayer != nil {
-			self.layer.addSublayer(mostRecentUndoLayer!)
+      self.layer.insertSublayer(mostRecentUndoLayer!, below: self.topLayer)
 			self.history.removeLast()
 		}
 		self.setNeedsDisplay()
 	}
-	
+
+  public func clearRedo() {
+    self.history.removeAll()
+  }
 }
