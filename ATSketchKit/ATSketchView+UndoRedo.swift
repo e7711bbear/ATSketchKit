@@ -32,6 +32,7 @@ extension ATSketchView {
 			mostRecentLayer!.removeFromSuperlayer()
 		}
 		self.setNeedsDisplay()
+    self.delegate?.sketchViewUndoRedoUpdated(self)
 	}
 	
 	public func redo() {
@@ -42,6 +43,7 @@ extension ATSketchView {
 			self.history.removeLast()
 		}
 		self.setNeedsDisplay()
+    self.delegate?.sketchViewUndoRedoUpdated(self)
 	}
 
   public func clearRedo() {

@@ -229,7 +229,9 @@
                         <outlet property="colorPicker" destination="Hhf-0v-d2i" id="LIj-ud-5V0"/>
                         <outlet property="controlPanel" destination="KiD-Ih-4KG" id="JeB-3n-Th4"/>
                         <outlet property="lineWidthSlider" destination="b1d-Uq-32R" id="Sbb-Km-xnS"/>
+                        <outlet property="redoButton" destination="GAB-mJ-v6G" id="19s-66-c73"/>
                         <outlet property="sketchView" destination="T2X-jH-LRF" id="bdJ-dU-8jj"/>
+                        <outlet property="undoButton" destination="d3Q-af-LJ6" id="NOB-Lf-cDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
