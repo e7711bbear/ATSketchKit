@@ -43,6 +43,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		self.sketchView.delegate = self
 		self.colorPicker.delegate = self
         
+        configureSketchView()
         configureControls()
 	}
 
@@ -50,6 +51,10 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    
+    func configureSketchView() {
+        self.sketchView.currentLineWidth = CGFloat(5.0)
+    }
     
     func configureControls() {
         self.brushButton.selectedColor = self.sketchView.currentColor
