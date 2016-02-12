@@ -77,6 +77,19 @@ extension ATSketchView {
 		
 		self.topLayer.path = smoothPath.CGPath
 	}
+    
+    /**
+    Removes all layers and resets the top layer.
+    This will keep clear the existing canvas.
+    */
+    public func clearAllLayers() {
+        for layer in self.layer.sublayers! {
+            if layer is ATShapeLayer {
+                layer.removeFromSuperlayer()
+            }
+        }
+        clearTopLayer()
+    }
 	
 	func clearTopLayer() {
 		self.topLayer.path = nil

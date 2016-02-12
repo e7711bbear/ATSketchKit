@@ -50,6 +50,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         self.brushButton.selectedColor = self.sketchView.currentColor
         self.brushButton.selectedWidth = self.sketchView.currentLineWidth
         self.lineWidthSlider.value = Float(self.sketchView.currentLineWidth)
+        
+        let newButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "newCanvas")
+        self.navigationItem.leftBarButtonItem = newButton
+        
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
+        self.navigationItem.rightBarButtonItem = shareButton
     }
 
 	// MARK: Tools controls
@@ -88,6 +94,15 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	@IBAction func redo(sender: UIButton) {
 		self.sketchView.redo()
 	}
+    
+    func newCanvas() {
+        self.sketchView.clearAllLayers()
+    }
+    
+    func share() {
+        let shareController = UIActivityViewController(activityItems: [self.sketchView.produceImage()], applicationActivities: nil)
+        self.presentViewController(shareController, animated: true, completion: nil)
+    }
 	
 	// MARK: - ATSketchViewDelegate
 	
