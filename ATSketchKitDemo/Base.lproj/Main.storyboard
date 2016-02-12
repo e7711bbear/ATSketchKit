@@ -228,8 +228,12 @@
                         <outlet property="brushButton" destination="zTh-MS-3Jh" id="crm-9o-bin"/>
                         <outlet property="colorPicker" destination="Hhf-0v-d2i" id="LIj-ud-5V0"/>
                         <outlet property="controlPanel" destination="KiD-Ih-4KG" id="JeB-3n-Th4"/>
+                        <outlet property="eraserButton" destination="OAe-SK-NsH" id="X0z-KV-Br5"/>
+                        <outlet property="fingerButton" destination="e0Y-PH-apW" id="fUs-hX-eaq"/>
                         <outlet property="lineWidthSlider" destination="b1d-Uq-32R" id="Sbb-Km-xnS"/>
+                        <outlet property="pencilButton" destination="Ks2-lU-HCw" id="GGn-em-RyZ"/>
                         <outlet property="sketchView" destination="T2X-jH-LRF" id="bdJ-dU-8jj"/>
+                        <outlet property="smartPencilButton" destination="bv4-Pr-j2f" id="qqe-Dk-CGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

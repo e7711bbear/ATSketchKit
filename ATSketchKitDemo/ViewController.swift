@@ -32,6 +32,11 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     @IBOutlet weak var lineWidthSlider: UISlider!
     @IBOutlet weak var brushButton: ATBrushButton!
 
+    @IBOutlet weak var fingerButton: UIButton!
+    @IBOutlet weak var pencilButton: UIButton!
+    @IBOutlet weak var smartPencilButton: UIButton!
+    @IBOutlet weak var eraserButton: UIButton!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -52,7 +57,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         self.lineWidthSlider.value = Float(self.sketchView.currentLineWidth)
     }
 
-	// MARK: Tools controls
+	// MARK: - Tool Controls
     
     @IBAction func selectBrush(sender: AnyObject) {
         self.controlPanel.toggleShowDetails()
@@ -60,18 +65,30 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     
 	@IBAction func selectFinger(sender: AnyObject) {
 		self.sketchView.currentTool = .Finger
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.highlightButtons(Tools.Finger)
+        }
 	}
 
 	@IBAction func selectEraser(sender: AnyObject) {
 		self.sketchView.currentTool = .Eraser
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.highlightButtons(Tools.Eraser)
+        }
 	}
 	
 	@IBAction func selectPencil(sender: AnyObject) {
 		self.sketchView.currentTool = .Pencil
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.highlightButtons(Tools.Pencil)
+        }
 	}
 	
 	@IBAction func selectSmartPencil(sender: AnyObject) {
 		self.sketchView.currentTool = .SmartPencil
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.highlightButtons(Tools.SmartPencil)
+        }
 	}
 	
 	@IBAction func lineWidthSliderChanged(sender: UISlider) {
@@ -103,7 +120,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	
 	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) {
 		// We don't want to do anything here.
-	}
+    }
 	
 	//MARK: - ATColorPickerDelegate
 	
@@ -121,5 +138,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		return nil
 	}
 
+    // MARK: - UI Updates
+    func highlightButtons(tool: Tools) {
+        fingerButton.highlighted = (tool == Tools.Finger)
+        pencilButton.highlighted = (tool == Tools.Pencil)
+        smartPencilButton.highlighted = (tool == Tools.SmartPencil)
+        eraserButton.highlighted = (tool == Tools.Eraser)
+    }
 }
 
