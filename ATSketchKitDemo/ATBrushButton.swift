@@ -58,7 +58,7 @@ class ATBrushButton: UIButton {
 		
 		let borderPath = UIBezierPath(ovalInRect: rect.insetBy(dx: 1.0, dy: 1.0))
 		borderPath.lineWidth = 2.0
-		UIColor.whiteColor().setStroke()
+		UIColor.lightGrayColor().setStroke()
 		
 		borderPath.stroke()
 	}
