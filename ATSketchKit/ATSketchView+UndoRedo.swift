@@ -32,16 +32,21 @@ extension ATSketchView {
 			mostRecentLayer!.removeFromSuperlayer()
 		}
 		self.setNeedsDisplay()
+    self.delegate?.sketchViewUpdatedUndoRedoState(self)
 	}
 	
 	public func redo() {
 		let mostRecentUndoLayer = self.history.last
 		
 		if mostRecentUndoLayer != nil {
-			self.layer.addSublayer(mostRecentUndoLayer!)
+      self.layer.insertSublayer(mostRecentUndoLayer!, below: self.topLayer)
 			self.history.removeLast()
 		}
 		self.setNeedsDisplay()
+    self.delegate?.sketchViewUpdatedUndoRedoState(self)
 	}
-	
+
+  public func flushRedoHistory() {
+    self.history.removeAll()
+  }
 }
