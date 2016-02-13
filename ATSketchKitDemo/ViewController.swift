@@ -110,7 +110,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		// We don't want to do anything here.
 	}
 
-  func sketchViewUndoRedoUpdated(sketchView: ATSketchView) {
+  func sketchViewUpdatedUndoRedoState(sketchView: ATSketchView) {
     undoButton.enabled = sketchView.canUndo
    redoButton.enabled = sketchView.canRedo
   }

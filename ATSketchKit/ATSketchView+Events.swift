@@ -30,7 +30,7 @@ extension ATSketchView {
 			return
 		}
 
-    self.clearRedo()
+    self.flushRedoHistory()
 		
 		if event != nil {
 		}

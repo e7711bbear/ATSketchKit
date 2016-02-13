@@ -33,7 +33,7 @@ extension ATSketchView {
 		newShapeLayer.fillColor = nil
 		newShapeLayer.contentsScale = UIScreen.mainScreen().scale
 		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
-    self.delegate?.sketchViewUndoRedoUpdated(self)
+    self.delegate?.sketchViewUpdatedUndoRedoState(self)
 		newShapeLayer.setNeedsDisplay()
 	}
 	

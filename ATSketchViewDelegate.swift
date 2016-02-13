@@ -54,5 +54,5 @@ public protocol ATSketchViewDelegate {
 
   - Parameter sketchView: the view in which the undo/redo states were updated.
   */
-  func sketchViewUndoRedoUpdated(sketchView: ATSketchView)
+  func sketchViewUpdatedUndoRedoState(sketchView: ATSketchView)
 }
