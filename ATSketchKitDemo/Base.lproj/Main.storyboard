@@ -249,10 +249,9 @@
                         <outlet property="fingerButton" destination="e0Y-PH-apW" id="fUs-hX-eaq"/>
                         <outlet property="lineWidthSlider" destination="b1d-Uq-32R" id="Sbb-Km-xnS"/>
                         <outlet property="pencilButton" destination="Ks2-lU-HCw" id="GGn-em-RyZ"/>
-                        <outlet property="sketchView" destination="T2X-jH-LRF" id="bdJ-dU-8jj"/>
-                        <outlet property="smartPencilButton" destination="bv4-Pr-j2f" id="qqe-Dk-CGg"/>
                         <outlet property="redoButton" destination="GAB-mJ-v6G" id="19s-66-c73"/>
                         <outlet property="sketchView" destination="T2X-jH-LRF" id="bdJ-dU-8jj"/>
+                        <outlet property="smartPencilButton" destination="bv4-Pr-j2f" id="qqe-Dk-CGg"/>
                         <outlet property="undoButton" destination="d3Q-af-LJ6" id="NOB-Lf-cDw"/>
                     </connections>
                 </viewController>
