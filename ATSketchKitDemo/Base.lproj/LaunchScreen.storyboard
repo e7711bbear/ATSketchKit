@@ -16,7 +16,31 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectedFingerTool" translatesAutoresizingMaskIntoConstraints="NO" id="U7v-vI-RKS">
+                                <rect key="frame" x="198" y="277" width="45" height="45"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectedSmartPencilTool" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-2t-bYA">
+                                <rect key="frame" x="304" y="277" width="45" height="45"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectedPencilTool" translatesAutoresizingMaskIntoConstraints="NO" id="UGl-zl-g8k">
+                                <rect key="frame" x="251" y="277" width="45" height="45"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectedEraserTool" translatesAutoresizingMaskIntoConstraints="NO" id="c3J-CB-2rx">
+                                <rect key="frame" x="357" y="277" width="45" height="45"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UGl-zl-g8k" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CZ1-LA-VDc"/>
+                            <constraint firstItem="RgS-2t-bYA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MpQ-Gi-Dnf"/>
+                            <constraint firstItem="c3J-CB-2rx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aoR-6X-Flr"/>
+                            <constraint firstItem="UGl-zl-g8k" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-26.5" id="dkB-tB-N5i"/>
+                            <constraint firstItem="RgS-2t-bYA" firstAttribute="leading" secondItem="UGl-zl-g8k" secondAttribute="trailing" constant="8" id="gjA-gI-1YD"/>
+                            <constraint firstItem="UGl-zl-g8k" firstAttribute="leading" secondItem="U7v-vI-RKS" secondAttribute="trailing" constant="8" id="hWI-Mf-IzK"/>
+                            <constraint firstItem="c3J-CB-2rx" firstAttribute="leading" secondItem="RgS-2t-bYA" secondAttribute="trailing" constant="8" id="j59-uY-QKO"/>
+                            <constraint firstItem="U7v-vI-RKS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tfd-6l-mK3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +48,10 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SelectedEraserTool" width="45" height="45"/>
+        <image name="SelectedFingerTool" width="45" height="45"/>
+        <image name="SelectedPencilTool" width="45" height="45"/>
+        <image name="SelectedSmartPencilTool" width="45" height="45"/>
+    </resources>
 </document>
