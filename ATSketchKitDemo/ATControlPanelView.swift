@@ -82,4 +82,17 @@ class ATControlPanelView: UIView {
 			self.layoutIfNeeded()
 		}
 	}
+    
+    // MARK: - Custom Drawing
+    
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        // Draw line to match navigation bar
+        let path = UIBezierPath()
+        path.moveToPoint(CGPoint(x: CGRectGetMinX(rect), y: CGRectGetMinY(rect)))
+        path.addLineToPoint(CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMinY(rect)))
+        UIColor.lightGrayColor().set()
+        path.stroke()
+    }
 }
