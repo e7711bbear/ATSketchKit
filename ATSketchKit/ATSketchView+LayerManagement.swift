@@ -90,6 +90,8 @@ extension ATSketchView {
             }
         }
         clearTopLayer()
+        flushRedoHistory()
+        self.delegate?.sketchViewUpdatedUndoRedoState(self)
     }
 	
 	func clearTopLayer() {
