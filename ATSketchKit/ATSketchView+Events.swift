@@ -29,6 +29,8 @@ extension ATSketchView {
 			NSLog("No touches")
 			return
 		}
+
+    self.flushRedoHistory()
 		
 		if event != nil {
 		}

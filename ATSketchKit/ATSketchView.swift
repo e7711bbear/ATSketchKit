@@ -84,8 +84,7 @@ public class ATSketchView: UIView {
 	
 	public var canUndo: Bool {
 		get {
-			return allowUndoRedo
-			// TODO: add here conditions based on the history stack
+      return allowUndoRedo && self.layer.sublayers?.count > 1
 		}
 	}
 	

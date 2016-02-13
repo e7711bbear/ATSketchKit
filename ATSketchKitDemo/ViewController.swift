@@ -26,11 +26,14 @@ import ATSketchKit
 class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDelegate {
 
 	@IBOutlet weak var sketchView: ATSketchView!
-    
+
 	@IBOutlet weak var controlPanel: ATControlPanelView!
 	@IBOutlet weak var colorPicker: ATColorPicker!
-    @IBOutlet weak var lineWidthSlider: UISlider!
-    @IBOutlet weak var brushButton: ATBrushButton!
+  @IBOutlet weak var lineWidthSlider: UISlider!
+  @IBOutlet weak var brushButton: ATBrushButton!
+
+  @IBOutlet weak var undoButton: UIButton!
+  @IBOutlet weak var redoButton: UIButton!
 
     @IBOutlet weak var fingerButton: UIButton!
     @IBOutlet weak var pencilButton: UIButton!
@@ -60,6 +63,8 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         self.brushButton.selectedColor = self.sketchView.currentColor
         self.brushButton.selectedWidth = self.sketchView.currentLineWidth
         self.lineWidthSlider.value = Float(self.sketchView.currentLineWidth)
+        undoButton.enabled = sketchView.canUndo
+        redoButton.enabled = sketchView.canRedo
     }
 
 	// MARK: - Tool Controls
@@ -125,7 +130,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	
 	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) {
 		// We don't want to do anything here.
-    }
+	}
+
+  func sketchViewUpdatedUndoRedoState(sketchView: ATSketchView) {
+    undoButton.enabled = sketchView.canUndo
+   redoButton.enabled = sketchView.canRedo
+  }
 	
 	//MARK: - ATColorPickerDelegate
 	
