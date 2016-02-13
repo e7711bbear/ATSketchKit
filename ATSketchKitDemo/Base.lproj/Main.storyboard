@@ -60,6 +60,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
                                         <rect key="frame" x="278" y="37" width="45" height="45"/>
                                         <state key="normal" image="PencilTool"/>
+                                        <state key="selected" image="SelectedPencilTool"/>
                                         <connections>
                                             <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wf9-r8-swo"/>
                                         </connections>
@@ -67,6 +68,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
                                         <rect key="frame" x="225" y="37" width="45" height="45"/>
                                         <state key="normal" image="FingerTool"/>
+                                        <state key="selected" image="SelectedFingerTool"/>
                                         <connections>
                                             <action selector="selectFinger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QUA-IR-NcK"/>
                                         </connections>
@@ -74,6 +76,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
                                         <rect key="frame" x="331" y="37" width="45" height="45"/>
                                         <state key="normal" image="SmartPencilTool"/>
+                                        <state key="selected" image="SelectedSmartPencilTool"/>
                                         <connections>
                                             <action selector="selectSmartPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SFa-jX-6Az"/>
                                         </connections>
@@ -87,6 +90,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
                                         <rect key="frame" x="384" y="37" width="45" height="45"/>
                                         <state key="normal" image="EraserTool"/>
+                                        <state key="selected" image="SelectedEraserTool"/>
                                         <connections>
                                             <action selector="selectEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jns-xL-v2i"/>
                                         </connections>
@@ -264,6 +268,10 @@
         <image name="EraserTool" width="45" height="45"/>
         <image name="FingerTool" width="45" height="45"/>
         <image name="PencilTool" width="45" height="45"/>
+        <image name="SelectedEraserTool" width="45" height="45"/>
+        <image name="SelectedFingerTool" width="45" height="45"/>
+        <image name="SelectedPencilTool" width="45" height="45"/>
+        <image name="SelectedSmartPencilTool" width="45" height="45"/>
         <image name="SmartPencilTool" width="45" height="45"/>
     </resources>
 </document>

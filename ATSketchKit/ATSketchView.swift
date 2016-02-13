@@ -22,18 +22,18 @@
 
 import UIKit
 
-public enum Tools {
-    // TODO: Implement the Finger tool
-    case Finger
-    case Pencil
-    case SmartPencil
-    case Eraser
-}
-
 @IBDesignable
 public class ATSketchView: UIView {
 
 	public var delegate: ATSketchViewDelegate?
+    
+    public enum Tools {
+        // TODO: Implement the Finger tool
+        case Finger
+        case Pencil
+        case SmartPencil
+        case Eraser
+    }
 	
 	/**
 	The tool to be used in the next drawing event. Should be set by the controller owning the sketchview
