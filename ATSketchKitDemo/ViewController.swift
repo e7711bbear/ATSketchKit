@@ -35,12 +35,20 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
   @IBOutlet weak var undoButton: UIButton!
   @IBOutlet weak var redoButton: UIButton!
 
+    @IBOutlet weak var fingerButton: UIButton!
+    @IBOutlet weak var pencilButton: UIButton!
+    @IBOutlet weak var smartPencilButton: UIButton!
+    @IBOutlet weak var eraserButton: UIButton!
+    
+    var controlButtons: [UIButton] = []
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		self.sketchView.delegate = self
 		self.colorPicker.delegate = self
         
+        configureSketchView()
         configureControls()
 	}
 
@@ -48,6 +56,11 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    
+    func configureSketchView() {
+        self.sketchView.currentLineWidth = CGFloat(5.0)
+        self.sketchView.currentTool = .Pencil
+    }
     
     func configureControls() {
         self.brushButton.selectedColor = self.sketchView.currentColor
@@ -61,28 +74,39 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         
         let shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
         self.navigationItem.rightBarButtonItem = shareButton
+        
+        controlButtons.append(fingerButton)
+        controlButtons.append(pencilButton)
+        controlButtons.append(smartPencilButton)
+        controlButtons.append(eraserButton)
+        
+        indicateCurrentTool(withButton: pencilButton)
     }
 
-	// MARK: Tools controls
+	// MARK: - Tool Controls
     
     @IBAction func selectBrush(sender: AnyObject) {
         self.controlPanel.toggleShowDetails()
     }
     
-	@IBAction func selectFinger(sender: AnyObject) {
+	@IBAction func selectFinger(sender: UIButton) {
 		self.sketchView.currentTool = .Finger
+        self.indicateCurrentTool(withButton: sender)
 	}
 
-	@IBAction func selectEraser(sender: AnyObject) {
+	@IBAction func selectEraser(sender: UIButton) {
 		self.sketchView.currentTool = .Eraser
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
-	@IBAction func selectPencil(sender: AnyObject) {
+	@IBAction func selectPencil(sender: UIButton) {
 		self.sketchView.currentTool = .Pencil
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
-	@IBAction func selectSmartPencil(sender: AnyObject) {
+	@IBAction func selectSmartPencil(sender: UIButton) {
 		self.sketchView.currentTool = .SmartPencil
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
 	@IBAction func lineWidthSliderChanged(sender: UISlider) {
@@ -146,5 +170,11 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		return nil
 	}
 
+    // MARK: - UI Updates
+    func indicateCurrentTool(withButton selectedButton: UIButton) {
+        for button in controlButtons {
+            button.selected = (button == selectedButton)
+        }
+    }
 }
 
