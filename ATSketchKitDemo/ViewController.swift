@@ -80,7 +80,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         controlButtons.append(smartPencilButton)
         controlButtons.append(eraserButton)
         
-        highlightControlButton(pencilButton)
+        indicateCurrentTool(withButton: pencilButton)
     }
 
 	// MARK: - Tool Controls
@@ -91,22 +91,22 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     
 	@IBAction func selectFinger(sender: UIButton) {
 		self.sketchView.currentTool = .Finger
-        self.highlightControlButton(sender)
+        self.indicateCurrentTool(withButton: sender)
 	}
 
 	@IBAction func selectEraser(sender: UIButton) {
 		self.sketchView.currentTool = .Eraser
-        self.highlightControlButton(sender)
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
 	@IBAction func selectPencil(sender: UIButton) {
 		self.sketchView.currentTool = .Pencil
-        self.highlightControlButton(sender)
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
 	@IBAction func selectSmartPencil(sender: UIButton) {
 		self.sketchView.currentTool = .SmartPencil
-        self.highlightControlButton(sender)
+        self.indicateCurrentTool(withButton: sender)
 	}
 	
 	@IBAction func lineWidthSliderChanged(sender: UISlider) {
@@ -171,7 +171,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 	}
 
     // MARK: - UI Updates
-    func highlightControlButton(selectedButton: UIButton) {
+    func indicateCurrentTool(withButton selectedButton: UIButton) {
         for button in controlButtons {
             button.selected = (button == selectedButton)
         }
