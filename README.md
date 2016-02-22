@@ -4,7 +4,7 @@ ATSketchKit is a drawing/sketching framework for iOS written in Swift 2.
 It can be used as the foundation for an artistic app, a simple signature feature or more inteligent graph designing app.
 
 ## Quick Look 
-If you want to have a quick look at the framework in action, you can [download](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1082917478&mt=8) **Sketchalicious** from the AppStore. Sketchalicious is the exact same demo app as available from this source code simply built and publish on the store, just so that you won't have to sideload it to try the framework.
+If you want to have a quick look at the framework in action, you can [download](https://itunes.apple.com/us/app/sketchalicious/id1082917478?ls=1&mt=8) **Sketchalicious** from the AppStore. Sketchalicious is the exact same demo app as available from this source code simply built and publish on the store, just so that you won't have to sideload it to try the framework.
 
 ## Intentions & License
 My intentions with this framework are to enable people to produce more drawing apps on iOS, give my two cents worth of examples on how to code in Swift on iOS and ignite the conversation and contributions around this particular technology (especially around pattern recognitions & and visual smoothing)
