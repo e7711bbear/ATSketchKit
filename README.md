@@ -30,7 +30,7 @@ Using ATSketchKit is as easy as:
 Check out the demo app included in the product to see how to implement it.
 
 ## Roadmap
-To know what I currently intend to add to this framework, please check out the github issues.
+To know what I currently intend to add to this app or to submit feature requests, please check out the github issues.
 
 ## Questions & Contact
-If you have any questions, reach out to me on twitter @athiercelin or drop an issue on github.
+If you have any questions, reach out to me on twitter [@athiercelin](https://twitter.com/athiercelin) or drop an issue on github.
