@@ -378,6 +378,7 @@
 				TargetAttributes = {
 					892C3D911C078C6D00804A8B = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0800;
 					};
 					892C3D9B1C078C6D00804A8B = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -385,9 +386,11 @@
 					89C20FFF1C2CDF5D001DF73B = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 6NMM9JPECT;
+						LastSwiftMigration = 0800;
 					};
 					89C210121C2CDF5D001DF73B = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 89C20FFF1C2CDF5D001DF73B;
 					};
 				};
@@ -659,6 +662,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -676,6 +680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -709,6 +714,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arnaudthiercelin.sketchalicious-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -723,6 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arnaudthiercelin.sketchalicious-ios";
 				PRODUCT_NAME = Sketchalicious;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -735,6 +742,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ATSketchKitDemo;
 				USES_XCTRUNNER = YES;
 			};
@@ -748,6 +756,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arnaudthiercelin.ATSketchKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ATSketchKitDemo;
 				USES_XCTRUNNER = YES;
 			};

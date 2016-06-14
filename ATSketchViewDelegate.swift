@@ -31,7 +31,7 @@ public protocol ATSketchViewDelegate {
 	- Parameter score: the recognizing score. Generally speak, 50.0 is a decent value for it.
 	- Returns: a true/false value.
 	*/
-	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool
+	func sketchView(_ sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool
 	
 	/**
 	Notifies the delegate that a path has been recognized and added to the layer stack.
@@ -39,7 +39,7 @@ public protocol ATSketchViewDelegate {
 	- Parameter sketchView: the view in which the recognized drawing happened.
 	- Parameter name: the template name which was recognized.
 	*/
-	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) -> Void
+	func sketchView(_ sketchView: ATSketchView, didRecognizePathWithName name: String) -> Void
 	
 	/**
 	Allows the delegate to override the default clean drawing from the matching template.
@@ -47,12 +47,12 @@ public protocol ATSketchViewDelegate {
 	- Parameter sketchView: the view in which the drawing was performed
 	- Returns: nil if you wish not to override the drawing, otherwise a clean UIBezierPath
 	*/
-	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath?
+	func sketchViewOverridingRecognizedPathDrawing(_ sketchView: ATSketchView) -> UIBezierPath?
 
   /**
   Notifies the delegate that the canUndo and canRedo states have been updated.
 
   - Parameter sketchView: the view in which the undo/redo states were updated.
   */
-  func sketchViewUpdatedUndoRedoState(sketchView: ATSketchView)
+  func sketchViewUpdatedUndoRedoState(_ sketchView: ATSketchView)
 }

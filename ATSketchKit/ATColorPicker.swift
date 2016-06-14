@@ -31,11 +31,11 @@ public class ATColorPicker: UIView {
 	public var delegate: ATColorPickerDelegate?
 	
 	public enum ColorSpace {
-		case HSV
-		case Custom
+		case hsv
+		case custom
 	}
 	
-	public var colorSpace = ColorSpace.HSV
+	public var colorSpace = ColorSpace.hsv
 	
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -52,11 +52,11 @@ public class ATColorPicker: UIView {
 	}
 	
 	// MARK: - Drawing
-	public override func drawRect(rect: CGRect) {
+	public override func draw(_ rect: CGRect) {
 		self.drawColorMap(rect)
 	}
 	
-	func drawColorMap(rect: CGRect) {
+	func drawColorMap(_ rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()
 		
 		for x in 0..<Int(rect.size.width) {
@@ -65,20 +65,20 @@ public class ATColorPicker: UIView {
 				let color = colorAtPoint(point, inRect: rect)
 				
 				color.setFill()
-				let rect = CGRectMake(CGFloat(x), CGFloat(y), 1.0, 1.0)
-				CGContextFillRect(context, rect)
+				let rect = CGRect(x: CGFloat(x), y: CGFloat(y), width: 1.0, height: 1.0)
+				context?.fill(rect)
 			}
 		}
 	}
 	
 	// MARK: - Event handling
 	
-	public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		// kickstart the flow.
 	}
 	
-	public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let point = touches.first!.locationInView(self)
+	public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let point = touches.first!.location(in: self)
 		let color = self.colorAtPoint(point, inRect: self.bounds)
 		
 			NSLog("Color At Point[\(point.x),\(point.y)]: \(color)")
@@ -87,8 +87,8 @@ public class ATColorPicker: UIView {
 		}
 	}
 	
-	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let point = touches.first!.locationInView(self)
+	public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let point = touches.first!.location(in: self)
 		let color = self.colorAtPoint(point, inRect: self.bounds)
 
 		if self.delegate != nil {
@@ -98,10 +98,10 @@ public class ATColorPicker: UIView {
 	
 	// MARK: - Convenience color methods
 	
-	func colorAtPoint(point: CGPoint, inRect rect: CGRect) -> UIColor {
-		var color = UIColor.whiteColor()
+	func colorAtPoint(_ point: CGPoint, inRect rect: CGRect) -> UIColor {
+		var color = UIColor.white()
 		switch colorSpace {
-		case .HSV:
+		case .hsv:
 			color = self.hsvColorAtPoint(point, inRect: rect)
 		default:
 			color = self.customColorAtPoint(point, inRect: rect)
@@ -109,7 +109,7 @@ public class ATColorPicker: UIView {
 		return color
 	}
 	
-	func customColorAtPoint(point: CGPoint, inRect rect: CGRect) -> UIColor {
+	func customColorAtPoint(_ point: CGPoint, inRect rect: CGRect) -> UIColor {
 		let x = point.x
 		let y = point.y
 		
@@ -121,7 +121,7 @@ public class ATColorPicker: UIView {
 		return color
 	}
 	
-	func hsvColorAtPoint(point: CGPoint, inRect rect: CGRect) -> UIColor {
+	func hsvColorAtPoint(_ point: CGPoint, inRect rect: CGRect) -> UIColor {
 		return UIColor(hue: point.x/rect.size.width, saturation: point.y/rect.size.height, brightness: 1.0, alpha: 1.0)
 	}
 	

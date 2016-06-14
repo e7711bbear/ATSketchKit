@@ -231,9 +231,9 @@ extension ATSmartBezierPath {
 		newTemplate.name = templateName
 		newTemplate.recognizedPathWithRect = { (rect: CGRect) -> UIBezierPath in
 			let maxValue = rect.size.height > rect.size.width ? rect.size.height : rect.size.width
-			let circleRect = CGRectMake(rect.origin.x, rect.origin.y, maxValue, maxValue)
+			let circleRect = CGRect(x: rect.origin.x, y: rect.origin.y, width: maxValue, height: maxValue)
 			
-			return UIBezierPath(ovalInRect: circleRect)
+			return UIBezierPath(ovalIn: circleRect)
 		}
 		newTemplate.points = [CGPoint(x: 43.5, y: 12.0),
 			CGPoint(x: 42.5, y: 12.0),

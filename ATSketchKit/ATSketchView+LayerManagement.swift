@@ -24,14 +24,14 @@ import Foundation
 
 extension ATSketchView {
 	
-	func addShapeLayer(shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
+	func addShapeLayer(_ shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
 		let newShapeLayer = ATShapeLayer()
 		
-		newShapeLayer.path = shape.CGPath
+		newShapeLayer.path = shape.cgPath
 		newShapeLayer.lineWidth = lineWidth
-		newShapeLayer.strokeColor = color.CGColor
+		newShapeLayer.strokeColor = color.cgColor
 		newShapeLayer.fillColor = nil
-		newShapeLayer.contentsScale = UIScreen.mainScreen().scale
+		newShapeLayer.contentsScale = UIScreen.main().scale
 		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
     self.delegate?.sketchViewUpdatedUndoRedoState(self)
 		newShapeLayer.setNeedsDisplay()
@@ -42,7 +42,7 @@ extension ATSketchView {
 	*/
 	func mostRecentLayer() -> ATShapeLayer? {
 		
-		for index in (0..<self.layer.sublayers!.count).reverse() {
+		for index in (0..<self.layer.sublayers!.count).reversed() {
 			let layer = self.layer.sublayers![index]
 			if layer is ATShapeLayer {
 				return layer as? ATShapeLayer
@@ -60,7 +60,7 @@ extension ATSketchView {
 		
 		for layer in self.layer.sublayers! {
 			if layer is ATShapeLayer {
-				count++
+				count += 1
 			}
 		}
 		return count
@@ -71,12 +71,12 @@ extension ATSketchView {
 		let smoothPath = smartPath.smoothPath(20)
 		self.topLayer.lineWidth = self.currentLineWidth
 		
-		let strokeColor = (self.currentTool == .Eraser ? self.eraserColor : self.currentColor)
-		self.topLayer.strokeColor = strokeColor.CGColor
+		let strokeColor = (self.currentTool == .eraser ? self.eraserColor : self.currentColor)
+		self.topLayer.strokeColor = strokeColor.cgColor
 		self.topLayer.fillColor = nil
-		self.topLayer.contentsScale = UIScreen.mainScreen().scale
+		self.topLayer.contentsScale = UIScreen.main().scale
 		
-		self.topLayer.path = smoothPath.CGPath
+		self.topLayer.path = smoothPath.cgPath
 	}
     
     /**

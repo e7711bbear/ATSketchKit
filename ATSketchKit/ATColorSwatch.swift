@@ -27,13 +27,13 @@ This class allows to show within a view a color
 */
 public class ATColorSwatch: UIView {
 
-	public var color: UIColor = UIColor.whiteColor()
+	public var color: UIColor = UIColor.white()
 	
-	public override func drawRect(rect: CGRect) {
+	public override func draw(_ rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()
 		
 		color.setFill()
-		CGContextFillRect(context, rect)
+		context?.fill(rect)
 	}
 	
 	public override var description: String {

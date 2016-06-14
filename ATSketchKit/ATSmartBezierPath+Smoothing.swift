@@ -28,7 +28,7 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	func smoothPath(granularity: Int) -> UIBezierPath {
+	func smoothPath(_ granularity: Int) -> UIBezierPath {
 		var points = self.points
 		if points.count < 4 {
 			let newPath = UIBezierPath()
@@ -36,9 +36,9 @@ extension ATSmartBezierPath {
 			if points.count > 0 {
 				for index in 0...points.count - 1 {
 					if index == 0 {
-						newPath.moveToPoint(points[index])
+						newPath.move(to: points[index])
 					} else {
-						newPath.addLineToPoint(points[index])
+						newPath.addLine(to: points[index])
 					}
 				}
 			}
@@ -47,11 +47,11 @@ extension ATSmartBezierPath {
 		}
 		
 		// Add control points
-		points.insert(points[0], atIndex: 0)
+		points.insert(points[0], at: 0)
 		points.append(points.last!)
 		
 		let newPath = UIBezierPath()
-		newPath.moveToPoint(points[0])
+		newPath.move(to: points[0])
 		
 		for pointIndex in 1...points.count - 3 {
 			let point0 = points[pointIndex - 1]
@@ -75,11 +75,11 @@ extension ATSmartBezierPath {
 				let ytt = (2 * point0.y - 5 * point1.y + 4 * point2.y - point3.y) * tt
 				let yttt = (3 * point1.y - point0.y - 3 * point2.y + point3.y) * ttt
 				intermediatePoint.y = 0.5 * (2 * point1.y + yt + ytt + yttt)
-				newPath.addLineToPoint(intermediatePoint)
+				newPath.addLine(to: intermediatePoint)
 			}
-			newPath.addLineToPoint(point2)
+			newPath.addLine(to: point2)
 		}
-		newPath.addLineToPoint(points.last!)
+		newPath.addLine(to: points.last!)
 		
 		return newPath
 	}

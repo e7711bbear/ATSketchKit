@@ -30,11 +30,11 @@ class ATControlPanelView: UIView {
 	@IBOutlet weak var handleLabel: UILabel!
 	@IBOutlet weak var positionConstraint: NSLayoutConstraint!
 	
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let touchPoint = touches.first!.preciseLocationInView(self)
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let touchPoint = touches.first!.preciseLocation(in: self)
 		let handleRect = handleLabel.frame
 		
-		if CGRectContainsPoint(handleRect, touchPoint) {
+		if handleRect.contains(touchPoint) {
 			self.toggleExpandCollapse()
 		}
 	}
@@ -64,35 +64,35 @@ class ATControlPanelView: UIView {
     
     func expand() {
         self.positionConstraint.constant = self.expandedDistance
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animate(withDuration: 0.3) { () -> Void in
             self.layoutIfNeeded()
         }
     }
 	
 	func preview() {
 		self.positionConstraint.constant = self.previewDistance
-		UIView.animateWithDuration(0.3) { () -> Void in
+		UIView.animate(withDuration: 0.3) { () -> Void in
 			self.layoutIfNeeded()
 		}
 	}
 	
 	func collapse() {
 		self.positionConstraint.constant = self.collapsedDistance
-		UIView.animateWithDuration(0.3) { () -> Void in
+		UIView.animate(withDuration: 0.3) { () -> Void in
 			self.layoutIfNeeded()
 		}
 	}
     
     // MARK: - Custom Drawing
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         // Draw line to match navigation bar
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: CGRectGetMinX(rect), y: CGRectGetMinY(rect)))
-        path.addLineToPoint(CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMinY(rect)))
-        UIColor.lightGrayColor().set()
+        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        UIColor.lightGray().set()
         path.stroke()
     }
 }

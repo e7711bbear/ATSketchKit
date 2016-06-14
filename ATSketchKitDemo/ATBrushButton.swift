@@ -36,7 +36,7 @@ class ATBrushButton: UIButton {
 		}
 	}
     
-    var _selectedColor = UIColor.blueColor()
+    var _selectedColor = UIColor.blue()
     @IBInspectable var selectedColor: UIColor {
         get {
             return _selectedColor
@@ -47,7 +47,7 @@ class ATBrushButton: UIButton {
         }
     }
 	
-	override func drawRect(rect: CGRect) {
+	override func draw(_ rect: CGRect) {
         let colorPath = UIBezierPath(arcCenter: CGPoint(x: rect.width/2, y: rect.height/2),
             radius: self.selectedWidth/2,
             startAngle: 0,
@@ -56,9 +56,9 @@ class ATBrushButton: UIButton {
 		self.selectedColor.setFill()
 		colorPath.fill()
 		
-		let borderPath = UIBezierPath(ovalInRect: rect.insetBy(dx: 1.0, dy: 1.0))
+		let borderPath = UIBezierPath(ovalIn: rect.insetBy(dx: 1.0, dy: 1.0))
 		borderPath.lineWidth = 2.0
-		UIColor.lightGrayColor().setStroke()
+		UIColor.lightGray().setStroke()
 		
 		borderPath.stroke()
 	}

@@ -35,25 +35,25 @@ class ATSmartBezierPath: UIBezierPath {
 		self.createCircleTemplates()
 	}
 	
-	override func moveToPoint(point: CGPoint) {
+	override func move(to point: CGPoint) {
 		self.points.removeAll()
 		self.points.append(point)
-		super.moveToPoint(point)
+		super.move(to: point)
 	}
 
-	override func addLineToPoint(point: CGPoint) {
+	override func addLine(to point: CGPoint) {
 		self.points.append(point)
-		super.addLineToPoint(point)
+		super.addLine(to: point)
 	}
 	
-	override func addCurveToPoint(endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
+	override func addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
 		self.points.append(endPoint)
-		super.addCurveToPoint(endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+		super.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
 	}
 	
-	override func addQuadCurveToPoint(endPoint: CGPoint, controlPoint: CGPoint) {
+	override func addQuadCurve(to endPoint: CGPoint, controlPoint: CGPoint) {
 		self.points.append(endPoint)
-		super.addQuadCurveToPoint(endPoint, controlPoint: controlPoint)
+		super.addQuadCurve(to: endPoint, controlPoint: controlPoint)
 	}
 	
 	override var description: String {

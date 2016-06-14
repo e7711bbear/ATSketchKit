@@ -59,20 +59,20 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     
     func configureSketchView() {
         self.sketchView.currentLineWidth = CGFloat(5.0)
-        self.sketchView.currentTool = .Pencil
+        self.sketchView.currentTool = .pencil
     }
     
     func configureControls() {
         self.brushButton.selectedColor = self.sketchView.currentColor
         self.brushButton.selectedWidth = self.sketchView.currentLineWidth
         self.lineWidthSlider.value = Float(self.sketchView.currentLineWidth)
-        undoButton.enabled = sketchView.canUndo
-        redoButton.enabled = sketchView.canRedo
+        undoButton.isEnabled = sketchView.canUndo
+        redoButton.isEnabled = sketchView.canRedo
         
-        let newButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "newCanvas")
+        let newButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: "newCanvas")
         self.navigationItem.leftBarButtonItem = newButton
         
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: "share")
         self.navigationItem.rightBarButtonItem = shareButton
         
         controlButtons.append(fingerButton)
@@ -85,42 +85,42 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 
 	// MARK: - Tool Controls
     
-    @IBAction func selectBrush(sender: AnyObject) {
+    @IBAction func selectBrush(_ sender: AnyObject) {
         self.controlPanel.toggleShowDetails()
     }
     
-	@IBAction func selectFinger(sender: UIButton) {
-		self.sketchView.currentTool = .Finger
+	@IBAction func selectFinger(_ sender: UIButton) {
+		self.sketchView.currentTool = .finger
         self.indicateCurrentTool(withButton: sender)
 	}
 
-	@IBAction func selectEraser(sender: UIButton) {
-		self.sketchView.currentTool = .Eraser
+	@IBAction func selectEraser(_ sender: UIButton) {
+		self.sketchView.currentTool = .eraser
         self.indicateCurrentTool(withButton: sender)
 	}
 	
-	@IBAction func selectPencil(sender: UIButton) {
-		self.sketchView.currentTool = .Pencil
+	@IBAction func selectPencil(_ sender: UIButton) {
+		self.sketchView.currentTool = .pencil
         self.indicateCurrentTool(withButton: sender)
 	}
 	
-	@IBAction func selectSmartPencil(sender: UIButton) {
-		self.sketchView.currentTool = .SmartPencil
+	@IBAction func selectSmartPencil(_ sender: UIButton) {
+		self.sketchView.currentTool = .smartPencil
         self.indicateCurrentTool(withButton: sender)
 	}
 	
-	@IBAction func lineWidthSliderChanged(sender: UISlider) {
+	@IBAction func lineWidthSliderChanged(_ sender: UISlider) {
 		let sliderValue = sender.value
 		
 		self.sketchView.currentLineWidth = CGFloat(sliderValue)
         self.brushButton.selectedWidth = CGFloat(sliderValue)
 	}
 	
-	@IBAction func undo(sender: UIButton) {
+	@IBAction func undo(_ sender: UIButton) {
 		self.sketchView.undo()
 	}
 	
-	@IBAction func redo(sender: UIButton) {
+	@IBAction func redo(_ sender: UIButton) {
 		self.sketchView.redo()
 	}
     
@@ -130,12 +130,12 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     
     func share() {
         let shareController = UIActivityViewController(activityItems: [self.sketchView.produceImage()], applicationActivities: nil)
-        self.presentViewController(shareController, animated: true, completion: nil)
+        self.present(shareController, animated: true, completion: nil)
     }
 	
 	// MARK: - ATSketchViewDelegate
 	
-	func sketchView(sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool {
+	func sketchView(_ sketchView: ATSketchView, shouldAccepterRecognizedPathWithScore score: CGFloat) -> Bool {
 		NSLog("Score: \(score)")
 		if score >= 60 {
 			NSLog("ACCEPTED")
@@ -145,35 +145,35 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		return false
 	}
 	
-	func sketchView(sketchView: ATSketchView, didRecognizePathWithName name: String) {
+	func sketchView(_ sketchView: ATSketchView, didRecognizePathWithName name: String) {
 		// We don't want to do anything here.
 	}
 
-  func sketchViewUpdatedUndoRedoState(sketchView: ATSketchView) {
-    undoButton.enabled = sketchView.canUndo
-   redoButton.enabled = sketchView.canRedo
+  func sketchViewUpdatedUndoRedoState(_ sketchView: ATSketchView) {
+    undoButton.isEnabled = sketchView.canUndo
+   redoButton.isEnabled = sketchView.canRedo
   }
 	
 	//MARK: - ATColorPickerDelegate
 	
-	func colorPicker(colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor) {
+	func colorPicker(_ colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor) {
 		self.sketchView.currentColor = color
         self.brushButton.selectedColor = color
 	}
 	
-	func colorPicker(colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor) {
+	func colorPicker(_ colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor) {
 		self.sketchView.currentColor = color
         self.brushButton.selectedColor = color
 	}
 	
-	func sketchViewOverridingRecognizedPathDrawing(sketchView: ATSketchView) -> UIBezierPath? {
+	func sketchViewOverridingRecognizedPathDrawing(_ sketchView: ATSketchView) -> UIBezierPath? {
 		return nil
 	}
 
     // MARK: - UI Updates
     func indicateCurrentTool(withButton selectedButton: UIButton) {
         for button in controlButtons {
-            button.selected = (button == selectedButton)
+            button.isSelected = (button == selectedButton)
         }
     }
 }

@@ -98,7 +98,7 @@ extension ATSmartBezierPath {
 	
 	// MARK: - Transformations
 	
-	func centroid(sample: [CGPoint]) -> CGPoint {
+	func centroid(_ sample: [CGPoint]) -> CGPoint {
 		var xSum: CGFloat = 0
 		var ySum: CGFloat = 0;
 		let pointCount = CGFloat(sample.count)
@@ -107,26 +107,26 @@ extension ATSmartBezierPath {
 			xSum += point.x
 			ySum += point.y
 		}
-		return CGPointMake(xSum / pointCount, ySum / pointCount)
+		return CGPoint(x: xSum / pointCount, y: ySum / pointCount)
 	}
 	
-	func translate(sample: [CGPoint], deltaX: CGFloat, deltaY: CGFloat) -> [CGPoint] {
+	func translate(_ sample: [CGPoint], deltaX: CGFloat, deltaY: CGFloat) -> [CGPoint] {
 		var newSample = [CGPoint]()
 		
 		for point in sample {
-			let newPoint = CGPointMake(point.x+deltaX, point.y+deltaY)
+			let newPoint = CGPoint(x: point.x+deltaX, y: point.y+deltaY)
 
 			newSample.append(newPoint)
 		}
 		return newSample
 	}
 
-	func rotate(sample: [CGPoint], angle: CGFloat) -> [CGPoint] {
-		let rotationTransform = CGAffineTransformMakeRotation(angle)
+	func rotate(_ sample: [CGPoint], angle: CGFloat) -> [CGPoint] {
+		let rotationTransform = CGAffineTransform(rotationAngle: angle)
 		
 		var newSample = [CGPoint]()
 		for point in sample {
-			let newPoint = CGPointApplyAffineTransform(point, rotationTransform)
+			let newPoint = point.apply(transform: rotationTransform)
 			
 			newSample.append(newPoint)
 		}
@@ -134,12 +134,12 @@ extension ATSmartBezierPath {
 		return newSample
 	}
 	
-	func scale(sample: [CGPoint], xScale: CGFloat, yScale: CGFloat) -> [CGPoint] {
-		let scaleTransform = CGAffineTransformMakeScale(xScale, yScale)
+	func scale(_ sample: [CGPoint], xScale: CGFloat, yScale: CGFloat) -> [CGPoint] {
+		let scaleTransform = CGAffineTransform(scaleX: xScale, y: yScale)
 		
 		var newSample = [CGPoint]()
 		for point in sample {
-			let newPoint = CGPointApplyAffineTransform(point, scaleTransform)
+			let newPoint = point.apply(transform: scaleTransform)
 			
 			newSample.append(newPoint)
 		}
@@ -149,14 +149,14 @@ extension ATSmartBezierPath {
 	
 	// MARK: - Distance calculations
 	
-	func distance(point1: CGPoint, point2: CGPoint) -> CGFloat {
+	func distance(_ point1: CGPoint, point2: CGPoint) -> CGFloat {
 		let deltaX = point1.x - point2.x
 		let deltaY = point2.y - point2.y
 		
 		return sqrt(deltaX * deltaX + deltaY * deltaY)
 	}
 	
-	func pathDistance(path1: [CGPoint], path2: [CGPoint]) -> CGFloat {
+	func pathDistance(_ path1: [CGPoint], path2: [CGPoint]) -> CGFloat {
 		// Normally these should be the same, but just in case we protect against it.
 		let count = path1.count > path2.count ? path2.count : path1.count
 		var distanceSum: CGFloat = 0
@@ -171,13 +171,13 @@ extension ATSmartBezierPath {
 		return distanceSum / CGFloat(count)
 	}
 	
-	func distanceAtAngle(path: [CGPoint], template: [CGPoint], angle: CGFloat) -> CGFloat {
+	func distanceAtAngle(_ path: [CGPoint], template: [CGPoint], angle: CGFloat) -> CGFloat {
 		let newPath = self.rotate(path, angle: angle)
 		
 		return self.pathDistance(newPath, path2: template)
 	}
 	
-	func distanceAtBestAngle(path: [CGPoint], template: [CGPoint]) -> CGFloat {
+	func distanceAtBestAngle(_ path: [CGPoint], template: [CGPoint]) -> CGFloat {
 		var a: CGFloat = -0.25 * CGFloat(M_PI)
 		var b: CGFloat = -a
 		let threshold: CGFloat = 0.1
@@ -207,9 +207,9 @@ extension ATSmartBezierPath {
 	
 	// MARK: - 
 	
-	func boundaries(path: [CGPoint]) -> (bottomLeft: CGPoint, topRight: CGPoint) {
-		var bottomLeft = CGPointZero
-		var topRight = CGPointZero
+	func boundaries(_ path: [CGPoint]) -> (bottomLeft: CGPoint, topRight: CGPoint) {
+		var bottomLeft = CGPoint.zero
+		var topRight = CGPoint.zero
 		
 		for index in 0..<path.count {
 			let point = path[index]

@@ -29,10 +29,10 @@ public class ATSketchView: UIView {
     
     public enum Tools {
         // TODO: Implement the Finger tool
-        case Finger
-        case Pencil
-        case SmartPencil
-        case Eraser
+        case finger
+        case pencil
+        case smartPencil
+        case eraser
     }
 	
 	/**
@@ -47,7 +47,7 @@ public class ATSketchView: UIView {
 	**Eraser** is self explanatory.
      
 	*/
-    public var currentTool: Tools = .Pencil
+    public var currentTool: Tools = .pencil
 	
 	/**
 	The thickness of the line to be drawn. Should be set by the controller owning the sketchview
@@ -61,11 +61,11 @@ public class ATSketchView: UIView {
 	
 	Defaults to black
 	*/
-	public var currentColor: UIColor = UIColor.blackColor()
+	public var currentColor: UIColor = UIColor.black()
 
 	var eraserColor: UIColor {
 		get {
-			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.whiteColor()
+			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.white()
 		}
 	}
 	
@@ -118,8 +118,8 @@ public class ATSketchView: UIView {
 		self.layer.addSublayer(self.topLayer)
 	}
 	
-	public override func drawRect(rect: CGRect) {
-		super.drawRect(rect)
+	public override func draw(_ rect: CGRect) {
+		super.draw(rect)
 		
 	}
 	
@@ -129,11 +129,11 @@ public class ATSketchView: UIView {
 	
 	public func produceImage() -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)
-		self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+		self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
 		let image = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
-		return image
+		return image!
 	}
 	
 	// MARK: - Description & DebugDescription
