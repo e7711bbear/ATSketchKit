@@ -69,10 +69,10 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
         undoButton.isEnabled = sketchView.canUndo
         redoButton.isEnabled = sketchView.canRedo
         
-        let newButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: "newCanvas")
+        let newButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(ViewController.newCanvas))
         self.navigationItem.leftBarButtonItem = newButton
         
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: "share")
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ViewController.share))
         self.navigationItem.rightBarButtonItem = shareButton
         
         controlButtons.append(fingerButton)
@@ -88,7 +88,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
     @IBAction func selectBrush(_ sender: AnyObject) {
         self.controlPanel.toggleShowDetails()
     }
-    
+	
 	@IBAction func selectFinger(_ sender: UIButton) {
 		self.sketchView.currentTool = .finger
         self.indicateCurrentTool(withButton: sender)

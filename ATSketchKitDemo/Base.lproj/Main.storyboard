@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TC0-Oy-JX4">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="16A254g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TC0-Oy-JX4">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,18 +33,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2X-jH-LRF" customClass="ATSketchView" customModule="ATSketchKit">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ATControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ATControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
-                                        <rect key="frame" x="6" y="203" width="588" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="iRL-GR-M3t"/>
                                             <constraint firstAttribute="width" constant="248" id="wFm-tM-3V9"/>
@@ -58,7 +56,6 @@
                                         </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
-                                        <rect key="frame" x="278" y="37" width="45" height="45"/>
                                         <state key="normal" image="PencilTool"/>
                                         <state key="selected" image="SelectedPencilTool"/>
                                         <connections>
@@ -66,7 +63,6 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
-                                        <rect key="frame" x="225" y="37" width="45" height="45"/>
                                         <state key="normal" image="FingerTool"/>
                                         <state key="selected" image="SelectedFingerTool"/>
                                         <connections>
@@ -74,7 +70,6 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
-                                        <rect key="frame" x="331" y="37" width="45" height="45"/>
                                         <state key="normal" image="SmartPencilTool"/>
                                         <state key="selected" image="SelectedSmartPencilTool"/>
                                         <connections>
@@ -82,13 +77,11 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mw-jW-ewR">
-                                        <rect key="frame" x="283" y="8" width="34" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
-                                        <rect key="frame" x="384" y="37" width="45" height="45"/>
                                         <state key="normal" image="EraserTool"/>
                                         <state key="selected" image="SelectedEraserTool"/>
                                         <connections>
@@ -96,18 +89,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-mJ-v6G">
-                                        <rect key="frame" x="437" y="45" width="30" height="30"/>
                                         <state key="normal" title="&gt;&gt;"/>
                                         <connections>
                                             <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzr-Ye-2nu"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-0v-d2i" customClass="ATColorPicker" customModule="ATSketchKit">
-                                        <rect key="frame" x="8" y="90" width="584" height="105"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-MS-3Jh" customClass="ATBrushButton" customModule="ATSketchKitDemo" customModuleProvider="target">
-                                        <rect key="frame" x="172" y="37" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zTh-MS-3Jh" secondAttribute="height" multiplier="1:1" id="a8D-DJ-JAj"/>
                                         </constraints>
@@ -126,14 +116,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
-                                        <rect key="frame" x="134" y="45" width="30" height="30"/>
                                         <state key="normal" title="&lt;&lt;"/>
                                         <connections>
                                             <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOk-nh-mDF"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Hhf-0v-d2i" firstAttribute="leading" secondItem="KiD-Ih-4KG" secondAttribute="leading" constant="8" id="0hu-5M-cHI"/>
                                     <constraint firstItem="zTh-MS-3Jh" firstAttribute="height" secondItem="OAe-SK-NsH" secondAttribute="height" id="0zn-Wf-xd1"/>
@@ -196,35 +185,35 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="1sV-a5-M7A"/>
+                                        <exclude reference="YEb-BX-jca"/>
+                                        <exclude reference="7kT-2s-tIb"/>
+                                        <exclude reference="gZX-i2-KxY"/>
                                         <exclude reference="LaM-OG-Jmu"/>
                                         <exclude reference="WE3-ve-MyF"/>
                                         <exclude reference="rC7-uF-cZo"/>
+                                        <exclude reference="aU4-8D-G75"/>
+                                        <exclude reference="pYk-5N-hbd"/>
+                                        <exclude reference="pc9-cT-nr3"/>
+                                        <exclude reference="6hb-nS-Tac"/>
+                                        <exclude reference="CU8-Di-qoT"/>
+                                        <exclude reference="HIi-jR-lzu"/>
+                                        <exclude reference="q4B-IO-Axk"/>
+                                        <exclude reference="7uE-sM-JRe"/>
+                                        <exclude reference="Me4-x0-g1f"/>
+                                        <exclude reference="nvH-Fq-lS0"/>
+                                        <exclude reference="tQc-tY-53W"/>
                                         <exclude reference="Jff-6j-xCT"/>
                                         <exclude reference="p5e-W8-N9J"/>
                                         <exclude reference="pdl-eb-3N6"/>
+                                        <exclude reference="55g-rc-WNP"/>
+                                        <exclude reference="Ia6-Ie-uRh"/>
                                         <exclude reference="0zn-Wf-xd1"/>
                                         <exclude reference="7iR-Ml-5KN"/>
                                         <exclude reference="Htm-hv-lJw"/>
                                         <exclude reference="V0j-WT-P8w"/>
                                         <exclude reference="iSr-yZ-HZO"/>
                                         <exclude reference="zqu-dI-ou1"/>
-                                        <exclude reference="55g-rc-WNP"/>
-                                        <exclude reference="Ia6-Ie-uRh"/>
-                                        <exclude reference="aU4-8D-G75"/>
-                                        <exclude reference="pYk-5N-hbd"/>
-                                        <exclude reference="pc9-cT-nr3"/>
-                                        <exclude reference="1sV-a5-M7A"/>
-                                        <exclude reference="YEb-BX-jca"/>
-                                        <exclude reference="7uE-sM-JRe"/>
-                                        <exclude reference="Me4-x0-g1f"/>
-                                        <exclude reference="nvH-Fq-lS0"/>
-                                        <exclude reference="tQc-tY-53W"/>
-                                        <exclude reference="6hb-nS-Tac"/>
-                                        <exclude reference="CU8-Di-qoT"/>
-                                        <exclude reference="HIi-jR-lzu"/>
-                                        <exclude reference="q4B-IO-Axk"/>
-                                        <exclude reference="7kT-2s-tIb"/>
-                                        <exclude reference="gZX-i2-KxY"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -233,7 +222,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T2X-jH-LRF" secondAttribute="bottom" id="C0M-XQ-WQ8"/>
                             <constraint firstItem="T2X-jH-LRF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="N4w-oF-eNg"/>
