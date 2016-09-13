@@ -26,7 +26,7 @@ class ATUnistrokeTemplate: NSObject {
 	var name = "Unnamed"
 	var points = [CGPoint]()
 	
-	var recognizedPathWithRect: ((rect: CGRect) -> UIBezierPath)!
+	var recognizedPathWithRect: ((_ rect: CGRect) -> UIBezierPath)!
 	
 	override var description: String {
 		get {

@@ -28,10 +28,11 @@ class ATSketchTopLayer: CAShapeLayer {
 		super.init()
 		self.configLayer()
 	}
+
 	
-	override init(layer: AnyObject) {
-		super.init(layer: layer)
-	}
+//	override init(layer: AnyObject) {
+//		super.init(layer: layer)
+//	}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(layer: aDecoder)

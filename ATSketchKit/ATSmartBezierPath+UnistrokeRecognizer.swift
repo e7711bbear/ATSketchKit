@@ -67,7 +67,7 @@ extension ATSmartBezierPath {
 		
 		if bestTemplate != nil {
 			let pathRect = self.smoothPath(20).bounds
-			let finalPath = bestTemplate!.recognizedPathWithRect(rect: pathRect)
+			let finalPath = bestTemplate!.recognizedPathWithRect(pathRect)
 			let result = ATRecognizedPathResult()
 			
 			result.center = center
@@ -126,7 +126,7 @@ extension ATSmartBezierPath {
 		
 		var newSample = [CGPoint]()
 		for point in sample {
-			let newPoint = point.apply(transform: rotationTransform)
+			let newPoint = point.applying(rotationTransform)
 			
 			newSample.append(newPoint)
 		}
@@ -139,7 +139,7 @@ extension ATSmartBezierPath {
 		
 		var newSample = [CGPoint]()
 		for point in sample {
-			let newPoint = point.apply(transform: scaleTransform)
+			let newPoint = point.applying(scaleTransform)
 			
 			newSample.append(newPoint)
 		}

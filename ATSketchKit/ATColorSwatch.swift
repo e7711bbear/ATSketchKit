@@ -27,7 +27,7 @@ This class allows to show within a view a color
 */
 public class ATColorSwatch: UIView {
 
-	public var color: UIColor = UIColor.white()
+	public var color: UIColor = UIColor.white
 	
 	public override func draw(_ rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()

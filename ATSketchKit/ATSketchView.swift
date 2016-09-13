@@ -61,11 +61,11 @@ public class ATSketchView: UIView {
 	
 	Defaults to black
 	*/
-	public var currentColor: UIColor = UIColor.black()
+	public var currentColor: UIColor = UIColor.black
 
 	var eraserColor: UIColor {
 		get {
-			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.white()
+			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.white
 		}
 	}
 	
@@ -84,7 +84,7 @@ public class ATSketchView: UIView {
 	
 	public var canUndo: Bool {
 		get {
-      return allowUndoRedo && self.layer.sublayers?.count > 1
+      return allowUndoRedo && (self.layer.sublayers?.count)! > 1
 		}
 	}
 	

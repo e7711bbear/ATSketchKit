@@ -99,7 +99,7 @@ public class ATColorPicker: UIView {
 	// MARK: - Convenience color methods
 	
 	func colorAtPoint(_ point: CGPoint, inRect rect: CGRect) -> UIColor {
-		var color = UIColor.white()
+		var color = UIColor.white
 		switch colorSpace {
 		case .hsv:
 			color = self.hsvColorAtPoint(point, inRect: rect)

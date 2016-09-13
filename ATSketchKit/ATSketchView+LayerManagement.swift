@@ -31,7 +31,7 @@ extension ATSketchView {
 		newShapeLayer.lineWidth = lineWidth
 		newShapeLayer.strokeColor = color.cgColor
 		newShapeLayer.fillColor = nil
-		newShapeLayer.contentsScale = UIScreen.main().scale
+		newShapeLayer.contentsScale = UIScreen.main.scale
 		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
     self.delegate?.sketchViewUpdatedUndoRedoState(self)
 		newShapeLayer.setNeedsDisplay()
@@ -74,7 +74,7 @@ extension ATSketchView {
 		let strokeColor = (self.currentTool == .eraser ? self.eraserColor : self.currentColor)
 		self.topLayer.strokeColor = strokeColor.cgColor
 		self.topLayer.fillColor = nil
-		self.topLayer.contentsScale = UIScreen.main().scale
+		self.topLayer.contentsScale = UIScreen.main.scale
 		
 		self.topLayer.path = smoothPath.cgPath
 	}
