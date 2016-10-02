@@ -92,7 +92,7 @@ class ATControlPanelView: UIView {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: rect.minX, y: rect.minY))
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-        UIColor.lightGray().set()
+        UIColor.lightGray.set()
         path.stroke()
     }
 }

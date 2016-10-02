@@ -36,7 +36,7 @@ class ATBrushButton: UIButton {
 		}
 	}
     
-    var _selectedColor = UIColor.blue()
+    var _selectedColor = UIColor.blue
     @IBInspectable var selectedColor: UIColor {
         get {
             return _selectedColor
@@ -58,7 +58,7 @@ class ATBrushButton: UIButton {
 		
 		let borderPath = UIBezierPath(ovalIn: rect.insetBy(dx: 1.0, dy: 1.0))
 		borderPath.lineWidth = 2.0
-		UIColor.lightGray().setStroke()
+		UIColor.lightGray.setStroke()
 		
 		borderPath.stroke()
 	}
