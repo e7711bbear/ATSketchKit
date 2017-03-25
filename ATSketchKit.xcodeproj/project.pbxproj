@@ -36,6 +36,9 @@
 		89C210301C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */; };
 		89C210351C35D060001DF73B /* ATUnistrokeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */; };
 		89F0715D1C5A57A300E75780 /* ATBrushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0715B1C5A57A300E75780 /* ATBrushButton.swift */; };
+		89F6AFA81E86393F00461E64 /* rectangle1.json in Copy JSON Templates */ = {isa = PBXBuildFile; fileRef = 89F6AFA11E86378100461E64 /* rectangle1.json */; };
+		89F6AFA91E86393F00461E64 /* circle.json in Copy JSON Templates */ = {isa = PBXBuildFile; fileRef = 89F6AFA31E86378D00461E64 /* circle.json */; };
+		89F6AFAC1E863D3100461E64 /* rectangle2.json in Copy JSON Templates */ = {isa = PBXBuildFile; fileRef = 89F6AFAA1E863CD300461E64 /* rectangle2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,19 @@
 				89C210241C2CE0B3001DF73B /* ATSketchKit.framework in Copy Framework */,
 			);
 			name = "Copy Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89F6AFA71E86392700461E64 /* Copy JSON Templates */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Templates;
+			dstSubfolderSpec = 7;
+			files = (
+				89F6AFA81E86393F00461E64 /* rectangle1.json in Copy JSON Templates */,
+				89F6AFAC1E863D3100461E64 /* rectangle2.json in Copy JSON Templates */,
+				89F6AFA91E86393F00461E64 /* circle.json in Copy JSON Templates */,
+			);
+			name = "Copy JSON Templates";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -112,6 +128,10 @@
 		89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATSmartBezierPath+UnistrokeRecognizer.swift"; sourceTree = "<group>"; };
 		89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUnistrokeTemplate.swift; sourceTree = "<group>"; };
 		89F0715B1C5A57A300E75780 /* ATBrushButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATBrushButton.swift; sourceTree = "<group>"; };
+		89F6AFA11E86378100461E64 /* rectangle1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rectangle1.json; sourceTree = "<group>"; };
+		89F6AFA31E86378D00461E64 /* circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circle.json; sourceTree = "<group>"; };
+		89F6AFA51E86379B00461E64 /* format.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = format.json; sourceTree = "<group>"; };
+		89F6AFAA1E863CD300461E64 /* rectangle2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rectangle2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,9 +293,21 @@
 				89C2102F1C33824A001DF73B /* ATSmartBezierPath+UnistrokeRecognizer.swift */,
 				891FFFEE1C40AC0400CF153F /* ATSmartBezierPath+RecognizerTemplates.swift */,
 				89C210341C35D060001DF73B /* ATUnistrokeTemplate.swift */,
+				89F6AFA01E86373200461E64 /* Templates */,
 				891FFFF41C44964100CF153F /* ATRecognizedPathResult.swift */,
 			);
 			name = ATSmartBezierPath;
+			sourceTree = "<group>";
+		};
+		89F6AFA01E86373200461E64 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				89F6AFA51E86379B00461E64 /* format.json */,
+				89F6AFA11E86378100461E64 /* rectangle1.json */,
+				89F6AFAA1E863CD300461E64 /* rectangle2.json */,
+				89F6AFA31E86378D00461E64 /* circle.json */,
+			);
+			path = Templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +333,7 @@
 				892C3D8F1C078C6D00804A8B /* Headers */,
 				892C3D901C078C6D00804A8B /* Resources */,
 				89C210331C3384B3001DF73B /* Additional Warnings */,
+				89F6AFA71E86392700461E64 /* Copy JSON Templates */,
 			);
 			buildRules = (
 			);
@@ -373,7 +406,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Arnaud Thiercelin";
 				TargetAttributes = {
 					892C3D911C078C6D00804A8B = {
@@ -573,8 +606,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -621,8 +656,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -653,7 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -674,7 +711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

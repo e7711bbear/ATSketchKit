@@ -28,6 +28,29 @@ class ATUnistrokeTemplate: NSObject {
 	
 	var recognizedPathWithRect: ((_ rect: CGRect) -> UIBezierPath)!
 	
+	convenience init(json filePath: String) {
+		self.init()
+		
+		let fileURL = URL(fileURLWithPath: filePath)
+		
+		do {
+			let fileData = try Data(contentsOf: fileURL)
+			let jsonObject = try JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! Dictionary <String, AnyObject>
+			
+			self.name = jsonObject["name"] as! String
+
+			let jsonPoints = jsonObject["points"] as! [Dictionary <String, Double>]
+			for point in jsonPoints {
+				let x = point["x"]!
+				let y = point["y"]!
+
+				self.points.append(CGPoint(x: x, y: y))
+			}
+		} catch {
+			// Error handling here if necessary
+		}
+	}
+	
 	override var description: String {
 		get {
 			return self.debugDescription

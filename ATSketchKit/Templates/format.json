@@ -1,0 +1,7 @@
+// One per file.
+{
+	"name" : "SomeName",
+	"points" : [
+				{"x" : 123.00, "y": 123.00}
+	]
+}
