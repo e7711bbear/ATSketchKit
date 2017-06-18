@@ -69,7 +69,7 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		undoButton.isEnabled = sketchView.canUndo
 		redoButton.isEnabled = sketchView.canRedo
 		
-		let newButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(ViewController.newCanvas))
+		let newButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self,action: #selector(ViewController.newCanvas))
 		self.navigationItem.leftBarButtonItem = newButton
 		
 		let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ViewController.share))
@@ -124,11 +124,11 @@ class ViewController: UIViewController, ATSketchViewDelegate, ATColorPickerDeleg
 		self.sketchView.redo()
 	}
 	
-	func newCanvas() {
+	@objc func newCanvas() {
 		self.sketchView.clearAllLayers()
 	}
 	
-	func share() {
+	@objc func share() {
 		let shareController = UIActivityViewController(activityItems: [self.sketchView.produceImage()], applicationActivities: nil)
 		self.present(shareController, animated: true, completion: nil)
 	}

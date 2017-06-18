@@ -1,5 +1,5 @@
 #ATSketchKit 0.1
-ATSketchKit is a drawing/sketching framework for iOS written in Swift 2.
+ATSketchKit is a drawing/sketching framework for iOS written in Swift.
 
 It can be used as the foundation for an artistic app, a simple signature feature or more inteligent graph designing app.
 
