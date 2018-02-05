@@ -57,7 +57,12 @@ extension ATSketchView {
 		}
 		
 		let touchPoint = touches.first!.preciseLocation(in: self)
+		let rawPoint = touches.first!.preciseLocation(in: self.superview!)
 		
+		if !self.frame.contains(rawPoint){
+			touchesEnded(touches, with: event)
+			return
+		}
 		self.touchDownPoint = touchPoint
 		self.lastKnownTouchPoint = touchPoint
 		if self.currentTool == .pencil || self.currentTool == .eraser || self.currentTool == .smartPencil {
