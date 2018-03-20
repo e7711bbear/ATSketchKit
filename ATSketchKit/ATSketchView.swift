@@ -24,16 +24,16 @@ import UIKit
 
 @IBDesignable
 public class ATSketchView: UIView {
-
+	
 	public var delegate: ATSketchViewDelegate?
-    
-    public enum Tools {
-        // TODO: Implement the Finger tool
-        case finger
-        case pencil
-        case smartPencil
-        case eraser
-    }
+	
+	public enum Tools {
+		// TODO: Implement the Finger tool
+		case finger
+		case pencil
+		case smartPencil
+		case eraser
+	}
 	
 	/**
 	The tool to be used in the next drawing event. Should be set by the controller owning the sketchview
@@ -45,9 +45,9 @@ public class ATSketchView: UIView {
 	**SmartPencil** is tied to the unistroke recognizer
 	
 	**Eraser** is self explanatory.
-     
+	
 	*/
-    public var currentTool: Tools = .pencil
+	public var currentTool: Tools = .pencil
 	
 	/**
 	The thickness of the line to be drawn. Should be set by the controller owning the sketchview
@@ -55,14 +55,14 @@ public class ATSketchView: UIView {
 	Defaults to 1.0
 	*/
 	public var currentLineWidth: CGFloat = 1.0
-
+	
 	/** 
 	The color of the line to be drawn. Should be set by the controller owning the sketchview
 	
 	Defaults to black
 	*/
 	public var currentColor: UIColor = UIColor.black
-
+	
 	var eraserColor: UIColor {
 		get {
 			return self.backgroundColor != nil ? self.backgroundColor! : UIColor.white
@@ -80,17 +80,16 @@ public class ATSketchView: UIView {
 	var history = [CALayer]()
 	public var allowUndoRedo = true
 	public var maxUndoRedoSteps = 30
-	// TODO: Implement a max count for these for memory-purpose.
 	
 	public var canUndo: Bool {
 		get {
-      return allowUndoRedo && (self.layer.sublayers?.count)! > 1
+			return allowUndoRedo && (self.layer.sublayers?.count)! > 1 && self.history.count <= self.maxUndoRedoSteps
 		}
 	}
 	
 	/** 
 	Tells if the sketchview is capable of doing a redo in the future
-
+	
 	Useful to enable undo controls on the controllers
 	*/
 	
@@ -105,7 +104,7 @@ public class ATSketchView: UIView {
 		super.init(frame: frame)
 		self.configureView()
 	}
-
+	
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.configureView()
@@ -148,7 +147,7 @@ public class ATSketchView: UIView {
 			return "ATSmartBezierPath \n" +
 				"Current Tool: \(self.currentTool)\n" +
 				"Current Line Width: \(self.currentLineWidth)\n" +
-				"Current Color: \(self.currentColor)\n"
+			"Current Color: \(self.currentColor)\n"
 		}
 	}
 }

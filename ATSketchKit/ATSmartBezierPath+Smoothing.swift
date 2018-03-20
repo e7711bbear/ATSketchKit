@@ -5,9 +5,9 @@
 //  Created by Arnaud Thiercelin on 12/29/15.
 //  Copyright © 2015 Arnaud Thiercelin. All rights reserved.
 //
-// This Catmull-Rom implem was inspired by Joshua Weinberg 
-// http://stackoverflow.com/questions/8702696/drawing-smooth-curves-methods-needed/8731493#8731493
-// who was inspired by Erica Sadun
+//  This Catmull-Rom implem was inspired by Joshua Weinberg
+//  http://stackoverflow.com/questions/8702696/drawing-smooth-curves-methods-needed/8731493#8731493
+//  who was inspired by Erica Sadun
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 //  and associated documentation files (the "Software"), to deal in the Software without restriction,

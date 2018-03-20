@@ -25,6 +25,10 @@ import Foundation
 extension ATSketchView {
 	
 	public func undo() {
+		guard self.canUndo else {
+			return;
+		}
+		
 		let mostRecentLayer = self.mostRecentLayer()
 		
 		if mostRecentLayer != nil {
@@ -32,10 +36,14 @@ extension ATSketchView {
 			mostRecentLayer!.removeFromSuperlayer()
 		}
 		self.setNeedsDisplay()
-    self.delegate?.sketchViewUpdatedUndoRedoState(self)
+		self.delegate?.sketchViewUpdatedUndoRedoState(self)
 	}
 	
 	public func redo() {
+		guard self.canRedo else {
+			return;
+		}
+
 		let mostRecentUndoLayer = self.history.last
 		
 		if mostRecentUndoLayer != nil {

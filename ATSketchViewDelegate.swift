@@ -49,10 +49,10 @@ public protocol ATSketchViewDelegate {
 	*/
 	func sketchViewOverridingRecognizedPathDrawing(_ sketchView: ATSketchView) -> UIBezierPath?
 
-  /**
-  Notifies the delegate that the canUndo and canRedo states have been updated.
-
-  - Parameter sketchView: the view in which the undo/redo states were updated.
-  */
-  func sketchViewUpdatedUndoRedoState(_ sketchView: ATSketchView)
+	/**
+	Notifies the delegate that the canUndo and canRedo states have been updated.
+	
+	- Parameter sketchView: the view in which the undo/redo states were updated.
+	*/
+	func sketchViewUpdatedUndoRedoState(_ sketchView: ATSketchView)
 }
