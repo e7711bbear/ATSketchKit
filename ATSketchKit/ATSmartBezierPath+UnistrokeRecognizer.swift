@@ -45,9 +45,9 @@ extension ATSmartBezierPath {
 		let boundariesDeltaX = boundaries.topRight.x - boundaries.bottomLeft.x
 		let boundariesDeltaY = boundaries.topRight.y - boundaries.bottomLeft.y
 		let scale = 2.0 / (boundariesDeltaX < boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX )
-
+		
 		sample = self.scale(sample, xScale: scale, yScale: scale)
-
+		
 		center = self.centroid(sample)
 		sample = self.translate(sample, deltaX: -center.x, deltaY: -center.y)
 		
@@ -88,9 +88,12 @@ extension ATSmartBezierPath {
 		for index in 0..<self.points.count {
 			let computedIndex = (self.points.count - 1) * index / (size - 1)
 			let newIndex = 0 < computedIndex ? computedIndex : 0
-			let newPoint = self.points[newIndex]
-			//FIXME: there is a bug here when the number of points are too big, the new index becomes way bigger than the points'count
-			newSample.append(newPoint)
+			
+			if newIndex < self.points.count {
+				let newPoint = self.points[newIndex]
+				
+				newSample.append(newPoint)
+			}
 		}
 		
 		return newSample
@@ -115,12 +118,12 @@ extension ATSmartBezierPath {
 		
 		for point in sample {
 			let newPoint = CGPoint(x: point.x+deltaX, y: point.y+deltaY)
-
+			
 			newSample.append(newPoint)
 		}
 		return newSample
 	}
-
+	
 	func rotate(_ sample: [CGPoint], angle: CGFloat) -> [CGPoint] {
 		let rotationTransform = CGAffineTransform(rotationAngle: angle)
 		
@@ -178,7 +181,7 @@ extension ATSmartBezierPath {
 	}
 	
 	func distanceAtBestAngle(_ path: [CGPoint], template: [CGPoint]) -> CGFloat {
-		var a: CGFloat = -0.25 * CGFloat(M_PI)
+		var a: CGFloat = -0.25 * CGFloat(Double.pi)
 		var b: CGFloat = -a
 		let threshold: CGFloat = 0.1
 		let phi: CGFloat = 0.5 * (-1.0 + sqrt(5.0)) // Golden Ratio
