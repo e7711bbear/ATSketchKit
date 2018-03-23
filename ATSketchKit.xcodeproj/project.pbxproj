@@ -15,6 +15,8 @@
 		891FFFF81C45E69000CF153F /* ATControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF71C45E69000CF153F /* ATControlPanelView.swift */; };
 		891FFFFA1C49318200CF153F /* ATSketchView+UndoRedo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFF91C49318200CF153F /* ATSketchView+UndoRedo.swift */; };
 		891FFFFD1C4C042400CF153F /* ATColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FFFFC1C4C042400CF153F /* ATColorPicker.swift */; };
+		8925754C20655FF400B361A2 /* CONTRIBUTE.md in Resources */ = {isa = PBXBuildFile; fileRef = 8925754B20655FF400B361A2 /* CONTRIBUTE.md */; };
+		8925754E20655FFB00B361A2 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 8925754D20655FFB00B361A2 /* LICENSE.md */; };
 		892C3D961C078C6D00804A8B /* ATSketchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 892C3D951C078C6D00804A8B /* ATSketchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		892C3D9D1C078C6D00804A8B /* ATSketchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3D921C078C6D00804A8B /* ATSketchKit.framework */; };
 		892C3DA21C078C6D00804A8B /* ATSketchKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C3DA11C078C6D00804A8B /* ATSketchKitTests.swift */; };
@@ -101,6 +103,8 @@
 		891FFFF91C49318200CF153F /* ATSketchView+UndoRedo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+UndoRedo.swift"; path = "ATSketchKit/ATSketchView+UndoRedo.swift"; sourceTree = "<group>"; };
 		891FFFFC1C4C042400CF153F /* ATColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATColorPicker.swift; sourceTree = "<group>"; };
 		891FFFFF1C4C0FE800CF153F /* ATColorPicker+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ATColorPicker+Delegate.swift"; sourceTree = "<group>"; };
+		8925754B20655FF400B361A2 /* CONTRIBUTE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTE.md; sourceTree = "<group>"; };
+		8925754D20655FFB00B361A2 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		892C3D921C078C6D00804A8B /* ATSketchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATSketchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892C3D951C078C6D00804A8B /* ATSketchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATSketchKit.h; sourceTree = "<group>"; };
 		892C3D971C078C6D00804A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				89C20FFA1C2CCB95001DF73B /* README.md */,
+				8925754D20655FFB00B361A2 /* LICENSE.md */,
+				8925754B20655FF400B361A2 /* CONTRIBUTE.md */,
 				892C3D941C078C6D00804A8B /* ATSketchKit */,
 				892C3DA01C078C6D00804A8B /* ATSketchKitTests */,
 				89C210011C2CDF5D001DF73B /* ATSketchKitDemo */,
@@ -457,6 +463,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8925754E20655FFB00B361A2 /* LICENSE.md in Resources */,
+				8925754C20655FF400B361A2 /* CONTRIBUTE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
