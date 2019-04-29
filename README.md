@@ -1,5 +1,5 @@
 # ATSketchKit 0.1
-ATSketchKit is a drawing/sketching framework for iOS written in Swift.
+ATSketchKit is a drawing / sketching framework for iOS written in Swift.
 
 It can be used as the foundation for an artistic app, a simple signature feature or more inteligent graph designing app.
 
@@ -11,23 +11,40 @@ My intentions with this framework are to enable people to produce more drawing a
 
 This project is completely open source and under the MIT license. So enjoy and have fun. For full details please see [license.md](LICENSE.md)
 
-## Content
-ATSketchKit contains:
+## Installation
+You may add ATSketchKit to your project using CocoaPods or manually.
 
-- the ATSketchKit Framework which holds all you need to start drawing
+### CocoaPods
+Add the following to your Podfile:  
+
+    pod 'ATSketchKit'
+    
+### Manually
+Build the ATSketchKit Framework and then copy and include it in your project as a dynamic framework. Alternatively, you may also copy the source files in the ATSketchKit folder to your project.
+
+## Getting Started
+Integrating ATSketchKit with your project should be fairly quick, depending on the level of complexity.
+
+### Content
+ATSketchKit contains:
+- The ATSketchKit Framework which holds all you need to start drawing
 - The ATSketchKit Demo app which shows an example on how to use the framework.
 - Unit and UI Tests.
 
-## Usage
-Using ATSketchKit is as easy as:
+### Setup
+1. Start by adding an `ATSketchView` wherever drawing operations are needed. The `ATSketchView`  object conforms to `@IBDesignable` and can be subclassed, so feel free to add it via Interface Builder and  / or make customizations in your own subclass.  
+2. The controller responsible for managing your instance of  `ATSketchView` could do the following bare bones setup: 
 
-- Create your app project in Xcode
-- Load the ATSketchKit framework inside your project
-- Add a ATSketchView where you see fit
-- Have the controler responsible for the ATSkethView configure the ATSketchView depending on your needs at the time
-- Eventually implement the delegate protocol.
+        sketchView.delegate = self
+        
+        // None of these properties are required as they all have default values, but they are customizable
+        sketchView.currentColor = .black
+        sketchView.currentLineWidth = 5.0
+        sketchView.currentTool = .pencil
+        
+3. Implement the `ATSketchViewDelegate` protocol
 
-Check out the demo app included in the product to see how to implement it.
+Check out the demo app included in the project for a hands-on demo of some of the basic features and setup.
 
 ## Roadmap
 To know what I currently intend to add to this app or to submit feature requests, please check out the github issues.

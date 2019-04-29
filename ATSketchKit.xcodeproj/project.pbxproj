@@ -140,6 +140,7 @@
 		A6F8187F22775B0100870AAE /* ATSketchView+Pencil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Pencil.swift"; path = "ATSketchKit/ATSketchView+Pencil.swift"; sourceTree = "<group>"; };
 		A6F8188022775B0100870AAE /* ATSketchView+Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ATSketchView+Drop.swift"; path = "ATSketchKit/ATSketchView+Drop.swift"; sourceTree = "<group>"; };
 		A6F8188A22776AAD00870AAE /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		A6F8188D22776DA000870AAE /* ATSketchKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATSketchKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +199,7 @@
 		892C3D881C078C6D00804A8B = {
 			isa = PBXGroup;
 			children = (
+				A6F8188D22776DA000870AAE /* ATSketchKit.podspec */,
 				89C20FFA1C2CCB95001DF73B /* README.md */,
 				8925754D20655FFB00B361A2 /* LICENSE.md */,
 				8925754B20655FF400B361A2 /* CONTRIBUTE.md */,
