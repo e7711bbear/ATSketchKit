@@ -22,39 +22,42 @@
 
 import Foundation
 
-extension ATSketchView {
-	
-	public func undo() {
-		guard self.canUndo else {
-			return;
-		}
-		
-		let mostRecentLayer = self.mostRecentLayer()
-		
-		if mostRecentLayer != nil {
-			self.history.append(mostRecentLayer!)
-			mostRecentLayer!.removeFromSuperlayer()
-		}
-		self.setNeedsDisplay()
-		self.delegate?.sketchViewUpdatedUndoRedoState(self)
-	}
-	
-	public func redo() {
-		guard self.canRedo else {
-			return;
-		}
-
-		let mostRecentUndoLayer = self.history.last
-		
-		if mostRecentUndoLayer != nil {
-      self.layer.insertSublayer(mostRecentUndoLayer!, below: self.topLayer)
-			self.history.removeLast()
-		}
-		self.setNeedsDisplay()
-    self.delegate?.sketchViewUpdatedUndoRedoState(self)
-	}
-
-  public func flushRedoHistory() {
-    self.history.removeAll()
-  }
+public extension ATSketchView {
+    
+    func undo() {
+        guard self.canUndo else {
+            return;
+        }
+        
+        let mostRecentLayer = self.mostRecentLayer()
+        
+        if mostRecentLayer != nil {
+            self.history.append(mostRecentLayer!)
+            mostRecentLayer!.removeFromSuperlayer()
+            changeLog = changeLog - 1
+        }
+        self.setNeedsDisplay()
+        self.delegate?.sketchViewUpdatedUndoRedoState(self)
+    }
+    
+    func redo() {
+        guard self.canRedo else {
+            return;
+        }
+        
+        let mostRecentUndoLayer = self.history.last
+        
+        if mostRecentUndoLayer != nil {
+            self.layer.insertSublayer(mostRecentUndoLayer!, below: self.topLayer)
+            self.history.removeLast()
+            changeLog = changeLog + 1
+        }
+        self.setNeedsDisplay()
+        self.delegate?.sketchViewUpdatedUndoRedoState(self)
+    }
+    
+    func flushRedoHistory() {
+        self.history.removeAll()
+    }
+    
 }

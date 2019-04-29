@@ -25,6 +25,8 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import UIKit
+import CoreGraphics
 
 extension ATSmartBezierPath {
 	
@@ -70,7 +72,7 @@ extension ATSmartBezierPath {
 				let xt = (point2.x - point0.x) * t
 				let xtt = (2 * point0.x - 5 * point1.x + 4 * point2.x - point3.x) * tt
 				let xttt = (3 * point1.x - point0.x - 3 * point2.x + point3.x) * ttt
-				intermediatePoint.x = 0.5 * (2 * point1.x + xt + xtt + xttt )
+				intermediatePoint.x = 0.5 * (2 * point1.x + xt + xtt + xttt)
 				let yt = (point2.y - point0.y) * t
 				let ytt = (2 * point0.y - 5 * point1.y + 4 * point2.y - point3.y) * tt
 				let yttt = (3 * point1.y - point0.y - 3 * point2.y + point3.y) * ttt
@@ -81,6 +83,8 @@ extension ATSmartBezierPath {
 		}
 		newPath.addLine(to: points.last!)
 		
+        newPath.lineCapStyle = .round
+        
 		return newPath
 	}
 }

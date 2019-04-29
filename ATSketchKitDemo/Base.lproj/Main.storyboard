@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="16A254g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TC0-Oy-JX4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TC0-Oy-JX4">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +15,7 @@
             <objects>
                 <navigationController id="TC0-Oy-JX4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jnG-Gu-JOv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,20 +30,19 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ATSketchKitDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2X-jH-LRF" customClass="ATSketchView" customModule="ATSketchKit">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiD-Ih-4KG" customClass="ATControlPanelView" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="792" width="414" height="250"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-Uq-32R">
+                                        <rect key="frame" x="6" y="203" width="402" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="iRL-GR-M3t"/>
                                             <constraint firstAttribute="width" constant="248" id="wFm-tM-3V9"/>
@@ -56,6 +57,7 @@
                                         </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-lU-HCw">
+                                        <rect key="frame" x="184.5" y="36.5" width="45" height="45"/>
                                         <state key="normal" image="PencilTool"/>
                                         <state key="selected" image="SelectedPencilTool"/>
                                         <connections>
@@ -63,6 +65,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-PH-apW">
+                                        <rect key="frame" x="131.5" y="36.5" width="45" height="45"/>
                                         <state key="normal" image="FingerTool"/>
                                         <state key="selected" image="SelectedFingerTool"/>
                                         <connections>
@@ -70,6 +73,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Pr-j2f">
+                                        <rect key="frame" x="237.5" y="36.5" width="45" height="45"/>
                                         <state key="normal" image="SmartPencilTool"/>
                                         <state key="selected" image="SelectedSmartPencilTool"/>
                                         <connections>
@@ -77,11 +81,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mw-jW-ewR">
+                                        <rect key="frame" x="191.5" y="8" width="31.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-SK-NsH">
+                                        <rect key="frame" x="290.5" y="36.5" width="45" height="45"/>
                                         <state key="normal" image="EraserTool"/>
                                         <state key="selected" image="SelectedEraserTool"/>
                                         <connections>
@@ -89,15 +95,18 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-mJ-v6G">
+                                        <rect key="frame" x="343.5" y="44" width="30" height="30"/>
                                         <state key="normal" title="&gt;&gt;"/>
                                         <connections>
                                             <action selector="redo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzr-Ye-2nu"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-0v-d2i" customClass="ATColorPicker" customModule="ATSketchKit">
+                                        <rect key="frame" x="8" y="89.5" width="398" height="105.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-MS-3Jh" customClass="ATBrushButton" customModule="ATSketchKitDemo" customModuleProvider="target">
+                                        <rect key="frame" x="78.5" y="36.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zTh-MS-3Jh" secondAttribute="height" multiplier="1:1" id="a8D-DJ-JAj"/>
                                         </constraints>
@@ -116,6 +125,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Q-af-LJ6">
+                                        <rect key="frame" x="40.5" y="44" width="30" height="30"/>
                                         <state key="normal" title="&lt;&lt;"/>
                                         <connections>
                                             <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOk-nh-mDF"/>
@@ -224,14 +234,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T2X-jH-LRF" secondAttribute="bottom" id="C0M-XQ-WQ8"/>
-                            <constraint firstItem="T2X-jH-LRF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="N4w-oF-eNg"/>
+                            <constraint firstItem="qZ0-8v-2Rh" firstAttribute="bottom" secondItem="T2X-jH-LRF" secondAttribute="bottom" id="C0M-XQ-WQ8"/>
+                            <constraint firstItem="T2X-jH-LRF" firstAttribute="top" secondItem="qZ0-8v-2Rh" secondAttribute="top" id="N4w-oF-eNg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KiD-Ih-4KG" secondAttribute="trailing" constant="-20" id="XKe-3j-aTY"/>
                             <constraint firstItem="KiD-Ih-4KG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cLo-eq-sbg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="36" id="igg-Rt-AEB"/>
+                            <constraint firstItem="qZ0-8v-2Rh" firstAttribute="bottom" secondItem="KiD-Ih-4KG" secondAttribute="top" constant="70" id="igg-Rt-AEB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T2X-jH-LRF" secondAttribute="trailing" constant="-20" id="jZ2-SF-sgk"/>
                             <constraint firstItem="T2X-jH-LRF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qnr-7u-xpJ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qZ0-8v-2Rh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sketchalicious" id="pDm-oq-TGG"/>
                     <connections>

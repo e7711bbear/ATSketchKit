@@ -22,14 +22,18 @@
 
 import UIKit
 
-class ATShapeLayer: CAShapeLayer {
+public class ATShapeLayer: CAShapeLayer {
 
 	override init () {
 		super.init()
 		self.configLayer()
+        
+        // After drawing is finished, the line will smooth out to a rounded point... 
+        // This helps mitigate the appearance of strange looking letters.
+        self.lineCap = CAShapeLayerLineCap.round
 	}
 
-	required init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.configLayer()
 	}
