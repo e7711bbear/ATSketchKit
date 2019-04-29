@@ -28,9 +28,9 @@ import Foundation
     
     // MARK: - Delegates
     
-	public var delegate: ATSketchViewDelegate?
-    public var sizingDelegate: ATSketchViewSizingDelegate?
-    public var interactionDelegate: ATSketchViewInteractionDelegate?
+	@IBOutlet public var delegate: ATSketchViewDelegate?
+    @IBOutlet public var sizingDelegate: ATSketchViewSizingDelegate?
+    @IBOutlet public var interactionDelegate: ATSketchViewInteractionDelegate?
 	
     
     // MARK: - Properties

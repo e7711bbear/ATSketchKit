@@ -46,7 +46,47 @@ ATSketchKit contains:
 
 Check out the demo app included in the project for a hands-on demo of some of the basic features and setup.
 
-## Roadmap
+## Features
+ATSketchKit has extensive code documentation that will help you take advantage of its features. Below is a quick highlight of some key features.
+
+#### Tools
+You can change the tool type using the `currentTool` property and specifying either the `pencil`, `eraser`, `finger` (not yet implemented), or `smartPencil`.
+
+#### Line Style
+You can change the line width for the current tool using the `currentLineWidth` property. Set the color using the `currentColor` property.
+
+#### Undo, Redo & Clearing
+Check if the sketch view can perform undo or redo operations using the `canUndo` and `canRedo` properties. `hasHistory` can be used to quickly determine if the sketch view has any history recorded in the undo / redo stack. Use `hasContent` to check if the sketch view currently has content rendered (i.e. is not blank) regardless of undo / redo state.
+
+If the sketch view can perform an undo or redo, call `undo()` or `redo()` respectively. If you need to clear future redo history use `flushRedoHistory()`.
+
+To  completely clear and reset the sketch view (including undo / redo history) call `clearAllLayers()`.
+
+#### Rastering
+Render a raster image of the current sketch view content using `produceImage()`. This method returns a `UIImage` object representing content that is inside the `sketchBounds` property. The scale of the image is based on the current device's screen scale. Operation is synchronous (keep that in mind when calling!).
+
+#### Inserting Images & Shapes
+Although the Smart Pencil tool can be used to notify the delegate that a shape has been detected and should be inserted, you may use the `addShapeLayer(_ shape: UIBezierPath, lineWidth: CGFloat, color: UIColor)` method to insert a shape using a `UIBezierPath`.
+
+Similarly, you may insert an image onto the canvas using `addImageLayer(_ image: UIImage, rect: CGRect, lineWidth: CGFloat, color: UIColor)`. See below for iOS 11 Drag & Drop support with `UIImage` objects.
+
+Both image and shape insertion operations are added to the undo / redo stack.
+
+**NOTICE**: If you perform either of these functions, you should implement the `ATSketchViewSizingDelegate` and set the `sizingDelegate` to provide correct updated bounds when inserting images and shapes. Once you implement this delegate you'll need to keep track of the view's `sketchBounds` on your own, as that get-only property will then return information gleaned from the delegate.
+
+#### Drag & Drop Support  (iOS 11+)
+The `ATSketchView` accepts image drops using a `UIDropInteraction` on iOS 11.0 and higher. To respond to and accept image drops from the system, implement the `ATSketchViewInteractionDelegate` protocol and set the sketch view's `interactionDelegate`. The `sketchViewRecievedDropImage(_ sketchView: ATSketchView, droppedImage: UIImage, location: CGPoint)` method provides all the information you need to tell the sketch view how to render the supplied image. See above for how to insert an image on to the canvas.
+
+#### Apple Pencil Support  (iOS 12.1+)
+The `ATSketchView` conforms `UIPencilInteraction` on iOS 12.1 and higher in order to respond to basic Apple Pencil interactions. To respond to and accept interactions from an Apple Pencil, implement the `ATSketchViewInteractionDelegate` protocol and set the sketch view's `interactionDelegate`. The following methods provide information about Pencil interaction:
+
+    sketchViewChangedToolToEraser(_ sketchView: ATSketchView, pencil: UIPencilInteraction)
+    sketchViewShouldChangeToPreviousTool(_ sketchView: ATSketchView, pencil: UIPencilInteraction)
+    sketchViewShouldDisplayColorPalette(_ sketchView: ATSketchView, pencil: UIPencilInteraction)
+    
+**NOTICE**: You do not need to implement this delegate if you only require basic Apple Pencil support (i.e. drawing) -- that is automatically handled and no extra work needs to be donein order to accept Apple Pencil touches / drawing. This delegate is specifically for supplemental Pencil actions (i.e. Double Tap to change tool or open color picker, etc.)
+
+### Roadmap
 To know what I currently intend to add to this app or to submit feature requests, please check out the github issues.
 
 ## Questions & Contact

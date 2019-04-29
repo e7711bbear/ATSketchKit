@@ -24,9 +24,9 @@ import Foundation
 import UIKit
 import CoreGraphics
 
-public extension ATSketchView {
+extension ATSketchView {
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard touches.count != 0 else { return }
         
         self.flushRedoHistory()
@@ -36,7 +36,7 @@ public extension ATSketchView {
         updateDrawLayers(touchPoint)
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard touches.count != 0 else { return }
         
         let touchPoint = touches.first!.preciseLocation(in: self)
@@ -51,7 +51,7 @@ public extension ATSketchView {
         updateDrawLayers(touchPoint)
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.currentTool == .finger {
             return
         }
@@ -73,23 +73,22 @@ public extension ATSketchView {
             
             if self.currentTool == .smartPencil {
                 print("[ATSketchView] Current tool is a smart pencil... rendering...")
-                let recognizedPathInfo = smartPath.recognizedPath()
-                if recognizedPathInfo != nil {
+                if let recognizedPathInfo = smartPath.recognizedPath() {
                     var recognizedPathIsAccepted = false
-                    if self.delegate != nil && self.delegate!.sketchView(self, shouldAccepterRecognizedPathWithScore: recognizedPathInfo!.score) == true {
+                    if self.delegate != nil && self.delegate!.sketchView(self, shouldAccepterRecognizedPathWithScore: recognizedPathInfo.score) == true {
                         recognizedPathIsAccepted = true
-                    } else if recognizedPathInfo!.score >= 50.0 {
+                    } else if recognizedPathInfo.score >= 50.0 {
                         recognizedPathIsAccepted = true
                     }
                     
-                    if recognizedPathIsAccepted {
-                        var finalPath = recognizedPathInfo!.path
+                    if recognizedPathIsAccepted == true {
+                        var finalPath = recognizedPathInfo.path
                         if let overridenPath = self.delegate?.sketchViewOverridingRecognizedPathDrawing(self) {
                             finalPath = overridenPath
                         }
                         
                         self.addShapeLayer(finalPath!, lineWidth: self.currentLineWidth, color: self.currentColor)
-                        self.delegate?.sketchView(self, didRecognizePathWithName: recognizedPathInfo!.template.name)
+                        self.delegate?.sketchView(self, didRecognizePathWithName: recognizedPathInfo.template.name)
                         pathAppended = true
                     }
                 }
@@ -119,7 +118,7 @@ public extension ATSketchView {
         self.layer.setNeedsDisplay()
     }
     
-    func printTemplateSource(_ points: [CGPoint]) {
+    fileprivate func printTemplateSource(_ points: [CGPoint]) {
         var minX = CGFloat(HUGE)
         var minY = CGFloat(HUGE)
         
@@ -142,7 +141,7 @@ public extension ATSketchView {
 //        print("\(sourceCode)")
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.currentTool != .finger {
             self.pointsBuffer.removeAll()
         }

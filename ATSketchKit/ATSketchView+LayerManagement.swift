@@ -28,18 +28,19 @@ public extension ATSketchView {
 	
     func addShapeLayer(_ shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
 		let newShapeLayer = ATShapeLayer()
-		
 		newShapeLayer.path = shape.cgPath
 		newShapeLayer.lineWidth = lineWidth
 		newShapeLayer.strokeColor = color.cgColor
 		newShapeLayer.fillColor = nil
 		newShapeLayer.contentsScale = UIScreen.main.scale
+        
 		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
     	self.delegate?.sketchViewUpdatedUndoRedoState(self)
+        
 		newShapeLayer.setNeedsDisplay()
 	}
     
-    func drawBoundsOfSketch(_ shape: UIBezierPath) {
+    internal func drawBoundsOfSketch(_ shape: UIBezierPath) {
         self.sketchBoundsRectShape.path = shape.cgPath
         self.sketchBoundsRectShape.lineWidth = 3.0
         self.sketchBoundsRectShape.strokeColor = UIColor.black.cgColor
@@ -100,7 +101,7 @@ public extension ATSketchView {
         }
     }
 	
-	/// This method returns the most recently create layer produced by drawing/erasing
+	/// This method returns the most recently created layer produced by drawing/erasing
     func mostRecentLayer() -> ATShapeLayer? {
         for index in (0..<self.layer.sublayers!.count).reversed() {
 			let layer = self.layer.sublayers![index]
@@ -124,7 +125,7 @@ public extension ATSketchView {
 		return count
 	}
 	
-    func updateTopLayer() {
+    internal func updateTopLayer() {
 		let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
 		let smoothPath = smartPath.smoothPath(20)
 		self.topLayer.lineWidth = self.currentLineWidth
@@ -137,7 +138,7 @@ public extension ATSketchView {
 		self.topLayer.path = smoothPath.cgPath
 	}
     
-    /// Removes all layers and resets the top layer. This will keep clear the existing canvas.
+    /// Removes all layers and resets the top layer. This will clear the existing canvas.
     func clearAllLayers() {
         for layer in self.layer.sublayers! {
             if layer is ATShapeLayer {
@@ -149,7 +150,7 @@ public extension ATSketchView {
         self.delegate?.sketchViewUpdatedUndoRedoState(self)
     }
 	
-    func clearTopLayer() {
+    internal func clearTopLayer() {
 		self.topLayer.path = nil
 	}
 }
