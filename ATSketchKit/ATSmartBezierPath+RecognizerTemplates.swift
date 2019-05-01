@@ -24,23 +24,19 @@ import Foundation
 
 extension ATSmartBezierPath {
 	
-	
 	func loadTemplates() {
-		let pathToTemplates = (Bundle(identifier: "com.arnaudthiercelin.ATSketchKit")?.bundlePath)! + "/Templates"
 		do {
+            let pathToTemplates = (Bundle.main.bundlePath) + "/Templates"
 	 		let templateFiles = try FileManager.default.contentsOfDirectory(atPath: pathToTemplates)
 
 			for filePath in templateFiles {
 				let newTemplate = ATUnistrokeTemplate(json: filePath)
-				
-				self.unistrokeTemplates.append(newTemplate)
+                self.unistrokeTemplates.append(newTemplate)
 			}
-			
 		} catch {
 			print("Error trying to load templates - \(error)")
 		}
 	}
-	
 	
 	//	func createCircleTemplates() {
 		//		let templateName = "Circle"

@@ -1,9 +1,9 @@
 //
-//  ATSketchView+UndoRedo.swift
+//  ATSketchView+Pencil.swift
 //  ATSketchKit
 //
-//  Created by Arnaud Thiercelin on 1/15/16.
-//  Copyright © 2016 Arnaud Thiercelin. All rights reserved.
+//  Created by Sam Spencer on 4/25/19.
+//  Copyright © 2019 Sam Spencer. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 //  and associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -19,45 +19,33 @@
 //  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 import Foundation
+import UIKit
 
-public extension ATSketchView {
+@available(iOS 12.1, *)
+extension ATSketchView: UIPencilInteractionDelegate {
     
-    func undo() {
-        guard self.canUndo else {
-            return;
+    public func pencilInteractionDidTap(_ interaction: UIPencilInteraction) {
+        switch UIPencilInteraction.preferredTapAction {
+        case .switchEraser:
+            if self.currentTool == .eraser {
+                self.interactionDelegate?.sketchViewShouldChangeToPreviousTool(self, pencil: interaction)
+            } else {
+                self.currentTool = .eraser
+                self.interactionDelegate?.sketchViewChangedToolToEraser(self, pencil: interaction)
+            }
+            break
+        case .switchPrevious:
+            self.interactionDelegate?.sketchViewShouldChangeToPreviousTool(self, pencil: interaction)
+            break
+        case .showColorPalette:
+            self.interactionDelegate?.sketchViewShouldDisplayColorPalette(self, pencil: interaction)
+            break
+        case .ignore:
+            break
+        default:
+            break
         }
-        
-        let mostRecentLayer = self.mostRecentLayer()
-        
-        if mostRecentLayer != nil {
-            self.history.append(mostRecentLayer!)
-            mostRecentLayer!.removeFromSuperlayer()
-            changeLog = changeLog - 1
-        }
-        self.setNeedsDisplay()
-        self.delegate?.sketchViewUpdatedUndoRedoState(self)
-    }
-    
-    func redo() {
-        guard self.canRedo else {
-            return;
-        }
-        
-        let mostRecentUndoLayer = self.history.last
-        
-        if mostRecentUndoLayer != nil {
-            self.layer.insertSublayer(mostRecentUndoLayer!, below: self.topLayer)
-            self.history.removeLast()
-            changeLog = changeLog + 1
-        }
-        self.setNeedsDisplay()
-        self.delegate?.sketchViewUpdatedUndoRedoState(self)
-    }
-    
-    func flushRedoHistory() {
-        self.history.removeAll()
     }
     
 }

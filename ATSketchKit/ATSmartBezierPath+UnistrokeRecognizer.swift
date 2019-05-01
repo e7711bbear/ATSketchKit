@@ -25,6 +25,8 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import UIKit
+import CoreGraphics
 
 extension ATSmartBezierPath {
 	
@@ -44,7 +46,7 @@ extension ATSmartBezierPath {
 		let boundaries = self.boundaries(sample)
 		let boundariesDeltaX = boundaries.topRight.x - boundaries.bottomLeft.x
 		let boundariesDeltaY = boundaries.topRight.y - boundaries.bottomLeft.y
-		let scale = 2.0 / (boundariesDeltaX < boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX )
+		let scale = 2.0 / (boundariesDeltaX < boundariesDeltaY ? boundariesDeltaY : boundariesDeltaX)
 		
 		sample = self.scale(sample, xScale: scale, yScale: scale)
 		
@@ -153,8 +155,8 @@ extension ATSmartBezierPath {
 	// MARK: - Distance calculations
 	
 	func distance(_ point1: CGPoint, point2: CGPoint) -> CGFloat {
-		let deltaX = point1.x - point2.x
-		let deltaY = point2.y - point2.y
+		let deltaX = point2.x - point1.x
+		let deltaY = point2.y - point1.y
 		
 		return sqrt(deltaX * deltaX + deltaY * deltaY)
 	}
@@ -190,7 +192,7 @@ extension ATSmartBezierPath {
 		var x2: CGFloat = (1.0 - phi) * a + phi * b
 		var f2: CGFloat = distanceAtAngle(path, template: template, angle: x2)
 		
-		while fabs(b - a) > threshold {
+        while abs(b - a) > threshold {
 			if f1 < f2 {
 				b = x2
 				x2 = x1

@@ -23,46 +23,46 @@
 import UIKit
 
 class ATUnistrokeTemplate: NSObject {
-	var name = "Unnamed"
-	var points = [CGPoint]()
-	
-	var recognizedPathWithRect: ((_ rect: CGRect) -> UIBezierPath)!
-	
-	convenience init(json filePath: String) {
-		self.init()
-		
-		let fileURL = URL(fileURLWithPath: filePath)
-		
-		do {
-			let fileData = try Data(contentsOf: fileURL)
-			let jsonObject = try JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! Dictionary <String, AnyObject>
-			
-			self.name = jsonObject["name"] as! String
-
-			let jsonPoints = jsonObject["points"] as! [Dictionary <String, Double>]
-			for point in jsonPoints {
-				let x = point["x"]!
-				let y = point["y"]!
-
-				self.points.append(CGPoint(x: x, y: y))
-			}
-		} catch {
-			// Error handling here if necessary
-		}
-	}
-	
-	override var description: String {
-		get {
-			return self.debugDescription
-		}
-	}
-	
-	override var debugDescription: String{
-		get {
-			return "ATUnistrokeTemplate \n" +
-				"Name: \(self.name)\n" +
-			"Point: \(self.points)\n" +
-			"Clean Path Making Closure: \(self.recognizedPathWithRect)\n"
-		}
-	}
+    var name = "Unnamed"
+    var points = [CGPoint]()
+    
+    var recognizedPathWithRect: ((_ rect: CGRect) -> UIBezierPath)!
+    
+    convenience init(json filePath: String) {
+        self.init()
+        
+        let fileURL = URL(fileURLWithPath: filePath)
+        
+        do {
+            let fileData = try Data(contentsOf: fileURL)
+            let jsonObject = try JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! Dictionary <String, AnyObject>
+            
+            self.name = jsonObject["name"] as! String
+            
+            let jsonPoints = jsonObject["points"] as! [Dictionary <String, Double>]
+            for point in jsonPoints {
+                let x = point["x"]!
+                let y = point["y"]!
+                
+                self.points.append(CGPoint(x: x, y: y))
+            }
+        } catch {
+            // Error handling here if necessary
+        }
+    }
+    
+    override var description: String {
+        get {
+            return self.debugDescription
+        }
+    }
+    
+    override var debugDescription: String {
+        get {
+            return "ATUnistrokeTemplate \n" +
+                "Name: \(self.name)\n" +
+                "Point: \(self.points)\n" +
+            "Clean Path Making Closure: \(String(describing: self.recognizedPathWithRect))\n"
+        }
+    }
 }

@@ -22,30 +22,28 @@
 
 import UIKit
 
-/** 
-This class allows to show within a view a color
-*/
+/**  This class allows to show within a view a color */
 public class ATColorSwatch: UIView {
-
-	public var color: UIColor = UIColor.white
-	
-	public override func draw(_ rect: CGRect) {
-		let context = UIGraphicsGetCurrentContext()
-		
-		color.setFill()
-		context?.fill(rect)
-	}
-	
-	public override var description: String {
-		get {
-			return self.debugDescription
-		}
-	}
-	
-	public override var debugDescription: String{
-		get {
-			return "ATColorSwatch \n" +
-			"Color: \(self.color)\n"
-		}
-	}
+    
+    public var color: UIColor = UIColor.white
+    
+    public override func draw(_ rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext()
+        
+        color.setFill()
+        context?.fill(rect)
+    }
+    
+    public override var description: String {
+        get {
+            return self.debugDescription
+        }
+    }
+    
+    public override var debugDescription: String {
+        get {
+            return "ATColorSwatch \n" +
+            "Color: \(self.color)\n"
+        }
+    }
 }

@@ -30,7 +30,9 @@ class ATSmartBezierPath: UIBezierPath {
 	convenience init(withPoints points: [CGPoint]) {
 		self.init()
 		self.points = points
-		
+        
+		self.lineCapStyle = .round
+        
 		self.loadTemplates()
 	}
 	
