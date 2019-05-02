@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
     spec.homepage     = 'https://github.com/athiercelin/ATSketchKit'
     spec.authors      = { 'Arnaud Thiercelin' => 'http://tinkerlocker.com', 'Sam Spencer' => 'https://samspencer.art' }
     spec.summary      = 'Fluid iOS drawing framework written in Swift.'
-    spec.source       = { :git => 'https://github.com/athiercelin/ATSketchKit.git', :tag => '0.1' }
+    spec.source       = { :git => 'https://github.com/athiercelin/ATSketchKit.git', :tag => '0.2' }
     spec.source_files = 'ATSketchKit/*.swift'
     spec.framework    = 'QuartzCore', 'CoreGraphics'
     spec.swift_version = '5.0'
