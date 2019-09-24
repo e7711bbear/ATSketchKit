@@ -190,7 +190,7 @@ extension ATSmartBezierPath {
 		var x2: CGFloat = (1.0 - phi) * a + phi * b
 		var f2: CGFloat = distanceAtAngle(path, template: template, angle: x2)
 		
-		while fabs(b - a) > threshold {
+		while abs(b - a) > threshold {
 			if f1 < f2 {
 				b = x2
 				x2 = x1

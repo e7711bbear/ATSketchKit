@@ -62,7 +62,7 @@ class ATUnistrokeTemplate: NSObject {
 			return "ATUnistrokeTemplate \n" +
 				"Name: \(self.name)\n" +
 			"Point: \(self.points)\n" +
-			"Clean Path Making Closure: \(self.recognizedPathWithRect)\n"
+			"Clean Path Making Closure: \(String(describing: self.recognizedPathWithRect))\n"
 		}
 	}
 }
