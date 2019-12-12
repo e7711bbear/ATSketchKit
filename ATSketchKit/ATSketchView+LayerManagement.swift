@@ -21,28 +21,89 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import UIKit
+import CoreGraphics
 
-extension ATSketchView {
+public extension ATSketchView {
 	
-	func addShapeLayer(_ shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
+    func addShapeLayer(_ shape: UIBezierPath, lineWidth: CGFloat, color: UIColor) {
 		let newShapeLayer = ATShapeLayer()
-		
 		newShapeLayer.path = shape.cgPath
 		newShapeLayer.lineWidth = lineWidth
 		newShapeLayer.strokeColor = color.cgColor
 		newShapeLayer.fillColor = nil
 		newShapeLayer.contentsScale = UIScreen.main.scale
+        
 		self.layer.insertSublayer(newShapeLayer, below: self.topLayer)
     	self.delegate?.sketchViewUpdatedUndoRedoState(self)
+        
 		newShapeLayer.setNeedsDisplay()
 	}
+    
+    internal func drawBoundsOfSketch(_ shape: UIBezierPath) {
+        self.sketchBoundsRectShape.path = shape.cgPath
+        self.sketchBoundsRectShape.lineWidth = 3.0
+        self.sketchBoundsRectShape.strokeColor = UIColor.black.cgColor
+        self.sketchBoundsRectShape.fillColor = nil
+        self.sketchBoundsRectShape.contentsScale = UIScreen.main.scale
+        self.delegate?.sketchViewUpdatedUndoRedoState(self)
+        self.sketchBoundsRectShape.setNeedsDisplay()
+        
+        self.layer.insertSublayer(self.sketchBoundsRectShape, below: self.topLayer)
+        if let sublayers = self.layer.sublayers {
+            if sublayers.contains(self.sketchBoundsRectShape) {
+                
+            } else {
+                self.delegate?.sketchViewUpdatedUndoRedoState(self)
+                self.sketchBoundsRectShape.setNeedsDisplay()
+            }
+        } else {
+            self.layer.insertSublayer(self.sketchBoundsRectShape, below: self.topLayer)
+            self.delegate?.sketchViewUpdatedUndoRedoState(self)
+            self.sketchBoundsRectShape.setNeedsDisplay()
+        }
+        
+    }
+    
+    func addImageLayer(_ image: UIImage, rect: CGRect, lineWidth: CGFloat, color: UIColor) {
+        let newImageLayer = CALayer()
+        
+        newImageLayer.frame = rect
+        newImageLayer.contents = image.cgImage
+        newImageLayer.borderWidth = lineWidth
+        newImageLayer.borderColor = color.cgColor
+        newImageLayer.contentsScale = UIScreen.main.scale
+        
+        // Should insert the photo beneath the most recent drawing but above other photos...
+        if let sublayerCount = layer.sublayers?.count {
+            if sublayerCount > 2 {
+                let newSublayerIndex = UInt32(sublayerCount - 2)
+                layer.insertSublayer(newImageLayer, at: newSublayerIndex)
+            } else {
+                layer.insertSublayer(newImageLayer, below: topLayer)
+            }
+        } else {
+            layer.insertSublayer(newImageLayer, below: topLayer)
+        }
+        
+        delegate?.sketchViewUpdatedUndoRedoState(self)
+        pointsBuffer.removeAll()
+        clearTopLayer()
+        
+        // Calling set needs display triggers a UIKit redraw and clears out the image from the layer
+        // Thus, it is not necessary to request the layer to request display updates -- the superview should handle this appropriately. Making the setNeedsDisplay() call could result in unintended consequences.
+        
+        // Send the rectangle over to the delegate for safe-keeping
+        if let sizeDelegate = sizingDelegate {
+            sizeDelegate.sketchViewUpdatedDrawingBounds(self, drawingBounds: newImageLayer.frame)
+        } else {
+            self.updatedDrawingBounds(newImageLayer.frame)
+        }
+    }
 	
-	/** 
-	This method returns the most recently create layer produced by drawing/erasing
-	*/
-	func mostRecentLayer() -> ATShapeLayer? {
-		
-		for index in (0..<self.layer.sublayers!.count).reversed() {
+	/// This method returns the most recently created layer produced by drawing/erasing
+    func mostRecentLayer() -> ATShapeLayer? {
+        for index in (0..<self.layer.sublayers!.count).reversed() {
 			let layer = self.layer.sublayers![index]
 			if layer is ATShapeLayer {
 				return layer as? ATShapeLayer
@@ -52,10 +113,8 @@ extension ATSketchView {
 		return nil
 	}
 	
-	/** 
-	Returns the number of shape layers within the layer stack
-	*/
-	public func shapeLayerCount() -> Int {
+	/// Returns the number of shape layers within the layer stack
+    func shapeLayerCount() -> Int {
 		var count = 0
 		
 		for layer in self.layer.sublayers! {
@@ -66,7 +125,7 @@ extension ATSketchView {
 		return count
 	}
 	
-	func updateTopLayer() {
+    internal func updateTopLayer() {
 		let smartPath = ATSmartBezierPath(withPoints: self.pointsBuffer)
 		let smoothPath = smartPath.smoothPath(20)
 		self.topLayer.lineWidth = self.currentLineWidth
@@ -79,11 +138,8 @@ extension ATSketchView {
 		self.topLayer.path = smoothPath.cgPath
 	}
     
-    /**
-    Removes all layers and resets the top layer.
-    This will keep clear the existing canvas.
-    */
-    public func clearAllLayers() {
+    /// Removes all layers and resets the top layer. This will clear the existing canvas.
+    func clearAllLayers() {
         for layer in self.layer.sublayers! {
             if layer is ATShapeLayer {
                 layer.removeFromSuperlayer()
@@ -94,7 +150,7 @@ extension ATSketchView {
         self.delegate?.sketchViewUpdatedUndoRedoState(self)
     }
 	
-	func clearTopLayer() {
+    internal func clearTopLayer() {
 		self.topLayer.path = nil
 	}
 }

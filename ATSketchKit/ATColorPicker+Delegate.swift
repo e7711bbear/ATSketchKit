@@ -21,16 +21,14 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 public protocol ATColorPickerDelegate {
 	
-	/**
-	This method is called everytime a new color is selected.
-	*/
+	/** This method is called everytime a new color is selected. */
 	func colorPicker(_ colorPickerView: ATColorPicker, didChangeToSelectedColor color: UIColor)
 	
-	/**
-	This method is call once the user stops touching the screen
-	*/
+	/** This method is call once the user stops touching the screen */
 	func colorPicker(_ colorPickerView: ATColorPicker, didEndSelectionWithColor color: UIColor)
+    
 }
