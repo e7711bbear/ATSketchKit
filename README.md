@@ -90,4 +90,4 @@ The `ATSketchView` conforms `UIPencilInteraction` on iOS 12.1 and higher in orde
 To know what I currently intend to add to this app or to submit feature requests, please check out the github issues.
 
 ## Questions & Contact
-If you have any questions, reach out to me on twitter [@athiercelin](https://twitter.com/athiercelin) or drop an issue on github.
+If you have any questions, reach out to me on twitter [@e7711b](https://twitter.com/e7711b) or drop an issue on github.
